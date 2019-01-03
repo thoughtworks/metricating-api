@@ -1,8 +1,18 @@
-import jira from 'jira-client'
+import JiraApi from 'jira-client'
 
 class JiraClient {
-    getAllIssues() {
-        return jira.searchJira()
+    constructor() {
+        this._jira = new JiraApi({
+            protocol: 'https',
+            host: process.env.ATLASSIAN_HOST,
+            username: process.env.ATLASSIAN_USERNAME,
+            password: process.env.ATLASSIAN_PASSWORD,
+            apiVersion: '2',
+            strictSSL: true
+        })
+    }
+    getJiraAPI() {
+        return this._jira
     }
 }
 
