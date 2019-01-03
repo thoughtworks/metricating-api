@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^6.2.0",
     "jira-client": "^6.4.1",
     "request": "^2.88.0"
   },

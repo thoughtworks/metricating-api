@@ -1,4 +1,5 @@
 import JiraApi from 'jira-client'
+require('dotenv').config()
 
 class JiraClient {
     constructor() {
