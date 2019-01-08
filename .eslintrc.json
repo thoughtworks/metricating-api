@@ -33,7 +33,7 @@
         "no-trailing-spaces": [ "error" ],
         "no-inline-comments": [ "error" ],
         "comma-dangle": [ "error", "only-multiline" ],
-        "no-console": [ "warn" ],
+        "no-console": [ "error" ],
         "no-useless-concat": [ "error" ],
         "import/order": [ "error" ],
         "no-unused-vars": [ "error" ],
