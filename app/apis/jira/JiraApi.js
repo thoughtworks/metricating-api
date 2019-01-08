@@ -1,9 +1,9 @@
-import JiraApi from 'jira-client'
+import JiraClient from 'jira-client'
 import {} from 'dotenv/config'
 
-class JiraClient {
+class JiraApi {
     constructor() {
-        this._jira = new JiraApi({
+        this._jira = new JiraClient({
             protocol: 'https',
             host: process.env.ATLASSIAN_HOST,
             username: process.env.ATLASSIAN_USERNAME,
@@ -14,9 +14,9 @@ class JiraClient {
         this._boardConfiguration = this._jira.getConfiguration(process.env.ATLASSIAN_PROJECT_BOARD_ID)
         this._statuses = this._jira.listStatus()
     }
-    getJiraAPI() {
+    getJiraClient() {
         return this._jira
     }
 }
 
-export default new JiraClient()
+export default new JiraApi()

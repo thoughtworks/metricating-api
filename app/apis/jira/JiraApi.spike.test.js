@@ -1,12 +1,10 @@
-import JiraClient from './JiraClient'
+import JiraApi from './JiraApi'
 
-it('returns the Jira API to explore it', () => {
-    const jiraApi = JiraClient.getJiraAPI()
-    expect(jiraApi).toBeDefined()
-
+it('uses the jira client to check if all data we need is available', () => {
+    const jiraClient = JiraApi.getJiraClient()
     const boardId = 1
 
-    jiraApi.getConfiguration(boardId).then(config => {
+    jiraClient.getConfiguration(boardId).then(config => {
         console.log('👉 These are the board columns and their possible statuses')
         let columns = []
         config.columnConfig.columns.map(column => {
@@ -22,7 +20,7 @@ it('returns the Jira API to explore it', () => {
         console.log(columns)
     })
 
-    jiraApi.listStatus().then(statuses => {
+    jiraClient.listStatus().then(statuses => {
         console.log('👉 These are all our statuses')
         let statusNames = []
         statuses.map(status => {
@@ -34,7 +32,7 @@ it('returns the Jira API to explore it', () => {
         console.log(statusNames)
     })
 
-    jiraApi.getIssuesForBoard(boardId).then(results => {
+    jiraClient.getIssuesForBoard(boardId).then(results => {
         console.log('👉 These are our issues');
         let issues = []
         results.issues.map(issue => {
