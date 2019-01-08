@@ -4,11 +4,11 @@
   "description": "A system that collects issue tracker data for metric visualization.",
   "main": "app/index.js",
   "scripts": {
-    "test": "jest test --watch",
+    "test": "jest --watch",
     "build": "babel --presets es2015 -d dist/ app",
     "start": "npm run build && node dist/index.js",
-    "test-ci": "jest --coverage",
-    "✅": "npm run test-ci && npx eslint app"
+    "test-ci": "jest --coverage --testPathIgnorePatterns .*\\.spike\\.*.",
+    "👌": "npm run test-ci && npx eslint app"
   },
   "jest": {
     "coverageThreshold": {
@@ -23,9 +23,7 @@
       "app/**/*.{js}",
       "!**/node_modules/**"
     ],
-    "testPathIgnorePatterns": [
-      ".*\\.spike\\.*."
-    ]
+    "coverageDirectory": ".coverage/"
   },
   "author": "The Metricating Team ❤️",
   "license": "MIT",
@@ -39,11 +37,8 @@
     "babel-eslint": "^10.0.1",
     "babel-preset-es2015": "^6.24.1",
     "eslint": "^5.12.0",
-    "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jest": "^22.1.2",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.12.3",
     "jest": "^23.6.0"
   }
 }
