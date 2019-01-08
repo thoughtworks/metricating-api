@@ -1,5 +1,5 @@
 import JiraApi from 'jira-client'
-require('dotenv').config()
+import {} from 'dotenv/config'
 
 class JiraClient {
     constructor() {
@@ -11,6 +11,8 @@ class JiraClient {
             apiVersion: '2',
             strictSSL: true
         })
+        this._boardConfiguration = this._jira.getConfiguration(process.env.ATLASSIAN_PROJECT_BOARD_ID)
+        this._statuses = this._jira.listStatus()
     }
     getJiraAPI() {
         return this._jira
