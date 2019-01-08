@@ -9,11 +9,12 @@ class JiraApi {
             username: process.env.ATLASSIAN_USERNAME,
             password: process.env.ATLASSIAN_PASSWORD,
             apiVersion: '2',
-            strictSSL: true
+            strictSSL: true,
         })
         this._boardConfiguration = this._jira.getConfiguration(process.env.ATLASSIAN_PROJECT_BOARD_ID)
         this._statuses = this._jira.listStatus()
     }
+
     getJiraClient() {
         return this._jira
     }

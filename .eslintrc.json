@@ -1,0 +1,61 @@
+{
+    "env": {
+        "es6": true,
+        "jest": true
+    },
+    "extends": [
+        "eslint:recommended"
+    ],
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaVersion" : 6,
+        "sourceType": "module"
+    },
+    "globals": {
+        "console": true,
+        "process": true
+    },
+    "plugins": [ "import", "jest" ],
+    "rules": {
+        "jest/no-disabled-tests": "error",
+        "jest/no-focused-tests": "error",
+        "jest/no-identical-title": "error",
+        "jest/prefer-to-have-length": "error",
+        "jest/valid-expect": "error",
+        "indent": [ "error", 4, { "SwitchCase": 1 } ],
+        "linebreak-style": [ "error", "unix" ],
+        "quotes": [ "error", "single" ],
+        "semi": [ "error", "never" ],
+        "no-case-declarations": [ "off" ],
+        "no-multiple-empty-lines": [ 1, { "max": 2, "maxEOF": 1 } ],
+        "brace-style": [ "error" ],
+        "no-multi-spaces": ["error" ],
+        "no-trailing-spaces": [ "error" ],
+        "no-inline-comments": [ "error" ],
+        "comma-dangle": [ "error", "only-multiline" ],
+        "no-console": [ "warn" ],
+        "no-useless-concat": [ "error" ],
+        "import/order": [ "error" ],
+        "no-unused-vars": [ "error" ],
+        "no-useless-constructor": [ "error" ],
+        "no-dupe-class-members": [ "error" ],
+        "key-spacing": [ "error" ],
+        "no-iterator": [ "error" ],
+        "prefer-template": [ "error" ],
+        "prefer-const": [ "error" ],
+        "keyword-spacing": [ "error" ],
+        "space-before-blocks": [ "error" ],
+        "padded-blocks": [ "error", "never" ],
+        "no-multiple-empty-lines": [ "error", { "max": 1 } ],
+        "space-in-parens": ["error", "never"],
+        "no-var": [ "error" ],
+        "no-new-wrappers": [ "error" ],
+        "object-shorthand": [ "error" ],
+        "object-curly-spacing": [ "error", "always", { "objectsInObjects": false, "arraysInObjects": false } ],
+        "no-else-return": "error",
+        "quote-props": [ "error", "as-needed"],
+        "eqeqeq": [ "warn", "always" ],
+        "arrow-spacing": [ "warn" ],
+        "comma-spacing": [ "warn" ]
+    }
+}
