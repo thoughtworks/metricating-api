@@ -3,7 +3,10 @@ class ProjectService{
         this.projectRepository = options.projectRepository
     }
 
-    async save (project) {
+    async create (project) {
+        if(project.name === null || project.name === undefined || project.name === '') 
+            throw new Error('The name of project is requiered')
+        
         await this.projectRepository.find(project.name)
         .then(async (result) => {
             if (result!== null && result !== undefined){
