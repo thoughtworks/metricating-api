@@ -4,7 +4,7 @@ import ProjectRepository from '../repositories/project.repository';
 
 describe('Create new Project', () => {
     it('given a new project name, then create new project', async () => {
-        let project = new Project('project-name', 'jira')
+        let project = new Project('project-name', 'jira', 'cardEnding')
         let projectRepository = new ProjectRepository()
         jest.spyOn(projectRepository, "find").mockImplementation(async () => null);
         jest.spyOn(projectRepository, "save").mockImplementation(async () => {
@@ -20,10 +20,11 @@ describe('Create new Project', () => {
         expect(project.id).not.toBeUndefined()
         expect(project.name).toBe('project-name')
         expect(project.issueTracking).toBe('jira')
+        expect(project.statusDone).toBe('cardEnding')
     })
 
     it('given a exists project name when create, then throw Exits exception', async () => {
-        var project = new Project('project-name', 'jira')
+        var project = new Project('project-name', 'jira', 'done')
         let projectRepository = new ProjectRepository()
         jest.spyOn(projectRepository, "find").mockImplementation(async (name) => {return new Project(name, '')});
         
@@ -39,7 +40,7 @@ describe('Create new Project', () => {
     })
 
     it('given project with null name then throw argument exception', async () => {
-        var project = new Project(null, 'jira')
+        var project = new Project(null, 'jira', 'done')
     
         const projectService = new ProjectService({})
         let error;
@@ -53,7 +54,7 @@ describe('Create new Project', () => {
     })
 
     it('given project with undefined name then throw argument exception', async () => {
-        var project = new Project(undefined, 'jira')
+        var project = new Project(undefined, 'jira', 'done')
     
         const projectService = new ProjectService({})
         let error;
@@ -67,7 +68,7 @@ describe('Create new Project', () => {
     })
 
     it('given project with empty name then throw argument exception', async () => {
-        var project = new Project('', 'jira')
+        var project = new Project('', 'jira', 'done')
     
         const projectService = new ProjectService({})
         let error;
