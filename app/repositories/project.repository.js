@@ -1,11 +1,8 @@
-class ProjectRepository{
-    constructor(){
+class ProjectRepository {
+    async find() {
     }
 
-    async find(name){
-    }
-    
-    async save(project){
+    async save() {
     }
 }
 export default ProjectRepository

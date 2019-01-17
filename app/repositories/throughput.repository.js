@@ -1,7 +1,5 @@
-class ThroughputRepository{
-    constructor(){
-    }
-    async find(periodStart, periodEnd){
+class ThroughputRepository {
+    async find() {
     }
 }
 export default ThroughputRepository

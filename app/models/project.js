@@ -1,5 +1,5 @@
-class Project{
-    constructor(name, issueTracking, statusDone = 'done'){
+class Project {
+    constructor(name, issueTracking, statusDone = 'done') {
         this.id = undefined
         this.name = name
         this.issueTracking = issueTracking
