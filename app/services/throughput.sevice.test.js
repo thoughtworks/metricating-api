@@ -51,9 +51,31 @@ describe('when calculate throughput', () => {
         let throughput = await throughputService.calculate(period, 'week')
 
         expect(throughput.tasks.length).toBe(4)
-        expect(throughput.tasks.find(task => task.period.toString() === '2018W50' && task.issueType === 'User Story').throughput).toBe(2)
-        expect(throughput.tasks.find(task => task.period.toString() === '2018W51' && task.issueType === 'User Story').throughput).toBe(1)
-        expect(throughput.tasks.find(task => task.period.toString() === '2018W50' && task.issueType === 'Bug').throughput).toBe(1)
-        expect(throughput.tasks.find(task => task.period.toString() === '2018W51' && task.issueType === 'Bug').throughput).toBe(1)
+        expect(throughput.tasks.find(task => task.date === '2018W50' && task.issueType === 'User Story').throughput).toBe(2)
+        expect(throughput.tasks.find(task => task.date === '2018W51' && task.issueType === 'User Story').throughput).toBe(1)
+        expect(throughput.tasks.find(task => task.date === '2018W50' && task.issueType === 'Bug').throughput).toBe(1)
+        expect(throughput.tasks.find(task => task.date === '2018W51' && task.issueType === 'Bug').throughput).toBe(1)
+    })
+
+    it('given the period show throughput by days', async () => {
+        let throughputRepository = new ThroughputRepository()
+        const period = new Period('2018W50', '2018W50')
+        const throughputService = new ThroughputService({throughputRepository})
+        jest.spyOn(throughputRepository, "find").mockImplementation(async (period) => {
+            return [
+                    {id: 1, issueType:'User Story', dateEnd: new Date(2018, 11, 10), status: 'done' },
+                    {id: 2, issueType:'User Story', dateEnd: new Date(2018, 11, 10), status: 'done' },
+                    {id: 3, issueType:'User Story', dateEnd: new Date(2018, 11, 14), status: 'done' },
+                    {id: 4, issueType:'Bug', dateEnd: new Date(2018, 11, 12), status: 'done' },
+                    {id: 5, issueType:'Bug', dateEnd: new Date(2018, 11, 12), status: 'done' },
+                ]
+        });
+
+        let throughput = await throughputService.calculate(period, 'day')
+
+        expect(throughput.tasks.length).toBe(3)
+        expect(throughput.tasks.find(task => task.date === '2018-12-10' && task.issueType === 'User Story').throughput).toBe(2)
+        expect(throughput.tasks.find(task => task.date === '2018-12-14' && task.issueType === 'User Story').throughput).toBe(1)
+        expect(throughput.tasks.find(task => task.date === '2018-12-12' && task.issueType === 'Bug').throughput).toBe(2)
     })
 })
