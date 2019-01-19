@@ -9,7 +9,8 @@
     "build": "babel --presets es2015 -d dist/ app",
     "start": "npm run build && node dist/index.js",
     "test-ci": "jest --coverage --testPathIgnorePatterns .*\\.spike\\.*.",
-    "👌": "npm run test-ci && npx eslint app"
+    "👌": "npm run test-ci && npx eslint app",
+    "fix": "npx eslint app --fix"
   },
   "jest": {
     "coverageThreshold": {

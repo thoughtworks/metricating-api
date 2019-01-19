@@ -1,7 +1,7 @@
 import Period from '../models/period'
 import ThroughputRepository from '../repositories/throughput.repository'
+import Task from '../models/task'
 import ThroughputService from './throughput.sevice'
-import Task from '../models/task';
 
 describe('when calculate throughput', () => {
     it('given start period and end period then throughput is defined', async () => {
@@ -19,7 +19,7 @@ describe('when calculate throughput', () => {
         const period = new Period('2018W51', '2018W52')
         const throughputService = new ThroughputService({ throughputRepository })
         jest.spyOn(throughputRepository, 'find').mockImplementation(async () => {
-            return [ 
+            return [
                 new Task(1, 'User Story', new Date(2018, 11, 17), 'done'),
                 new Task(2, 'User Story', new Date(2018, 11, 18), 'done'),
                 new Task(3, 'User Story', new Date(2018, 11, 19), 'done'),
@@ -40,13 +40,13 @@ describe('when calculate throughput', () => {
         const period = new Period('2018W50', '2018W52')
         const throughputService = new ThroughputService({ throughputRepository })
         jest.spyOn(throughputRepository, 'find').mockImplementation(async () => {
-            return [ 
-                    new Task(1, 'User Story', new Date(2018, 11, 10), 'done'),
-                    new Task(2, 'User Story', new Date(2018, 11, 13), 'done'),
-                    new Task(3, 'User Story', new Date(2018, 11, 19), 'done'),
-                    new Task(4, 'Bug', new Date(2018, 11, 12), 'done'),
-                    new Task(5, 'Bug', new Date(2018, 11, 21), 'done'),
-                ]
+            return [
+                new Task(1, 'User Story', new Date(2018, 11, 10), 'done'),
+                new Task(2, 'User Story', new Date(2018, 11, 13), 'done'),
+                new Task(3, 'User Story', new Date(2018, 11, 19), 'done'),
+                new Task(4, 'Bug', new Date(2018, 11, 12), 'done'),
+                new Task(5, 'Bug', new Date(2018, 11, 21), 'done'),
+            ]
         })
 
         const throughput = await throughputService.calculate(period, 'week')
@@ -63,7 +63,7 @@ describe('when calculate throughput', () => {
         const period = new Period('2018W50', '2018W50')
         const throughputService = new ThroughputService({ throughputRepository })
         jest.spyOn(throughputRepository, 'find').mockImplementation(async () => {
-            return [ 
+            return [
                 new Task(1, 'User Story', new Date(2018, 11, 10), 'done'),
                 new Task(2, 'User Story', new Date(2018, 11, 10), 'done'),
                 new Task(3, 'User Story', new Date(2018, 11, 14), 'done'),
