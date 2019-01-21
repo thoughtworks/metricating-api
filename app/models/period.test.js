@@ -3,8 +3,8 @@ import Period from './period'
 it('create a new period with date start and end', () => {
     const period = new Period('2019W01', '2019W02')
 
-    expect(period.start.toJSON()).toBe('2018-12-31T03:00:00.000Z')
-    expect(period.end.toJSON()).toBe('2019-01-07T03:00:00.000Z')
+    expect(period.start.format('YYYY-MM-DD')).toBe('2018-12-31')
+    expect(period.end.format('YYYY-MM-DD')).toBe('2019-01-07')
 })
 
 it('when set invalid start date then throw Error', () => {
