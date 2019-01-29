@@ -4,7 +4,7 @@ This is Metricating API, a system that collects issue tracker data to visualize 
 
 ## Status
 
-We are currently working to report a team's **throughput** over a given period of time from **Atlassian's Jira**.
+We are currently working to report a team's **throughput** over a given period of time from **Trello**.
 
 ## Contributing
 
@@ -18,9 +18,9 @@ $ npm run 👌
 
 | Metric \ Issue tracker  | Jira | Trello |
 |-------------------------|------|--------|
-| Throughput              | ⏳    | 3      |
-| Lead time               | 1    | 4     |
-| Lead time breakdown     | 2    | 5      |
+| Throughput              | 4    | ⏳      |
+| Lead time               | 5    | 2      |
+| Lead time breakdown     | 6    | 3      |
 
 Where
 
