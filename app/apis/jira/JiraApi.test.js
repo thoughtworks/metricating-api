@@ -15,5 +15,6 @@ it('fetches board configuration and statuses on init', () => {
 })
 
 it('has a method that exposes the jira client', () => {
-    expect(JiraApi.getJiraClient).toBeDefined()
+    const instanceJiraClient = JiraApi.getJiraClient()
+    expect(instanceJiraClient.constructor).toEqual(JiraClient)
 })
