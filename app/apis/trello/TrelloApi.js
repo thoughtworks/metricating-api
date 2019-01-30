@@ -2,9 +2,11 @@ export default class TrelloApi {
     constructor(trelloClient) {
         this._trello = trelloClient
     }
+
     getTrelloClient() {
         return this._trello
     }
+
     async getAllBoardCardsAndTheirColumnNames(boardId) {
         const cardsWithColumnNames = []
         const lists = await this._trello.getListsOnBoard(boardId)
