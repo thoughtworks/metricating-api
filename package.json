@@ -35,7 +35,7 @@
     "lodash": "^4.17.11",
     "moment": "^2.23.0",
     "request": "^2.88.0",
-    "trello": "^0.9.1"
+    "trello": "https://github.com/piperamirez/trello"
   },
   "devDependencies": {
     "acorn": "^6.0.5",

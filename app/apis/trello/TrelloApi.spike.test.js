@@ -14,6 +14,11 @@ it('uses the trello client to check if all data we need is available', async () 
     const cards = await trelloClient.getCardsOnBoard(boardId)
     console.log('👉 These are all the cards in the board', cards)
 
+    const actions = await trelloClient.getCardActions('5c4f1d17b64c0b30606fd389')
+    console.log('👉 Here are all the update actions of one card')
+    actions.forEach(action => {
+        action.type === 'updateCard' && console.log(`On ${action.date} the card went from ${action.data.listBefore.name} to ${action.data.listAfter.name}`)
+    })
 })
 
 it('uses the trello api to determine the columns of all cards', async () => {
