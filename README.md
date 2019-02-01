@@ -13,6 +13,10 @@ Before pushing to the repo please do
 ```bash
 $ npm run 👌
 ```
+or 
+```bash
+$ npm run awesome
+```
 
 ## Features
 

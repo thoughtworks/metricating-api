@@ -10,6 +10,7 @@
     "start": "npm run build && node dist/index.js",
     "test-ci": "jest --coverage --testPathIgnorePatterns .*\\.spike\\.*.",
     "👌": "npm run test-ci && npx eslint app",
+    "awesome": "npm run test-ci && npx eslint app",
     "fix": "npx eslint app --fix"
   },
   "jest": {
