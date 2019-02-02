@@ -8,7 +8,7 @@
     "test": "jest --watch",
     "build": "babel --presets es2015 -d dist/ app",
     "start": "npm run build && node dist/index.js",
-    "test-ci": "jest --coverage --testPathIgnorePatterns .*\\.spike\\.*.",
+    "test-ci": "jest --coverage",
     "👌": "npm run test-ci && npx eslint app",
     "awesome": "npm run test-ci && npx eslint app",
     "fix": "npx eslint app --fix"
@@ -24,7 +24,13 @@
     },
     "collectCoverageFrom": [
       "app/**/*.{js}",
-      "!**/node_modules/**"
+      "!**/node_modules/**",
+      "!app/index.js"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/e2e/",
+      ".*\\.spike\\.*."
     ],
     "coverageDirectory": ".coverage/"
   },
