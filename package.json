@@ -5,34 +5,14 @@
   "main": "app/index.js",
   "repository": "https://github.com/piperamirez/metricating-api",
   "scripts": {
-    "test": "jest --watch",
+    "test": "jest --watch -c jest.config.unit.json",
+    "test-int": "NODE_ENV=test jest --watch -c jest.config.integration.json",
     "build": "babel --presets es2015 -d dist/ app",
     "start": "npm run build && node dist/index.js",
     "test-ci": "jest --coverage",
     "👌": "npm run test-ci && npx eslint app",
     "awesome": "npm run test-ci && npx eslint app",
     "fix": "npx eslint app --fix"
-  },
-  "jest": {
-    "coverageThreshold": {
-      "global": {
-        "statements": 100,
-        "branches": 100,
-        "functions": 80,
-        "lines": 100
-      }
-    },
-    "collectCoverageFrom": [
-      "app/**/*.{js}",
-      "!**/node_modules/**",
-      "!app/index.js"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/e2e/",
-      ".*\\.spike\\.*."
-    ],
-    "coverageDirectory": ".coverage/"
   },
   "author": "The Metricating Team ❤️",
   "license": "MIT",
@@ -56,6 +36,7 @@
     "eslint-plugin-jest": "^22.1.2",
     "jest": "^23.6.0",
     "jest-when": "^2.2.0",
-    "node-mocks-http": "^1.7.3"
+    "node-mocks-http": "^1.7.3",
+    "supertest": "^3.4.2"
   }
 }

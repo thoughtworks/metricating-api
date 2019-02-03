@@ -14,4 +14,8 @@ app.use(express.json())
 app.get('/healCheck', new HealCheck().check)
 app.get('/throughput', [throughputRoute.validate()], (req, res) => throughputRoute.calculate(req, res))
 
-app.listen(process.env.PORT)
+if (process.env.NODE_ENV !== 'test') {
+    app.listen(process.env.PORT)
+}
+// eslint-disable-next-line no-undef
+module.exports = app

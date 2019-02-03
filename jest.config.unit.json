@@ -1,0 +1,21 @@
+{
+  "coverageThreshold": {
+    "global": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 80,
+      "lines": 100
+    }
+  },
+  "collectCoverageFrom": [
+    "app/**/*.{js}",
+    "!**/node_modules/**",
+    "!app/index.js"
+  ],
+  "testPathIgnorePatterns": [
+    "/node_modules/",
+    "/e2e/",
+    ".*\\.spike\\.*."
+  ],
+  "coverageDirectory": ".coverage/"
+}
