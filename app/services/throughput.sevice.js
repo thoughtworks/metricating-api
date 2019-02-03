@@ -31,15 +31,16 @@ class ThroughputService {
     }
     _getDate(dateEnd, periodTime) {
         switch (periodTime) {
-            case 'day': return moment(dateEnd).format('YYYY-MM-D')
-            case 'week': return `${moment(dateEnd).year()}W${moment(dateEnd).week()}`
+            case ThroughputService.periodTimes.day: return moment(dateEnd).format('YYYY-MM-D')
+            case ThroughputService.periodTimes.week: return `${moment(dateEnd).year()}W${moment(dateEnd).week()}`
         }
     }
     _groupByDateEnd (dateEnd, periodTime) {
         switch (periodTime) {
-            case 'day': return moment(dateEnd).day()
-            case 'week': return moment(dateEnd).week()
+            case ThroughputService.periodTimes.day: return moment(dateEnd).day()
+            case ThroughputService.periodTimes.week: return moment(dateEnd).week()
         }
     }
 }
 export default ThroughputService
+ThroughputService.periodTimes = { day: 'day', week: 'week' }

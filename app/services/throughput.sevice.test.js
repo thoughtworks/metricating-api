@@ -11,7 +11,7 @@ describe('when calculate throughput', () => {
         const throughputService = new ThroughputService({ throughputRepository })
         const period = new Period('2018W50', '2018W51')
         throughputRepository.find.mockResolvedValue([])
-        const throughput = await throughputService.calculate(period, 'day')
+        const throughput = await throughputService.calculate(period, ThroughputService.periodTimes.day)
 
         expect(throughput).toBeDefined()
     })
@@ -28,7 +28,7 @@ describe('when calculate throughput', () => {
             new Task(5, 'Bug', new Date(2018, 11, 21), 'done'),
         ])
 
-        const throughput = await throughputService.calculate(period, 'week')
+        const throughput = await throughputService.calculate(period, ThroughputService.periodTimes.week)
 
         expect(throughput.tasks).toHaveLength(2)
         expect(throughput.tasks.find(task => task.issueType === 'User Story').throughput).toBe(3)
@@ -47,7 +47,7 @@ describe('when calculate throughput', () => {
             new Task(5, 'Bug', new Date(2018, 11, 21), 'done'),
         ])
 
-        const throughput = await throughputService.calculate(period, 'week')
+        const throughput = await throughputService.calculate(period, ThroughputService.periodTimes.week)
 
         expect(throughput.tasks).toHaveLength(4)
         expect(throughput.tasks.find(task => task.date === '2018W50' && task.issueType === 'User Story').throughput).toBe(2)
@@ -68,7 +68,7 @@ describe('when calculate throughput', () => {
             new Task(5, 'Bug', new Date(2018, 11, 12), 'done'),
         ])
 
-        const throughput = await throughputService.calculate(period, 'day')
+        const throughput = await throughputService.calculate(period, ThroughputService.periodTimes.day)
 
         expect(throughput.tasks).toHaveLength(3)
         expect(throughput.tasks.find(task => task.date === '2018-12-10' && task.issueType === 'User Story').throughput).toBe(2)
