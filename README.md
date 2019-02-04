@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/thoughtworks/metricating-api.svg?branch=master)](https://travis-ci.org/thoughtworks/metricating-api)
 [![dependencies Status](https://david-dm.org/thoughtworks/metricating-api/status.svg)](https://david-dm.org/thoughtworks/metricating-api)
 [![devDependencies Status](https://david-dm.org/thoughtworks/metricating-api/dev-status.svg)](https://david-dm.org/thoughtworks/metricating-api?type=dev)
 [![Maintainability](https://api.codeclimate.com/v1/badges/677dcd02ddf99b3bf8c1/maintainability)](https://codeclimate.com/github/thoughtworks/metricating-api/maintainability)

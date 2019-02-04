@@ -13,7 +13,8 @@
     "test-ci": "jest -c jest.config.json --coverage",
     "👌": "npm run test-ci && npx eslint app",
     "awesome": "npm run test-ci && npx eslint app",
-    "fix": "npx eslint app --fix"
+    "fix": "npx eslint app --fix",
+    "lint": "npx eslint app"
   },
   "author": "The Metricating Team ❤️",
   "license": "MIT",
