@@ -18,4 +18,7 @@ if (process.env.NODE_ENV !== 'test') {
     app.listen(process.env.PORT)
 }
 // eslint-disable-next-line no-undef
-module.exports = app
+module.exports = {
+    app,
+    throughputRepository
+}

@@ -1,5 +1,5 @@
 import httpMocks from 'node-mocks-http'
-import { validationResult, check } from 'express-validator/check'
+import { validationResult } from 'express-validator/check'
 import ThroughputService from '../services/throughput.sevice'
 import Period from '../models/period'
 import ThroughputRoute from './throughput.route'
@@ -68,20 +68,5 @@ describe('test calculate throughput', () => {
             }]
         })
         expect(response.statusCode).toBe(422)
-    })
-})
-
-describe('test validation definition', () => {
-    it('when call validate then return array with validations definitions', async () => {
-        const throughputService = new ThroughputService({})
-        const throughputRoute = new ThroughputRoute({ throughputService })
-        await check.mockImplementation(() => {
-            return {
-                isIn: jest.fn()
-            }
-        })
-
-        const result = throughputRoute.validate()
-        expect(result).toBeDefined()
     })
 })
