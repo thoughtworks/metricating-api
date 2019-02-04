@@ -1,6 +1,9 @@
 language: node_js
 node_js:
   - stable
-env:
-- PORT=8080
-- NODE_ENV=TEST
+jobs:
+  include:
+    - stage: Unit Test
+      script: npm test-coverage
+    - stage: Integration Test
+      script: npm test-ci
