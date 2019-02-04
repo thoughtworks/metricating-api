@@ -4,6 +4,6 @@ node_js:
 jobs:
   include:
     - stage: Unit Test
-      script: npm test-coverage
+      script: npm run test-coverage
     - stage: Integration Test
-      script: npm test-ci
+      script: npm run test-ci
