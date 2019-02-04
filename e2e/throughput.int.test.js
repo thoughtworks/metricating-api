@@ -65,13 +65,13 @@ it('given incorrect start param then return 422 and error message', async () => 
 })
 
 it('given incorrect end param then return 422 and error message', async () => {
-    const response = await request(server.app).get('/throughput').query({ start: '2019W51', end: '2018W91', periodTime: 'week' })
+    const response = await request(server.app).get('/throughput').query({ start: '2019W51', end: '2018W81', periodTime: 'week' })
 
     expect(response.body).toMatchObject(
         [{
             location: 'query',
             param: 'end',
-            value: '2018W91',
+            value: '2018W81',
             msg: 'it is invalid format'
         }]
     )
