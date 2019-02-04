@@ -1,3 +1,5 @@
+[![dependencies Status](https://david-dm.org/thoughtworks/metricating-api/status.svg)](https://david-dm.org/thoughtworks/metricating-api)
+[![devDependencies Status](https://david-dm.org/thoughtworks/metricating-api/dev-status.svg)](https://david-dm.org/thoughtworks/metricating-api?type=dev)
 # metricating-api
 
 This is Metricating API, a system that collects issue tracker data to visualize agile team metrics.
