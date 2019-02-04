@@ -28,3 +28,14 @@ it('when set invalid end date then throw Error', () => {
 
     expect(error).toEqual(new Error('The End Date 2019W91 is not valid'))
 })
+
+it('when end date is less than start date throw Error', () => {
+    let error
+    try {
+        new Period('2019W01', '2018W50')
+    } catch (e) {
+        error = e
+    }
+
+    expect(error).toEqual(new Error('The end date 2018W50, can not be less than the start date 2019W01.'))
+})
