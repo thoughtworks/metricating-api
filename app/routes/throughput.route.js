@@ -1,6 +1,6 @@
 import { validationResult, query } from 'express-validator/check'
-import moment from 'moment'
 import Period from '../models/period'
+import DateValidate from './validations/date.validation'
 
 class ThroughputRoute {
     constructor(options) {
@@ -22,14 +22,10 @@ class ThroughputRoute {
             query('periodTime').not().isEmpty().withMessage('it is mandatory'),
             query('periodTime').isIn(['day', 'week']).withMessage('must be a "day" or "week" values'),
             query('start').custom((start) => {
-                if (!moment(start).isValid())
-                    return Promise.reject('it is invalid format')
-                return Promise.resolve()
+                return DateValidate.validate(start)
             }).withMessage('it is invalid format'),
             query('end').custom((end) => {
-                if (!moment(end).isValid())
-                    return Promise.reject('it is invalid format')
-                return Promise.resolve()
+                return DateValidate.validate(end)
             }).withMessage('it is invalid format')
         ]
     }
