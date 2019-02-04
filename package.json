@@ -10,7 +10,7 @@
     "build": "babel --presets es2015 -d dist/ app",
     "start": "npm run build && node dist/index.js",
     "test-coverage":"jest -c jest.config.unit.json --coverage",
-    "test-ci": "jest -c jest.config.json --coverage",
+    "test-ci": "jest -c jest.config.json",
     "👌": "npm run test-ci && npx eslint app",
     "awesome": "npm run test-ci && npx eslint app",
     "fix": "npx eslint app --fix",
