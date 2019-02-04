@@ -1,0 +1,6 @@
+language: node_js
+node_js:
+  - stable
+env:
+- PORT=8080
+- NODE_ENV=TEST
