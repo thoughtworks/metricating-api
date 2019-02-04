@@ -52,8 +52,27 @@ describe('test validation definition', () => {
         expect(startValidations.find((val) => val._context.validators[0].message === 'it is invalid format' && val._context.validators[0].custom === true)).toBeTruthy()
     })
 
+    it('when call validator for start field with invalid date time return Promise Rejected', () => {
+        const startValidations = _.filter(result, (check) => check._context.fields[0] === 'start')
+        const validator = startValidations.find((val) => val._context.validators[0].message === 'it is invalid format' && val._context.validators[0].custom === true)
+
+        const validatorResult = validator('2019W91')
+
+        expect(validatorResult).toMatchObject(Promise.reject('it is invalid format'))
+    })
+
     it('end field is valid format with message "it is invalid format" ', () => {
         const endValidations = _.filter(result, (check) => check._context.fields[0] === 'end')
+
         expect(endValidations.find((val) => val._context.validators[0].message === 'it is invalid format' && val._context.validators[0].custom === true)).toBeTruthy()
+    })
+
+    it('when call validator for end field with invalid date time return Promise Rejected', () => {
+        const endValidations = _.filter(result, (check) => check._context.fields[0] === 'end')
+        const validator = endValidations.find((val) => val._context.validators[0].message === 'it is invalid format' && val._context.validators[0].custom === true)
+
+        const validatorResult = validator('2019W91')
+
+        expect(validatorResult).toMatchObject(Promise.reject('it is invalid format'))
     })
 })

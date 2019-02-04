@@ -9,6 +9,7 @@
     "test-int": "NODE_ENV=test jest --watch -c jest.config.integration.json",
     "build": "babel --presets es2015 -d dist/ app",
     "start": "npm run build && node dist/index.js",
+    "test-coverage":"jest -c jest.config.unit.json --coverage",
     "test-ci": "jest -c jest.config.json --coverage",
     "👌": "npm run test-ci && npx eslint app",
     "awesome": "npm run test-ci && npx eslint app",
