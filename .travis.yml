@@ -1,9 +1,6 @@
 language: node_js
 node_js:
   - stable
-env:
-  global:
-    CC_TEST_REPORTER_ID=ABC123
 cache:
   directories:
     - node_modules
