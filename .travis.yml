@@ -17,5 +17,5 @@ script:
   - npm run test-ci
 
 after_script:
-  - ./cc-test-reporter after-build -t lcov -o .coverage/lcov.info --debug --exit-code $TRAVIS_TEST_RESULT
-
+  - ./cc-test-reporter format-coverage -t lcov -o .coverage/coverage-final.json .coverage/lcov.info  # Format coverage
+  - if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./cc-test-reporter upload-coverage; fi  # Upload coverage/codeclimate.json
