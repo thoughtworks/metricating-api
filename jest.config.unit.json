@@ -18,6 +18,5 @@
     "/dist/",
     ".*\\.spike\\.*."
   ],
-  "coverageDirectory": ".coverage/",
-  "collectCoverage": true
+  "coverageDirectory": ".coverage/"
 }

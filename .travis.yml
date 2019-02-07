@@ -13,8 +13,8 @@ before_script:
 
 script:
   - npm run lint
-  - npm run test-coverage
-  - npm run test-ci
+  - npm run test-unit-ci
+  - npm run test-int-ci
 
 after_script:
   - ./cc-test-reporter format-coverage -t lcov .coverage/lcov.info
