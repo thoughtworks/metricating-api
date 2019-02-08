@@ -12,14 +12,16 @@ it('given any params but without data return empty tasks', async () => {
 })
 
 it('given correct params when initialize data then return correct throughput', async () => {
-    server.throughputRepository.initialize([
+    const throughputRepository = server.container.resolve('throughputRepository')
+    const projectRepository = server.container.resolve('projectRepository')
+    throughputRepository.initialize([
         new Task(1, 'User Story', new Date(2018, 11, 17), 'done', 1),
         new Task(2, 'User Story', new Date(2018, 11, 18), 'done', 1),
         new Task(3, 'User Story', new Date(2018, 11, 29), 'done', 1),
         new Task(4, 'Bug', new Date(2018, 11, 20), 'done', 1),
         new Task(5, 'Bug', new Date(2018, 11, 29), 'done', 1),
     ])
-    server.projectRepository.initialize([
+    projectRepository.initialize([
         new Project('projectName', 'any', 'done')
     ])
     const response = await request(server.app).get('/throughput/projectName')
