@@ -13,8 +13,8 @@
     "test-int-ci": "jest -c jest.config.integration.json",
     "awesome": "npm run test-unit-ci && npm run test-int-ci && npx eslint app",
     "👌": "npm run awesome",
-    "fix": "npx eslint app --fix",
-    "lint": "npx eslint app"
+    "lint": "npx eslint app",
+    "lint-fix": "npx eslint app --fix"
   },
   "author": "The Metricating Team ❤️",
   "license": "MIT",
