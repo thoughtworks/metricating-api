@@ -1,10 +1,10 @@
 import httpMocks from 'node-mocks-http'
 import { validationResult } from 'express-validator/check'
-import ThroughputService from '../services/throughput.sevice'
+import ThroughputService from '../services/throughput.service'
 import Period from '../models/period'
 import ThroughputRoute from './throughput.route'
 
-jest.mock('../services/throughput.sevice.js')
+jest.mock('../services/throughput.service.js')
 jest.mock('express-validator/check')
 
 describe('test calculate throughput', () => {

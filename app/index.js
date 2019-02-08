@@ -2,7 +2,7 @@ import express from 'express'
 import {} from 'dotenv/config'
 import HealCheck from './routes/healthcheck.route'
 import ThroughputRoute from './routes/throughput.route'
-import ThroughputService from './services/throughput.sevice'
+import ThroughputService from './services/throughput.service'
 import ThroughputInMemoryRepository from './repositories/throughput.memory.repository'
 
 const app = express()

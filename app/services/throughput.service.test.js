@@ -1,7 +1,7 @@
 import Period from '../models/period'
 import ThroughputRepository from '../repositories/throughput.repository'
 import Task from '../models/task'
-import ThroughputService from './throughput.sevice'
+import ThroughputService from './throughput.service'
 
 jest.mock('../repositories/throughput.repository')
 

@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import { isEmpty, isIn } from 'validator'
-import ThroughputService from '../services/throughput.sevice'
+import ThroughputService from '../services/throughput.service'
 import ThroughputRoute from './throughput.route'
 
 jest.mock('express-validator')
