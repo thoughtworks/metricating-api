@@ -7,23 +7,27 @@ import ThroughputRoute from './throughput.route'
 jest.mock('../services/throughput.service.js')
 jest.mock('express-validator/check')
 
+const defaultRequest = function() {
+    return httpMocks.createRequest({
+        method: 'GET',
+        url: '/throughput/projectName',
+        params: {
+            projectName: 'projectName'
+        },
+        query: {
+            start: '2018W51',
+            end: '2018W52',
+            periodTime: ThroughputService.periodTimes.week
+        }
+    })
+}
+
 describe('test calculate throughput', () => {
     it('given start date, end date and period time then return throughput', async () => {
         const throughputService = new ThroughputService({})
         const throughputRoute = new ThroughputRoute({ throughputService })
         const period = new Period('2018W51', '2018W52')
-        const request = httpMocks.createRequest({
-            method: 'GET',
-            url: '/throughput/projectName',
-            params: {
-                projectName: 'projectName'
-            },
-            query: {
-                start: '2018W51',
-                end: '2018W52',
-                periodTime: ThroughputService.periodTimes.week
-            }
-        })
+        const request = defaultRequest()
 
         const response = httpMocks.createResponse()
         await validationResult.mockImplementation(() => {
@@ -79,18 +83,7 @@ describe('test calculate throughput', () => {
         const throughputService = new ThroughputService({})
         const throughputRoute = new ThroughputRoute({ throughputService })
         const period = new Period('2018W51', '2018W52')
-        const request = httpMocks.createRequest({
-            method: 'GET',
-            url: '/throughput/projectName',
-            params: {
-                projectName: 'projectName'
-            },
-            query: {
-                start: '2018W51',
-                end: '2018W52',
-                periodTime: ThroughputService.periodTimes.week
-            }
-        })
+        const request = defaultRequest()
 
         const response = httpMocks.createResponse()
         await validationResult.mockImplementation(() => {
