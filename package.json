@@ -5,7 +5,7 @@
   "main": "app/index.js",
   "repository": "https://github.com/piperamirez/metricating-api",
   "scripts": {
-    "test": "jest --watch -c jest.config.unit.json",
+    "test": "jest --watch",
     "test-int": "NODE_ENV=test jest --watch -c jest.config.integration.json",
     "build": "babel --presets es2015 -d dist/ app",
     "start": "npm run build && node dist/index.js",
