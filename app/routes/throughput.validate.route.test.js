@@ -75,4 +75,12 @@ describe('test validation definition', () => {
 
         expect(validatorResult).toMatchObject(Promise.reject('it is invalid format'))
     })
+
+    it('projectName field is not empty with message "it is mandatory" ', () => {
+        const projectNameValidations = _.filter(result, (check) => check._context.fields[0] === 'projectName')
+        expect(projectNameValidations.find((val) =>
+            val._context.validators[0].message === 'it is mandatory' &&
+            val._context.validators[0].validator === isEmpty &&
+            val._context.validators[0].negated === true)).toBeTruthy()
+    })
 })

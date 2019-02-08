@@ -14,8 +14,11 @@ describe('test calculate throughput', () => {
         const period = new Period('2018W51', '2018W52')
         const request = httpMocks.createRequest({
             method: 'GET',
-            url: '/user/42',
+            url: '/throughput/projectName',
             params: {
+                projectName: 'projectName'
+            },
+            query: {
                 start: '2018W51',
                 end: '2018W52',
                 periodTime: ThroughputService.periodTimes.week
@@ -28,7 +31,8 @@ describe('test calculate throughput', () => {
                 isEmpty: jest.fn().mockReturnValue(true)
             }
         })
-        throughputService.calculate.mockResolvedValue({ period, tasks: []})
+        const calculate = jest.spyOn(throughputService, 'calculate')
+        calculate.mockResolvedValue({ period, tasks: []})
 
         await throughputRoute.calculate(request, response)
         const dataResult = response._getData()
@@ -38,6 +42,7 @@ describe('test calculate throughput', () => {
             tasks: []
         })
         expect(response.statusCode).toBe(200)
+        expect(calculate).toHaveBeenCalledWith('projectName', period, ThroughputService.periodTimes.week)
     })
 
     it('given invalid period time then return status 400 and error message', async () => {
@@ -68,5 +73,41 @@ describe('test calculate throughput', () => {
             }]
         })
         expect(response.statusCode).toBe(422)
+    })
+
+    it('when throughput service throw error then return 422', async () => {
+        const throughputService = new ThroughputService({})
+        const throughputRoute = new ThroughputRoute({ throughputService })
+        const period = new Period('2018W51', '2018W52')
+        const request = httpMocks.createRequest({
+            method: 'GET',
+            url: '/throughput/projectName',
+            params: {
+                projectName: 'projectName'
+            },
+            query: {
+                start: '2018W51',
+                end: '2018W52',
+                periodTime: ThroughputService.periodTimes.week
+            }
+        })
+
+        const response = httpMocks.createResponse()
+        await validationResult.mockImplementation(() => {
+            return {
+                isEmpty: jest.fn().mockReturnValue(true)
+            }
+        })
+        const calculate = jest.spyOn(throughputService, 'calculate')
+        calculate.mockImplementation(() => {
+            throw new Error('Project projectName not found')
+        })
+
+        await throughputRoute.calculate(request, response)
+        const errorResult = JSON.parse(response._getData())
+
+        expect(errorResult).toMatchObject({ msg: 'Project projectName not found' })
+        expect(response.statusCode).toBe(400)
+        expect(calculate).toHaveBeenCalledWith('projectName', period, ThroughputService.periodTimes.week)
     })
 })

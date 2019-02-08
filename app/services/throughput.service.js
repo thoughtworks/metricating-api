@@ -4,11 +4,16 @@ import moment from 'moment'
 class ThroughputService {
     constructor(options) {
         this.throughputRepository = options.throughputRepository
+        this.projectRepository = options.projectRepository
     }
 
-    async calculate (period, periodTime) {
+    async calculate (projectName, period, periodTime) {
         const _this = this
-        return await this.throughputRepository.find(period).then(tasks => {
+        const project = await this.projectRepository.find(projectName)
+        if (project === undefined || project === null) {
+            throw new Error(`Project ${projectName} not found`)
+        }
+        return await this.throughputRepository.find(project.id, period).then(tasks => {
             const issueTypeGroup = _.groupBy(tasks, task => task.issueType)
             const throughput = []
 

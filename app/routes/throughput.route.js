@@ -1,4 +1,4 @@
-import { validationResult, query } from 'express-validator/check'
+import { validationResult, query, param } from 'express-validator/check'
 import Period from '../models/period'
 import DateValidate from './validations/date.validation'
 
@@ -11,9 +11,14 @@ class ThroughputRoute {
         if (!errors.isEmpty()) {
             return response.status(422).json(errors.array())
         }
-        const througthput = await this.throughputService.calculate(new Period(request.query.start, request.query.end), request.query.periodTime)
-
-        response.status(200).send(througthput)
+        try {
+            const througthput = await this.throughputService.calculate(request.params.projectName, new Period(request.query.start, request.query.end), request.query.periodTime)
+            response.status(200).send(througthput)
+        } catch (e) {
+            return response.status(400).json({
+                msg: e.message
+            })
+        }
     }
     validate () {
         return [
@@ -26,7 +31,8 @@ class ThroughputRoute {
             }).withMessage('it is invalid format'),
             query('end').custom((end) => {
                 return DateValidate.validate(end)
-            }).withMessage('it is invalid format')
+            }).withMessage('it is invalid format'),
+            param('projectName').not().isEmpty().withMessage('it is mandatory')
         ]
     }
 }
