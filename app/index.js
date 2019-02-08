@@ -1,5 +1,8 @@
 import express from 'express'
 import {} from 'dotenv/config'
+import swaggerUi from 'swagger-ui-express'
+//import swaggerDocument from './swagger.json'
+
 import HealCheck from './routes/healthcheck.route'
 import ThroughputRoute from './routes/throughput.route'
 import ThroughputService from './services/throughput.service'
@@ -13,6 +16,8 @@ const throughputService = new ThroughputService({ throughputRepository, projectR
 const throughputRoute = new ThroughputRoute({ throughputService })
 app.use(express.json())
 
+const swaggerDocument = require('./swagger')
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 app.get('/healCheck', new HealCheck().check)
 app.get('/throughput/:projectName', [throughputRoute.validate()], (req, res) => throughputRoute.calculate(req, res))
 

@@ -1,0 +1,196 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Metricating API",
+    "description": "A system that collects issue tracker data for metric visualization.",
+    "version": "1.0.0",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    },
+    "contact":{
+      "name": "Github Repository",
+      "url":"https://github.com/thoughtworks/metricating-api"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "for execution npm start"
+    }
+  ],
+  "tags":[
+    {
+      "name": "utils",
+      "description": "list of utils of system"
+    },
+    {
+      "name": "metrics",
+      "description": "List of endpoints for get metrics"
+    }
+  ],
+  "paths": {
+    "/healCheck": {
+      "get": {
+        "tags": [
+          "utils"
+        ],
+        "summary": "Check if system if ok.",
+        "description": "Returns a map of status codes to quantities",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Successfull operation",
+            "schema": {
+              "$ref": "#/definitions/HealCheck"
+            }
+          }
+        }
+      }
+    },
+    "/throughput/{projectName}":{
+      "get":{
+        "tags": [
+          "metrics"
+        ],
+        "summary": "Calculate throughput in period and ",
+        "description": "Return the throughput",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "projectName",
+            "in": "path",
+            "description": "Name of project",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Date Start of period for calculate throughput. All formats for [momentjs](https://momentjs.com/docs/#/parsing/string/) is supported.",
+            "required": true,
+            "type": "string",
+            "format":""
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "Date End of period for calculate throughput. All formats for [momentjs](https://momentjs.com/docs/#/parsing/string/) is supported.",
+            "required": true,
+            "type": "string",
+            "format":""
+          },
+          {
+            "name": "periodTime",
+            "in": "query",
+            "description": "Period for agroup result trhoughput",
+            "required": true,
+            "type": "string",
+            "enum":[
+              "day",
+              "week"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Throughput"
+            }
+          },
+          "400": {
+            "description": "Project not found",
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
+          },
+          "422": {
+            "description": "Validation errors",
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "HealCheck": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "Throughput":{
+      "type": "object",
+      "properties": {
+        "period": {
+          "$ref": "#/definitions/Period"
+        },
+        "tasks": {
+          "type":"array",
+          "items": {
+            "$ref": "#/definitions/Task"
+          }
+        }
+      }
+    },
+    "Task":{
+      "type": "object",
+      "properties":{
+        "issueType":{
+          "type":"string",
+          "description": "Name of issue type"
+        },
+        "throughput":{
+          "type": "integer",
+          "format": "int32",
+          "description": "Number of throughput"
+        },
+        "date":{
+          "type":"string",
+          "description": "Date time with format. For day: 'YYYY-MM-D', for Week: 'YYYYWd' [See more info for formats](https://momentjs.com/docs/#/displaying/format/)"
+        }
+      }
+    },
+    "Period":{
+      "type": "object",
+      "properties": {
+        "start":{
+          "type": "string"
+        },
+        "end":{
+          "type": "string"
+        }
+      }
+    },
+    "Errors":{
+      "type":"array",
+      "items": {
+        "$ref": "#/definitions/Error"
+      }
+    },
+    "Error":{
+      "type": "object",
+      "properties":{
+        "location": {
+          "type": "string"
+        },
+        "param": {
+          "type": "string"
+        },
+        "value":{
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
