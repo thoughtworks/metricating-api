@@ -16,10 +16,10 @@ describe('create new project', () => {
     })
 
     it('given exists project with the same name when call create a new project then return error', async () => {
-        const projectRepository = server.container.resolve('projectRepository')
-        projectRepository.initialize([
+        const dataBase = server.container.resolve('dataBase')
+        dataBase.initialize({ projects: [
             new Project('projectName', 'any', 'done')
-        ])
+        ]})
 
         const response = await request(server.app).post('/project')
             .send({ name: 'projectName', issueTracking: 'Trello', statusDone: ['done']})

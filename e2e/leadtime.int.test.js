@@ -13,9 +13,8 @@ it('given any params but without data return empty tasks', async () => {
 })
 
 it('given correct params when initialize data then return correct leadtime', async () => {
-    const leadtimeRepository = server.container.resolve('leadtimeRepository')
-    const projectRepository = server.container.resolve('projectRepository')
-    leadtimeRepository.initialize([
+    const dataBase = server.container.resolve('dataBase')
+    dataBase.initialize({ tasks: [
         new Task(1, 'User Story', new Date(2018, 11, 19), 'DONE', 1, [
             new TaskStatus(1, 'BACKLOG', new Date(2018, 11, 3)),
             new TaskStatus(1, 'ANALYSIS', new Date(2018, 11, 11)),
@@ -27,10 +26,9 @@ it('given correct params when initialize data then return correct leadtime', asy
             new TaskStatus(1, 'DONE', new Date(2018, 11, 19)),
             new TaskStatus(1, 'INPRODUCTION', new Date(2018, 11, 20))
         ])
-    ])
-    projectRepository.initialize([
+    ], projects: [
         new Project('projectName', 'any', ['DONE', 'INPRODUCTION'])
-    ])
+    ]})
     const response = await request(server.app).get('/leadtime/projectName')
         .query({ start: '2018W51', end: '2018W52', leadtimeType: 'done' })
 

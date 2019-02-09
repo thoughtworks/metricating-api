@@ -1,11 +1,13 @@
 import _ from 'lodash'
 import LeadtimeRepository from './leadtime.repository'
 
-let __leadtimeData = []
-
 class LeadtimeInMemoryRepository extends LeadtimeRepository {
+    constructor(options) {
+        super()
+        this.dataBase = options.dataBase
+    }
     async find(projectId, period, onlyDone) {
-        return _.filter(__leadtimeData, function(task) {
+        return _.filter(this.dataBase.getData().tasks, function(task) {
             if (onlyDone) {
                 return task.projectId === projectId && task.dateEnd >= period.start.toDate() && task.dateEnd < period.end.toDate()
             }
@@ -14,10 +16,6 @@ class LeadtimeInMemoryRepository extends LeadtimeRepository {
                 return taskStatus.createDate >= period.start.toDate() && taskStatus.createDate < period.end.toDate()
             })
         })
-    }
-
-    async initialize(leadtime) {
-        __leadtimeData = leadtime
     }
 }
 export default LeadtimeInMemoryRepository

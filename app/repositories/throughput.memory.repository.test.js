@@ -1,16 +1,18 @@
 import Period from '../models/period'
 import Task from '../models/task'
 import ThroughputInMemoryRepository from './throughput.memory.repository'
+import DataBase from './inmemory.database'
 
 const initializeRepository = function () {
-    const throughputRepository = new ThroughputInMemoryRepository()
-    throughputRepository.initialize([
+    const dataBase = new DataBase()
+    const throughputRepository = new ThroughputInMemoryRepository({ dataBase })
+    dataBase.initialize({ tasks: [
         new Task(1, 'User Story', new Date(2018, 11, 10), 'done', 1),
         new Task(2, 'User Story', new Date(2018, 11, 13), 'done', 1),
         new Task(3, 'User Story', new Date(2018, 11, 19), 'done', 1),
         new Task(4, 'Bug', new Date(2018, 11, 12), 'done', 1),
         new Task(5, 'Bug', new Date(2018, 11, 17), 'done', 1),
-    ])
+    ]})
     return throughputRepository
 }
 

@@ -2,10 +2,12 @@ import Period from '../models/period'
 import Task from '../models/task'
 import TaskStatus from '../models/taskStatus'
 import LeadtimeInMemoryRepository from './leadtime.memory.repository'
+import DataBase from './inmemory.database'
 
 const initializeRepository = function () {
-    const leadtimeRepository = new LeadtimeInMemoryRepository()
-    leadtimeRepository.initialize([
+    const dataBase = new DataBase()
+    const leadtimeRepository = new LeadtimeInMemoryRepository({ dataBase })
+    dataBase.initialize({ tasks: [
         new Task(1, 'Bug', new Date(2018, 11, 12), 'done', 1, [
             new TaskStatus(1, 'BACKLOG', new Date(2018, 11, 3)),
             new TaskStatus(1, 'DOING', new Date(2018, 11, 11)),
@@ -18,13 +20,13 @@ const initializeRepository = function () {
             new TaskStatus(1, 'DOING', new Date(2018, 11, 24))]),
         new Task(4, 'Bug', undefined, 'doing', 1, [
             new TaskStatus(1, 'BACKLOG', new Date(2018, 11, 3))])
-    ])
+    ]})
     return leadtimeRepository
 }
 
 it('when find without data, then return empty array', async () => {
     const period = new Period('2018W50', '2018W51')
-    const leadtimeRepository = new LeadtimeInMemoryRepository()
+    const leadtimeRepository = new LeadtimeInMemoryRepository({ dataBase: new DataBase() })
 
     const tasks = await leadtimeRepository.find(1, period, true)
 

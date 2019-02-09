@@ -13,6 +13,7 @@ import ProjectService from './services/project.service'
 import LeadtimeRoute from './routes/leadtime.route'
 import LeadtimeInMemoryRepository from './repositories/leadtime.memory.repository'
 import LeadtimeService from './services/leadtime.service'
+import DataBase from './repositories/inmemory.database'
 
 const app = express()
 
@@ -20,6 +21,8 @@ const container = createContainer({
     injectionMode: InjectionMode.PROXY
 })
 container.register({
+    dataBase: asClass(DataBase, { lifetime: Lifetime.SINGLETON }),
+
     throughputRepository: asClass(ThroughputInMemoryRepository, { lifetime: Lifetime.TRANSIENT }),
     throughputService: asClass(ThroughputService, { lifetime: Lifetime.TRANSIENT }),
     throughputRoute: asClass(ThroughputRoute, { lifetime: Lifetime.TRANSIENT }),
