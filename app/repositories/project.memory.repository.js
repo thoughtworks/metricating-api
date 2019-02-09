@@ -12,6 +12,7 @@ class ProjectInMemoryRepository extends ProjectRepository {
     async save(project) {
         project.id = __projectData.length + 1
         __projectData.push(project)
+        return project
     }
     async initialize(projects) {
         __projectData = projects

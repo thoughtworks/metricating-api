@@ -8,6 +8,8 @@ import ThroughputRoute from './routes/throughput.route'
 import ThroughputService from './services/throughput.service'
 import ThroughputInMemoryRepository from './repositories/throughput.memory.repository'
 import ProjectInMemoryRepository from './repositories/project.memory.repository'
+import ProjectRoute from './routes/project.route'
+import ProjectService from './services/project.service'
 
 const app = express()
 
@@ -19,6 +21,8 @@ container.register({
     projectRepository: asClass(ProjectInMemoryRepository, { lifetime: Lifetime.TRANSIENT }),
     throughputService: asClass(ThroughputService, { lifetime: Lifetime.TRANSIENT }),
     throughputRoute: asClass(ThroughputRoute, { lifetime: Lifetime.TRANSIENT }),
+    projectService: asClass(ProjectService, { lifetime: Lifetime.TRANSIENT }),
+    projectRoute: asClass(ProjectRoute, { lifetime: Lifetime.TRANSIENT })
 })
 
 app.use(express.json())
@@ -27,6 +31,7 @@ const swaggerDocument = require('./swagger')
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 app.get('/healCheck', new HealCheck().check)
 app.get('/throughput/:projectName', [container.resolve('throughputRoute').validate()], (req, res) => container.resolve('throughputRoute').calculate(req, res))
+app.post('/project', [container.resolve('projectRoute').validate()], (req, res) => container.resolve('projectRoute').create(req, res))
 
 if (process.env.NODE_ENV !== 'test') {
     app.listen(process.env.PORT)

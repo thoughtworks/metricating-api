@@ -13,12 +13,6 @@
       "url":"https://github.com/thoughtworks/metricating-api"
     }
   },
-  "servers": [
-    {
-      "url": "http://localhost:8080",
-      "description": "for execution npm start"
-    }
-  ],
   "tags":[
     {
       "name": "utils",
@@ -27,6 +21,10 @@
     {
       "name": "metrics",
       "description": "List of endpoints for get metrics"
+    },
+    {
+      "name": "project",
+      "description": "List of endpoints for the Project"
     }
   ],
   "paths": {
@@ -43,6 +41,47 @@
             "description": "Successfull operation",
             "schema": {
               "$ref": "#/definitions/HealCheck"
+            }
+          }
+        }
+      }
+    },
+    "/project":{
+      "post":{
+        "tags":[
+          "project"
+        ],
+        "summary": "Create a new Project configuration",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "body",
+          "in": "body",
+          "description": "Projecr",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/Project"
+          }
+        }],
+        "responses": {
+          "201": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
+          },
+          "400": {
+            "description": "The project is alreade exists",
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
+          },
+          "422": {
+            "description": "Validation errors",
+            "schema": {
+              "$ref": "#/definitions/Errors"
             }
           }
         }
@@ -166,6 +205,23 @@
         },
         "end":{
           "type": "string"
+        }
+      }
+    },
+    "Project":{
+      "type":"object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "issueTracking": {
+          "type": "string"
+        },
+        "statusDone":{
+          "type": "array",
+          "items":{
+            "type": "string"
+          }
         }
       }
     },
