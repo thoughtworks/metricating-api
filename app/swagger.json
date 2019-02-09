@@ -154,6 +154,77 @@
           }
         }
       }
+    },
+    "/leadtime/{projectName}":{
+      "get":{
+        "tags": [
+          "metrics"
+        ],
+        "summary": "Calculate leadtime in period",
+        "description": "Return the leadtime",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "projectName",
+            "in": "path",
+            "description": "Name of project",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Date Start of period for calculate leadtime. All formats for [momentjs](https://momentjs.com/docs/#/parsing/string/) is supported.",
+            "required": true,
+            "type": "string",
+            "format":""
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "Date End of period for calculate leadtime. All formats for [momentjs](https://momentjs.com/docs/#/parsing/string/) is supported.",
+            "required": true,
+            "type": "string",
+            "format":""
+          },
+          {
+            "name": "leadtimeType",
+            "in": "query",
+            "description": "Leadtime types for calculate leadtime",
+            "required": true,
+            "type": "string",
+            "enum":[
+              "done",
+              "wip"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",           
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Leadtime"
+              }
+            }
+          },
+          "400": {
+            "description": "Project not found",
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
+          },
+          "422": {
+            "description": "Validation errors",
+            "schema": {
+              "$ref": "#/definitions/Errors"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -176,6 +247,39 @@
           "items": {
             "$ref": "#/definitions/Task"
           }
+        }
+      }
+    },
+    "Leadtime":{
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "id of task"
+        },
+        "issueType":{
+          "type":"string",
+          "description": "Name of issue type"
+        },
+        "transitions":{
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LeadtimeTransitions"
+          }
+        }
+      }
+    },
+    "LeadtimeTransitions":{
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "name of status task"
+        },
+        "leadtime": {
+          "type": "integer",
+          "format": "int32",
+          "description": "number of days the task has been in this state."
         }
       }
     },
