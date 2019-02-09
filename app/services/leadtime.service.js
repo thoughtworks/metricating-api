@@ -11,8 +11,7 @@ class LeadtimeService {
         if (project === undefined || project === null) {
             throw new Error(`Project ${projectName} not found`)
         }
-
-        return await this.leadtimeRepository.find(project.id, period, leadtimeType.done === LeadtimeService.leadtimeTypes.done).then(tasks => {
+        return await this.leadtimeRepository.find(project.id, period, leadtimeType === LeadtimeService.leadtimeTypes.done).then(tasks => {
             const tasksDto = []
             _.forEach(tasks, function (task) {
                 const leadtimes = []

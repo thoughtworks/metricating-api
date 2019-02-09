@@ -49,7 +49,7 @@ describe('test calculate throughput', () => {
         expect(calculate).toHaveBeenCalledWith('projectName', period, ThroughputService.periodTimes.week)
     })
 
-    it('given invalid period time then return status 400 and error message', async () => {
+    it('given invalid period time then return status 422 and error message', async () => {
         const throughputService = new ThroughputService({})
         const throughputRoute = new ThroughputRoute({ throughputService })
         const request = httpMocks.createRequest()
@@ -79,7 +79,7 @@ describe('test calculate throughput', () => {
         expect(response.statusCode).toBe(422)
     })
 
-    it('when throughput service throw error then return 422', async () => {
+    it('when throughput service throw error then return 400', async () => {
         const throughputService = new ThroughputService({})
         const throughputRoute = new ThroughputRoute({ throughputService })
         const period = new Period('2018W51', '2018W52')
