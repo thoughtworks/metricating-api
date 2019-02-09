@@ -10,9 +10,9 @@ import ThroughputInMemoryRepository from './repositories/throughput.memory.repos
 import ProjectInMemoryRepository from './repositories/project.memory.repository'
 import ProjectRoute from './routes/project.route'
 import ProjectService from './services/project.service'
-import LeadtimeRoute from './routes/leadtime.route';
-import LeadtimeInMemoryRepository from './repositories/leadtime.memory.repository';
-import LeadtimeService from './services/leadtime.service';
+import LeadtimeRoute from './routes/leadtime.route'
+import LeadtimeInMemoryRepository from './repositories/leadtime.memory.repository'
+import LeadtimeService from './services/leadtime.service'
 
 const app = express()
 
