@@ -9,17 +9,17 @@ const initializeRepository = function () {
     const leadtimeRepository = new LeadtimeInMemoryRepository({ dataBase })
     dataBase.initialize({ tasks: [
         new Task(1, 'Bug', new Date(2018, 11, 12), 'done', 1, [
-            new TaskStatus(1, 'BACKLOG', new Date(2018, 11, 3)),
-            new TaskStatus(1, 'DOING', new Date(2018, 11, 11)),
-            new TaskStatus(1, 'DONE', new Date(2018, 11, 12))]),
+            new TaskStatus({ taskId: 1, status: 'BACKLOG', createDate: new Date(2018, 11, 3) }),
+            new TaskStatus({ taskId: 1, status: 'DOING', createDate: new Date(2018, 11, 11) }),
+            new TaskStatus({ taskId: 1, status: 'DONE', createDate: new Date(2018, 11, 12) })]),
         new Task(2, 'Bug', undefined, 'doing', 1, [
-            new TaskStatus(1, 'BACKLOG', new Date(2018, 11, 3)),
-            new TaskStatus(1, 'DOING', new Date(2018, 11, 11))]),
+            new TaskStatus({ taskId: 1, status: 'BACKLOG', createDate: new Date(2018, 11, 3) }),
+            new TaskStatus({ taskId: 1, status: 'DOING', createDate: new Date(2018, 11, 11) })]),
         new Task(3, 'Bug', undefined, 'doing', 1, [
-            new TaskStatus(1, 'BACKLOG', new Date(2018, 11, 3)),
-            new TaskStatus(1, 'DOING', new Date(2018, 11, 24))]),
+            new TaskStatus({ taskId: 1, status: 'BACKLOG', createDate: new Date(2018, 11, 3) }),
+            new TaskStatus({ taskId: 1, status: 'DOING', createDate: new Date(2018, 11, 24) })]),
         new Task(4, 'Bug', undefined, 'doing', 1, [
-            new TaskStatus(1, 'BACKLOG', new Date(2018, 11, 3))])
+            new TaskStatus({ taskId: 1, status: 'BACKLOG', createDate: new Date(2018, 11, 3) })])
     ]})
     return leadtimeRepository
 }

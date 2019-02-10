@@ -18,8 +18,13 @@ it('when initilize with data then getData return this object', () => {
 it('when initilize projects then set ids', () => {
     const dataBase = new DataBase()
 
-    dataBase.initialize({ projects: [new Project('name', 'issue', 'done'), new Project('name1', 'issue', 'done')]})
+    dataBase.initialize({ projects: [
+        new Project({ name: 'name', issueTracking: 'issue', statusDone: 'done' }),
+        new Project({ name: 'name1', issueTracking: 'issue', statusDone: 'done' })
+    ]})
 
     expect(dataBase.getData().projects[0].id).toBe(1)
+    expect(dataBase.getData().projects[0].name).toBe('name')
     expect(dataBase.getData().projects[1].id).toBe(2)
+    expect(dataBase.getData().projects[1].name).toBe('name1')
 })

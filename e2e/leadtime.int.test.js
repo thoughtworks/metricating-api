@@ -16,15 +16,15 @@ it('given correct params when initialize data then return correct leadtime', asy
     const dataBase = server.container.resolve('dataBase')
     dataBase.initialize({ tasks: [
         new Task(1, 'User Story', new Date(2018, 11, 19), 'DONE', 1, [
-            new TaskStatus(1, 'BACKLOG', new Date(2018, 11, 3)),
-            new TaskStatus(1, 'ANALYSIS', new Date(2018, 11, 11)),
-            new TaskStatus(1, 'READY TODO', new Date(2018, 11, 12)),
-            new TaskStatus(1, 'DOING', new Date(2018, 11, 13)),
-            new TaskStatus(1, 'READY FOR QA', new Date(2018, 11, 17)),
-            new TaskStatus(1, 'QA', new Date(2018, 11, 18)),
-            new TaskStatus(1, 'Review', new Date(2018, 11, 18)),
-            new TaskStatus(1, 'DONE', new Date(2018, 11, 19)),
-            new TaskStatus(1, 'INPRODUCTION', new Date(2018, 11, 20))
+            new TaskStatus({ taskId: 1, status: 'BACKLOG', createDate: new Date(2018, 11, 3) }),
+            new TaskStatus({ taskId: 1, status: 'ANALYSIS', createDate: new Date(2018, 11, 11) }),
+            new TaskStatus({ taskId: 1, status: 'READY TODO', createDate: new Date(2018, 11, 12) }),
+            new TaskStatus({ taskId: 1, status: 'DOING', createDate: new Date(2018, 11, 13) }),
+            new TaskStatus({ taskId: 1, status: 'READY FOR QA', createDate: new Date(2018, 11, 17) }),
+            new TaskStatus({ taskId: 1, status: 'QA', createDate: new Date(2018, 11, 18) }),
+            new TaskStatus({ taskId: 1, status: 'Review', createDate: new Date(2018, 11, 18) }),
+            new TaskStatus({ taskId: 1, status: 'DONE', createDate: new Date(2018, 11, 19) }),
+            new TaskStatus({ taskId: 1, status: 'INPRODUCTION', createDate: new Date(2018, 11, 20) })
         ])
     ], projects: [
         new Project({ name: 'projectName', issueTracking: 'any', statusDone: ['DONE', 'INPRODUCTION']})

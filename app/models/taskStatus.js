@@ -1,8 +1,10 @@
 class TaskStatus {
-    constructor(taskId, status, createDate) {
-        this.taskId = taskId
-        this.status = status
-        this.createDate = createDate
+    constructor(options) {
+        if (options !== undefined) {
+            this.taskId = options.taskId
+            this.status = options.status
+            this.createDate = options.createDate
+        }
     }
 }
 
