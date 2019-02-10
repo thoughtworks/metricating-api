@@ -32,11 +32,11 @@ describe('when calculate throughput', async () => {
         const period = new Period('2018W51', '2018W52')
         projectService.getProject.mockResolvedValue(new Project())
         throughputRepository.find.mockResolvedValue([
-            new Task(1, 'User Story', new Date(2018, 11, 17), 'done'),
-            new Task(2, 'User Story', new Date(2018, 11, 18), 'done'),
-            new Task(3, 'User Story', new Date(2018, 11, 19), 'done'),
-            new Task(4, 'Bug', new Date(2018, 11, 20), 'done'),
-            new Task(5, 'Bug', new Date(2018, 11, 21), 'done'),
+            new Task({ id: 1, issueType: 'User Story', dateEnd: new Date(2018, 11, 17), status: 'done' }),
+            new Task({ id: 2, issueType: 'User Story', dateEnd: new Date(2018, 11, 18), status: 'done' }),
+            new Task({ id: 3, issueType: 'User Story', dateEnd: new Date(2018, 11, 19), status: 'done' }),
+            new Task({ id: 4, issueType: 'Bug', dateEnd: new Date(2018, 11, 20), status: 'done' }),
+            new Task({ id: 5, issueType: 'Bug', dateEnd: new Date(2018, 11, 21), status: 'done' }),
         ])
 
         const throughput = await throughputService.calculate('projectName', period, ThroughputService.periodTimes.week)
@@ -50,11 +50,11 @@ describe('when calculate throughput', async () => {
         const period = new Period('2018W50', '2018W52')
         projectService.getProject.mockResolvedValue(new Project())
         throughputRepository.find.mockResolvedValue([
-            new Task(1, 'User Story', new Date(2018, 11, 10), 'done'),
-            new Task(2, 'User Story', new Date(2018, 11, 13), 'done'),
-            new Task(3, 'User Story', new Date(2018, 11, 19), 'done'),
-            new Task(4, 'Bug', new Date(2018, 11, 12), 'done'),
-            new Task(5, 'Bug', new Date(2018, 11, 21), 'done'),
+            new Task({ id: 1, issueType: 'User Story', dateEnd: new Date(2018, 11, 10), status: 'done' }),
+            new Task({ id: 2, issueType: 'User Story', dateEnd: new Date(2018, 11, 13), status: 'done' }),
+            new Task({ id: 3, issueType: 'User Story', dateEnd: new Date(2018, 11, 19), status: 'done' }),
+            new Task({ id: 4, issueType: 'Bug', dateEnd: new Date(2018, 11, 12), status: 'done' }),
+            new Task({ id: 5, issueType: 'Bug', dateEnd: new Date(2018, 11, 21), status: 'done' }),
         ])
 
         const throughput = await throughputService.calculate('projectName', period, ThroughputService.periodTimes.week)
@@ -70,11 +70,11 @@ describe('when calculate throughput', async () => {
         const period = new Period('2018W50', '2018W50')
         projectService.getProject.mockResolvedValue(new Project())
         throughputRepository.find.mockResolvedValue([
-            new Task(1, 'User Story', new Date(2018, 11, 10), 'done'),
-            new Task(2, 'User Story', new Date(2018, 11, 10), 'done'),
-            new Task(3, 'User Story', new Date(2018, 11, 14), 'done'),
-            new Task(4, 'Bug', new Date(2018, 11, 12), 'done'),
-            new Task(5, 'Bug', new Date(2018, 11, 12), 'done'),
+            new Task({ id: 1, issueType: 'User Story', dateEnd: new Date(2018, 11, 10), status: 'done' }),
+            new Task({ id: 2, issueType: 'User Story', dateEnd: new Date(2018, 11, 10), status: 'done' }),
+            new Task({ id: 3, issueType: 'User Story', dateEnd: new Date(2018, 11, 14), status: 'done' }),
+            new Task({ id: 4, issueType: 'Bug', dateEnd: new Date(2018, 11, 12), status: 'done' }),
+            new Task({ id: 5, issueType: 'Bug', dateEnd: new Date(2018, 11, 12), status: 'done' }),
         ])
 
         const throughput = await throughputService.calculate('projectName', period, ThroughputService.periodTimes.day)

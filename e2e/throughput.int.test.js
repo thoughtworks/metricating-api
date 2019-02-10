@@ -14,11 +14,11 @@ it('given any params but without data return empty tasks', async () => {
 it('given correct params when initialize data then return correct throughput', async () => {
     const dataBase = server.container.resolve('dataBase')
     dataBase.initialize({ tasks: [
-        new Task(1, 'User Story', new Date(2018, 11, 17), 'done', 1),
-        new Task(2, 'User Story', new Date(2018, 11, 18), 'done', 1),
-        new Task(3, 'User Story', new Date(2018, 11, 29), 'done', 1),
-        new Task(4, 'Bug', new Date(2018, 11, 20), 'done', 1),
-        new Task(5, 'Bug', new Date(2018, 11, 29), 'done', 1),
+        new Task({ id: 1, issueType: 'User Story', dateEnd: new Date(2018, 11, 17), status: 'done', projectId: 1 }),
+        new Task({ id: 2, issueType: 'User Story', dateEnd: new Date(2018, 11, 18), status: 'done', projectId: 1 }),
+        new Task({ id: 3, issueType: 'User Story', dateEnd: new Date(2018, 11, 29), status: 'done', projectId: 1 }),
+        new Task({ id: 4, issueType: 'Bug', dateEnd: new Date(2018, 11, 20), status: 'done', projectId: 1 }),
+        new Task({ id: 5, issueType: 'Bug', dateEnd: new Date(2018, 11, 29), status: 'done', projectId: 1 }),
     ], projects: [
         new Project({ name: 'projectName', issueTracking: 'any', statusDone: 'done' })
     ]})

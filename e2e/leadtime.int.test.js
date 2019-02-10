@@ -15,7 +15,7 @@ it('given any params but without data return empty tasks', async () => {
 it('given correct params when initialize data then return correct leadtime', async () => {
     const dataBase = server.container.resolve('dataBase')
     dataBase.initialize({ tasks: [
-        new Task(1, 'User Story', new Date(2018, 11, 19), 'DONE', 1, [
+        new Task({ id: 1, issueType: 'User Story', dateEnd: new Date(2018, 11, 19), status: 'DONE', projectId: 1, transitions: [
             new TaskStatus({ taskId: 1, status: 'BACKLOG', createDate: new Date(2018, 11, 3) }),
             new TaskStatus({ taskId: 1, status: 'ANALYSIS', createDate: new Date(2018, 11, 11) }),
             new TaskStatus({ taskId: 1, status: 'READY TODO', createDate: new Date(2018, 11, 12) }),
@@ -25,7 +25,7 @@ it('given correct params when initialize data then return correct leadtime', asy
             new TaskStatus({ taskId: 1, status: 'Review', createDate: new Date(2018, 11, 18) }),
             new TaskStatus({ taskId: 1, status: 'DONE', createDate: new Date(2018, 11, 19) }),
             new TaskStatus({ taskId: 1, status: 'INPRODUCTION', createDate: new Date(2018, 11, 20) })
-        ])
+        ]})
     ], projects: [
         new Project({ name: 'projectName', issueTracking: 'any', statusDone: ['DONE', 'INPRODUCTION']})
     ]})

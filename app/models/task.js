@@ -1,11 +1,13 @@
 class Task {
-    constructor(id, issueType, dateEnd, status, projectId, transitions = []) {
-        this.id = id
-        this.issueType = issueType
-        this.dateEnd = dateEnd
-        this.status = status
-        this.projectId = projectId,
-        this.transitions = transitions
+    constructor(options) {
+        if (options !== undefined) {
+            this.id = options.id
+            this.issueType = options.issueType
+            this.dateEnd = options.dateEnd
+            this.status = options.status
+            this.projectId = options.projectId,
+            this.transitions = options.transitions === undefined ? [] : options.transitions
+        }
     }
 }
 
