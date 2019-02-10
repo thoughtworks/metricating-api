@@ -31,7 +31,7 @@ beforeEach(() => {
     projectService = new ProjectService({})
     projectRoute = new ProjectRoute({ projectService })
     createService = jest.spyOn(projectService, 'create')
-    project = new Project('ProjectName', 'trello', ['done'])
+    project = new Project({ name: 'ProjectName', issueTracking: 'trello', statusDone: ['done']})
 })
 
 describe('test create a new Project', async () => {

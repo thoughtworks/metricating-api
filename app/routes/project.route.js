@@ -12,7 +12,7 @@ class ProjectRoute {
             return response.status(422).json(errors.array())
         }
         try {
-            const project = await this.projectService.create(new Project(request.body.name, request.body.issueTracking, request.body.statusDone))
+            const project = await this.projectService.create(new Project({ name: request.body.name, issueTracking: request.body.issueTracking, statusDone: request.body.statusDone }))
             response.status(201).send(project)
         } catch (e) {
             return response.status(400).json([{

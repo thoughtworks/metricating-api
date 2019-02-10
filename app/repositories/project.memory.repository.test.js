@@ -6,11 +6,11 @@ const initializeRepository = function () {
     const dataBase = new DataBase()
     const projectRepository = new ProjectInMemoryRepository({ dataBase })
     dataBase.initialize({ projects: [
-        new Project('name1', 'issueTracking1', 'done1'),
-        new Project('name2', 'issueTracking2', 'done2'),
-        new Project('name3', 'issueTracking3', 'done3'),
-        new Project('name4', 'issueTracking4', 'done4'),
-        new Project('name5', 'issueTracking5', 'done5')
+        new Project({ name: 'name1', issueTracking: 'issueTracking1', statusDone: 'done1' }),
+        new Project({ name: 'name2', issueTracking: 'issueTracking2', statusDone: 'done2' }),
+        new Project({ name: 'name3', issueTracking: 'issueTracking3', statusDone: 'done3' }),
+        new Project({ name: 'name4', issueTracking: 'issueTracking4', statusDone: 'done4' }),
+        new Project({ name: 'name5', issueTracking: 'issueTracking5', statusDone: 'done5' })
     ]})
     return projectRepository
 }
@@ -18,7 +18,7 @@ const initializeRepository = function () {
 it('when save new project then stored and set id', async () => {
     const projectRepository = new ProjectInMemoryRepository({ dataBase: new DataBase() })
 
-    await projectRepository.save(new Project('name', 'issueTracking', 'done'))
+    await projectRepository.save(new Project({ name: 'name', issueTracking: 'issueTracking', statusDone: 'done' }))
 
     const project = await projectRepository.find('name')
 

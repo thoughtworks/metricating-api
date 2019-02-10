@@ -20,7 +20,7 @@ it('given correct params when initialize data then return correct throughput', a
         new Task(4, 'Bug', new Date(2018, 11, 20), 'done', 1),
         new Task(5, 'Bug', new Date(2018, 11, 29), 'done', 1),
     ], projects: [
-        new Project('projectName', 'any', 'done')
+        new Project({ name: 'projectName', issueTracking: 'any', statusDone: 'done' })
     ]})
     const response = await request(server.app).get('/throughput/projectName')
         .query({ start: '2018W51', end: '2018W52', periodTime: 'week' })

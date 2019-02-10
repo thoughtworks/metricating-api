@@ -33,7 +33,7 @@ describe('when call calulate leadtime', async () => {
     })
 
     it('when call calulate leadtime for projectName, period and leadtimeTypes.done then return leadtime', async () => {
-        projectService.getProject.mockResolvedValue(new Project('projectName', 'trello', ['DONE']))
+        projectService.getProject.mockResolvedValue(new Project({ name: 'projectName', issueTracking: 'trello', statusDone: ['DONE']}))
         leadtimeRepository.find.mockResolvedValue([
             new Task(1, 'User Story', new Date(2018, 11, 17), 'done', 1, [
                 new TaskStatus(1, 'BACKLOG', new Date(2018, 11, 3)),
@@ -66,7 +66,7 @@ describe('when call calulate leadtime', async () => {
         ])
     })
     it('when call calulate leadtime for projectName, period and leadtimeTypes.wip then return leadtime', async () => {
-        projectService.getProject.mockResolvedValue(new Project('projectName', 'trello', ['DONE']))
+        projectService.getProject.mockResolvedValue(new Project({ name: 'projectName', issueTracking: 'trello', statusDone: ['DONE']}))
         leadtimeRepository.find.mockResolvedValue([
             new Task(1, 'User Story', new Date(2018, 11, 17), 'done', 1, [
                 new TaskStatus(1, 'BACKLOG', new Date(2018, 11, 3)),
@@ -93,7 +93,7 @@ describe('when call calulate leadtime', async () => {
         ])
     })
     it('when project contains two done status and call calulate leadtime for projectName, period and leadtimeTypes.done then return leadtime', async () => {
-        projectService.getProject.mockResolvedValue(new Project('projectName', 'trello', ['DONE', 'INPRODUCTION']))
+        projectService.getProject.mockResolvedValue(new Project({ name: 'projectName', issueTracking: 'trello', statusDone: ['DONE', 'INPRODUCTION']}))
         leadtimeRepository.find.mockResolvedValue([
             new Task(1, 'User Story', new Date(2018, 11, 17), 'done', 1, [
                 new TaskStatus(1, 'BACKLOG', new Date(2018, 11, 3)),

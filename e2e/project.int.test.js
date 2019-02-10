@@ -18,7 +18,7 @@ describe('create new project', () => {
     it('given exists project with the same name when call create a new project then return error', async () => {
         const dataBase = server.container.resolve('dataBase')
         dataBase.initialize({ projects: [
-            new Project('projectName', 'any', 'done')
+            new Project({ name: 'projectName', issueTracking: 'any', statusDone: 'done' })
         ]})
 
         const response = await request(server.app).post('/project')
