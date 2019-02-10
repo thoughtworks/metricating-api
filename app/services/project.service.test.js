@@ -83,3 +83,39 @@ describe('Create new Project', () => {
         expect(error).toEqual(new Error('The name of project is requiered'))
     })
 })
+
+describe('Get Project', () => {
+    it('when getProject with exits name, then retunr project', async () => {
+        const project = new Project('project-name', 'jira', 'done')
+        const projectRepository = new ProjectRepository()
+        jest.spyOn(projectRepository, 'find').mockImplementation(async () => {
+            return project
+        })
+
+        const projectService = new ProjectService({ projectRepository })
+        const getProject = await projectService.getProject('project-name')
+
+        expect(getProject).toEqual(project)
+    })
+
+    it('when getProject with not exits name, then retunr undefined', async () => {
+        const projectRepository = new ProjectRepository()
+        jest.spyOn(projectRepository, 'find').mockImplementation(async () => {
+            return undefined
+        })
+
+        const projectService = new ProjectService({ projectRepository })
+        const getProject = await projectService.getProject('project-name')
+
+        expect(getProject).toEqual(undefined)
+    })
+
+    it('when getProject with null or empty projectName then return error', async () => {
+        const projectService = new ProjectService({ })
+        try {
+            await projectService.getProject()
+        } catch (error) {
+            expect(error).toEqual(new Error('The name of project is requiered'))
+        }
+    })
+})

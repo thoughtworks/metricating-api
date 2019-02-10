@@ -16,6 +16,13 @@ class ProjectService {
             })
         return project
     }
+
+    async getProject(projectName) {
+        if (projectName === null || projectName === undefined || projectName === '') {
+            throw new Error('The name of project is requiered')
+        }
+        return await this.projectRepository.find(projectName)
+    }
 }
 
 export default ProjectService

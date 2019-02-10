@@ -2,27 +2,27 @@ import Period from '../models/period'
 import Project from '../models/project'
 import ThroughputRepository from '../repositories/throughput.repository'
 import Task from '../models/task'
-import ProjectRepository from '../repositories/project.repository'
+import ProjectService from './project.service'
 import ThroughputService from './throughput.service'
 
-jest.mock('../repositories/project.repository')
+jest.mock('./project.service')
 jest.mock('../repositories/throughput.repository')
 
 let throughputRepository = null
-let projectRepository= null
+let projectService= null
 let throughputService = null
 
 beforeEach(() => {
     throughputRepository = new ThroughputRepository()
-    projectRepository= new ProjectRepository()
-    throughputService = new ThroughputService({ throughputRepository, projectRepository })
+    projectService= new ProjectService()
+    throughputService = new ThroughputService({ throughputRepository, projectService })
 })
 
 describe('when calculate throughput', async () => {
     it('given start period and end period then throughput is defined', async () => {
         const period = new Period('2018W50', '2018W51')
         throughputRepository.find.mockResolvedValue([])
-        projectRepository.find.mockResolvedValue(new Project())
+        projectService.getProject.mockResolvedValue(new Project())
         const throughput = await throughputService.calculate('projectName', period, ThroughputService.periodTimes.day)
 
         expect(throughput).toBeDefined()
@@ -30,7 +30,7 @@ describe('when calculate throughput', async () => {
 
     it('given tree user story and two bugs with status done in period then return group by issueType with sum the items.', async () => {
         const period = new Period('2018W51', '2018W52')
-        projectRepository.find.mockResolvedValue(new Project())
+        projectService.getProject.mockResolvedValue(new Project())
         throughputRepository.find.mockResolvedValue([
             new Task(1, 'User Story', new Date(2018, 11, 17), 'done'),
             new Task(2, 'User Story', new Date(2018, 11, 18), 'done'),
@@ -48,7 +48,7 @@ describe('when calculate throughput', async () => {
 
     it('given the period show throughput by weeks', async () => {
         const period = new Period('2018W50', '2018W52')
-        projectRepository.find.mockResolvedValue(new Project())
+        projectService.getProject.mockResolvedValue(new Project())
         throughputRepository.find.mockResolvedValue([
             new Task(1, 'User Story', new Date(2018, 11, 10), 'done'),
             new Task(2, 'User Story', new Date(2018, 11, 13), 'done'),
@@ -68,7 +68,7 @@ describe('when calculate throughput', async () => {
 
     it('given the period show throughput by days', async () => {
         const period = new Period('2018W50', '2018W50')
-        projectRepository.find.mockResolvedValue(new Project())
+        projectService.getProject.mockResolvedValue(new Project())
         throughputRepository.find.mockResolvedValue([
             new Task(1, 'User Story', new Date(2018, 11, 10), 'done'),
             new Task(2, 'User Story', new Date(2018, 11, 10), 'done'),
@@ -86,7 +86,7 @@ describe('when calculate throughput', async () => {
     })
 
     it('when not found project then error', async () => {
-        projectRepository.find.mockResolvedValue(null)
+        projectService.getProject.mockResolvedValue(null)
         let error
         try {
             await throughputService.calculate('projectNotFound', null, ThroughputService.periodTimes.day)

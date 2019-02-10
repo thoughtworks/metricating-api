@@ -4,12 +4,12 @@ import moment from 'moment'
 class ThroughputService {
     constructor(options) {
         this.throughputRepository = options.throughputRepository
-        this.projectRepository = options.projectRepository
+        this.projectService = options.projectService
     }
 
     async calculate (projectName, period, periodTime) {
         const _this = this
-        const project = await this.projectRepository.find(projectName)
+        const project = await this.projectService.getProject(projectName)
         if (project === undefined || project === null) {
             throw new Error(`Project ${projectName} not found`)
         }

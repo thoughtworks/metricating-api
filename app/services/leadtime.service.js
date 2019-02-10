@@ -4,10 +4,10 @@ import moment from 'moment-business-days'
 class LeadtimeService {
     constructor(options) {
         this.leadtimeRepository = options.leadtimeRepository
-        this.projectRepository = options.projectRepository
+        this.projectService = options.projectService
     }
     async calculate (projectName, period, leadtimeType) {
-        const project = await this.projectRepository.find(projectName)
+        const project = await this.projectService.getProject(projectName)
         if (project === undefined || project === null) {
             throw new Error(`Project ${projectName} not found`)
         }
