@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A system that collects issue tracker data for metric visualization.",
   "main": "app/index.js",
-  "repository": "https://github.com/piperamirez/metricating-api",
+  "repository": "https://github.com/thoughtworks/metricating-api",
   "scripts": {
     "build": "babel --presets es2015 -d dist/ app",
     "start": "npm run build && node dist/index.js",
