@@ -5,6 +5,13 @@ jest.mock('jira-client')
 
 it('initializes as a singleton', () => {
     expect(JiraClient).toHaveBeenCalledTimes(1)
+    expect(JiraClient).toHaveBeenCalledWith(
+        expect.objectContaining({
+            protocol: 'https',
+            apiVersion: '2',
+            strictSSL: true,
+        })
+    )
 })
 
 it('fetches board configuration and statuses on init', () => {
