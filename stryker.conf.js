@@ -10,6 +10,7 @@ module.exports = function(config) {
             'app/**/*.js',
             'app/**/*.json',
             '!app/**/*.spike.test.js',
+            '!app/index.js',
         ],
         mutate: [
             'app/**/*.js',
