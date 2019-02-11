@@ -1,0 +1,847 @@
+10:28:19 (21662) INFO ConfigReader Using stryker.conf.js in the current working directory.
+10:28:19 (21662) DEBUG BroadcastReporter Broadcasting to reporters ["clear-text","progress"]
+10:28:19 (21662) DEBUG ConfigReader Loading config stryker.conf.js
+10:28:19 (21662) DEBUG PluginLoader Loading stryker-* from /Users/framirez/Documents/projects/metricating/metricating-api/node_modules
+10:28:19 (21662) DEBUG PluginLoader Loading plugins stryker-javascript-mutator (matched with expression stryker-*)
+10:28:19 (21662) DEBUG PluginLoader Loading plugins stryker-jest-runner (matched with expression stryker-*)
+10:28:19 (21662) DEBUG PluginLoader Loading plugins stryker-javascript-mutator
+10:28:19 (21662) DEBUG PluginLoader Loading plugins stryker-jest-runner
+10:28:19 (21662) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/reporters/index.js
+10:28:19 (21662) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/mutators/index.js
+10:28:19 (21662) WARN InputFileResolver No files marked to be mutated, Stryker will perform a dry-run without actually mutating anything. You can configure the `mutate` property in your stryker.conf.js file (or use `--mutate` via command line).
+10:28:19 (21662) DEBUG InputFileResolver All input files: [
+  "/Users/framirez/Documents/projects/metricating/metricating-api/stryker.conf.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/stryker.log",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.babelrc",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.eslintignore",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.eslintrc.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.gitignore",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.travis.yml",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/LICENSE",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/README.md",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/adr/adr-001.md",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/jira/JiraApi.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/jira/JiraApi.spike.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/jira/JiraApi.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/trello/TrelloApi.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/trello/TrelloApi.spike.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/trello/TrelloApi.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/index.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/period.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/period.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/project.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/project.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/task.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/task.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/taskStatus.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/taskStatus.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/inmemory.database.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/inmemory.database.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.memory.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.memory.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.memory.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.memory.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.memory.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.memory.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/healthcheck.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/healthcheck.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/leadtime.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/leadtime.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/leadtime.validate.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/project.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/project.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/project.validate.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/throughput.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/throughput.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/throughput.validate.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/validations/date.validation.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/validations/date.validation.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/leadtime.service.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/leadtime.service.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/project.service.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/project.service.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/throughput.service.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/throughput.service.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/swagger.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/healthcheck.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/leadtime.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/project.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/throughput.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/jest.config.integration.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/jest.config.unit.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/package-lock.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/package.json"
+]
+10:28:19 (21662) DEBUG InputFileResolver Files to mutate: []
+10:28:19 (21662) DEBUG TestFrameworkOrchestrator The `coverageAnalysis` setting is "off", not hooking into the test framework to achieve performance benefits.
+10:28:19 (21662) INFO InitialTestExecutor Starting initial test run. This may take a while.
+10:28:19 (21662) DEBUG Sandbox Creating a sandbox for files in /Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox6514290
+10:28:19 (21662) DEBUG Sandbox Creating test runner 0 using settings {port: %s}
+10:28:19 (21662) DEBUG ChildProcessProxy Starting /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/test-runner/ChildProcessTestRunnerWorker.js in child process 21664
+10:28:19 (21662) DEBUG TimeoutDecorator Starting timeout timer (300000 ms) for a test run
+10:28:19 (21664) DEBUG ChildProcessProxyWorker Changing current working directory for this process to /Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox6514290
+10:28:19 (21664) DEBUG PluginLoader Loading stryker-* from /Users/framirez/Documents/projects/metricating/metricating-api/node_modules
+10:28:19 (21664) DEBUG PluginLoader Loading plugins stryker-javascript-mutator (matched with expression stryker-*)
+10:28:19 (21664) DEBUG PluginLoader Loading plugins stryker-jest-runner (matched with expression stryker-*)
+10:28:19 (21664) DEBUG PluginLoader Loading plugins stryker-javascript-mutator
+10:28:19 (21664) DEBUG PluginLoader Loading plugins stryker-jest-runner
+10:28:19 (21664) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/reporters/index.js
+10:28:19 (21664) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/mutators/index.js
+10:28:19 (21664) DEBUG JestTestRunner Running jest with --findRelatedTests flag. Set jest.enableFindRelatedTests to false to run all tests on every mutant.
+10:28:19 (21664) DEBUG JestTestRunner Project root is /Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox6514290
+10:28:19 (21664) TRACE JestPromiseTestAdapter Invoking Jest with config {"collectCoverage":false,"verbose":false,"bail":false,"rootDir":"/Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox6514290","reporters":[]}
+10:28:26 (21662) TRACE ChildProcessProxy (node:21664) UnhandledPromiseRejectionWarning: RequestError: Error: Invalid URI "https:/rest/agile/1.0/board/undefined/configuration"
+
+10:28:26 (21662) TRACE ChildProcessProxy (node:21664) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 30)
+(node:21664) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+(node:21664) UnhandledPromiseRejectionWarning: RequestError: Error: Invalid URI "https:/rest/api/2/status"
+(node:21664) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 31)
+(node:21664) UnhandledPromiseRejectionWarning: RequestError: Error: Invalid URI "https:/rest/agile/1.0/board/1/configuration"
+(node:21664) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 32)
+(node:21664) UnhandledPromiseRejectionWarning: RequestError: Error: Invalid URI "https:/rest/api/2/status"
+(node:21664) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 33)
+(node:21664) UnhandledPromiseRejectionWarning: RequestError: Error: Invalid URI "https:/rest/agile/1.0/board/1/issue?startAt=0&maxResults=50&jql=&validateQuery=true&fields="
+(node:21664) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 34)
+
+10:28:29 (21662) DEBUG ChildProcessProxy Disposing of worker process 21664
+10:28:29 (21662) DEBUG ChildProcessProxy Kill 21664
+10:34:25 (21907) INFO ConfigReader Using stryker.conf.js in the current working directory.
+10:34:25 (21907) DEBUG BroadcastReporter Broadcasting to reporters ["clear-text","progress"]
+10:34:25 (21907) DEBUG ConfigReader Loading config stryker.conf.js
+10:34:25 (21907) DEBUG PluginLoader Loading stryker-* from /Users/framirez/Documents/projects/metricating/metricating-api/node_modules
+10:34:25 (21907) DEBUG PluginLoader Loading plugins stryker-javascript-mutator (matched with expression stryker-*)
+10:34:25 (21907) DEBUG PluginLoader Loading plugins stryker-jest-runner (matched with expression stryker-*)
+10:34:25 (21907) DEBUG PluginLoader Loading plugins stryker-javascript-mutator
+10:34:25 (21907) DEBUG PluginLoader Loading plugins stryker-jest-runner
+10:34:25 (21907) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/reporters/index.js
+10:34:25 (21907) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/mutators/index.js
+10:34:25 (21907) WARN InputFileResolver No files marked to be mutated, Stryker will perform a dry-run without actually mutating anything. You can configure the `mutate` property in your stryker.conf.js file (or use `--mutate` via command line).
+10:34:25 (21907) DEBUG InputFileResolver All input files: [
+  "/Users/framirez/Documents/projects/metricating/metricating-api/stryker.conf.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/stryker.log",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.babelrc",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.eslintignore",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.eslintrc.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.gitignore",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.travis.yml",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/LICENSE",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/README.md",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/adr/adr-001.md",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/jira/JiraApi.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/jira/JiraApi.spike.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/jira/JiraApi.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/trello/TrelloApi.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/trello/TrelloApi.spike.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/trello/TrelloApi.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/index.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/period.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/period.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/project.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/project.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/task.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/task.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/taskStatus.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/taskStatus.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/inmemory.database.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/inmemory.database.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.memory.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.memory.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.memory.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.memory.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.memory.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.memory.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/healthcheck.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/healthcheck.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/leadtime.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/leadtime.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/leadtime.validate.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/project.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/project.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/project.validate.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/throughput.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/throughput.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/throughput.validate.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/validations/date.validation.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/validations/date.validation.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/leadtime.service.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/leadtime.service.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/project.service.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/project.service.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/throughput.service.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/throughput.service.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/swagger.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/healthcheck.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/leadtime.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/project.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/throughput.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/jest.config.integration.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/jest.config.unit.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/package-lock.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/package.json"
+]
+10:34:25 (21907) DEBUG InputFileResolver Files to mutate: []
+10:34:25 (21907) DEBUG TestFrameworkOrchestrator The `coverageAnalysis` setting is "off", not hooking into the test framework to achieve performance benefits.
+10:34:25 (21907) INFO InitialTestExecutor Starting initial test run. This may take a while.
+10:34:25 (21907) DEBUG Sandbox Creating a sandbox for files in /Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox5055298
+10:34:25 (21907) DEBUG Sandbox Creating test runner 0 using settings {port: %s}
+10:34:25 (21907) DEBUG ChildProcessProxy Starting /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/test-runner/ChildProcessTestRunnerWorker.js in child process 21909
+10:34:26 (21907) DEBUG TimeoutDecorator Starting timeout timer (300000 ms) for a test run
+10:34:26 (21909) DEBUG ChildProcessProxyWorker Changing current working directory for this process to /Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox5055298
+10:34:26 (21909) DEBUG PluginLoader Loading stryker-* from /Users/framirez/Documents/projects/metricating/metricating-api/node_modules
+10:34:26 (21909) DEBUG PluginLoader Loading plugins stryker-javascript-mutator (matched with expression stryker-*)
+10:34:26 (21909) DEBUG PluginLoader Loading plugins stryker-jest-runner (matched with expression stryker-*)
+10:34:26 (21909) DEBUG PluginLoader Loading plugins stryker-javascript-mutator
+10:34:26 (21909) DEBUG PluginLoader Loading plugins stryker-jest-runner
+10:34:26 (21909) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/reporters/index.js
+10:34:26 (21909) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/mutators/index.js
+10:34:26 (21909) DEBUG JestTestRunner Running jest with --findRelatedTests flag. Set jest.enableFindRelatedTests to false to run all tests on every mutant.
+10:34:26 (21909) DEBUG JestTestRunner Project root is /Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox5055298
+10:34:26 (21909) TRACE JestPromiseTestAdapter Invoking Jest with config {"collectCoverage":false,"verbose":false,"bail":false,"rootDir":"/Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox5055298","reporters":[]}
+10:34:33 (21907) TRACE ChildProcessProxy (node:21909) UnhandledPromiseRejectionWarning: RequestError: Error: Invalid URI "https:/rest/agile/1.0/board/undefined/configuration"
+
+10:34:33 (21907) TRACE ChildProcessProxy (node:21909) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 30)
+(node:21909) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+(node:21909) UnhandledPromiseRejectionWarning: RequestError: Error: Invalid URI "https:/rest/api/2/status"
+(node:21909) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 31)
+(node:21909) UnhandledPromiseRejectionWarning: RequestError: Error: Invalid URI "https:/rest/agile/1.0/board/1/configuration"
+(node:21909) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 32)
+(node:21909) UnhandledPromiseRejectionWarning: RequestError: Error: Invalid URI "https:/rest/api/2/status"
+(node:21909) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 33)
+(node:21909) UnhandledPromiseRejectionWarning: RequestError: Error: Invalid URI "https:/rest/agile/1.0/board/1/issue?startAt=0&maxResults=50&jql=&validateQuery=true&fields="
+(node:21909) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 34)
+
+10:34:36 (21907) DEBUG ChildProcessProxy Disposing of worker process 21909
+10:34:36 (21907) DEBUG ChildProcessProxy Kill 21909
+10:51:09 (22335) INFO ConfigReader Using stryker.conf.js in the current working directory.
+10:51:09 (22335) DEBUG BroadcastReporter Broadcasting to reporters ["clear-text","progress"]
+10:51:09 (22335) DEBUG ConfigReader Loading config stryker.conf.js
+10:51:09 (22335) DEBUG PluginLoader Loading stryker-* from /Users/framirez/Documents/projects/metricating/metricating-api/node_modules
+10:51:09 (22335) DEBUG PluginLoader Loading plugins stryker-javascript-mutator (matched with expression stryker-*)
+10:51:09 (22335) DEBUG PluginLoader Loading plugins stryker-jest-runner (matched with expression stryker-*)
+10:51:09 (22335) DEBUG PluginLoader Loading plugins stryker-javascript-mutator
+10:51:09 (22335) DEBUG PluginLoader Loading plugins stryker-jest-runner
+10:51:09 (22335) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/reporters/index.js
+10:51:09 (22335) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/mutators/index.js
+10:51:09 (22335) WARN InputFileResolver No files marked to be mutated, Stryker will perform a dry-run without actually mutating anything. You can configure the `mutate` property in your stryker.conf.js file (or use `--mutate` via command line).
+10:51:09 (22335) DEBUG InputFileResolver All input files: [
+  "/Users/framirez/Documents/projects/metricating/metricating-api/stryker.conf.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/stryker.log",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.babelrc",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.eslintignore",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.eslintrc.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.gitignore",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.travis.yml",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/LICENSE",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/README.md",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/adr/adr-001.md",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/jira/JiraApi.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/jira/JiraApi.spike.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/jira/JiraApi.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/trello/TrelloApi.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/trello/TrelloApi.spike.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/trello/TrelloApi.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/index.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/period.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/period.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/project.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/project.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/task.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/task.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/taskStatus.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/taskStatus.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/inmemory.database.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/inmemory.database.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.memory.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.memory.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.memory.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.memory.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.memory.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.memory.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/healthcheck.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/healthcheck.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/leadtime.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/leadtime.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/leadtime.validate.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/project.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/project.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/project.validate.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/throughput.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/throughput.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/throughput.validate.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/validations/date.validation.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/validations/date.validation.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/leadtime.service.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/leadtime.service.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/project.service.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/project.service.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/throughput.service.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/throughput.service.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/swagger.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/healthcheck.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/leadtime.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/project.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/throughput.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/jest.config.integration.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/jest.config.unit.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/package-lock.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/package.json"
+]
+10:51:09 (22335) DEBUG InputFileResolver Files to mutate: []
+10:51:09 (22335) DEBUG TestFrameworkOrchestrator The `coverageAnalysis` setting is "off", not hooking into the test framework to achieve performance benefits.
+10:51:09 (22335) INFO InitialTestExecutor Starting initial test run. This may take a while.
+10:51:09 (22335) DEBUG Sandbox Creating a sandbox for files in /Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox8364158
+10:51:09 (22335) DEBUG Sandbox Creating test runner 0 using settings {port: %s}
+10:51:09 (22335) DEBUG ChildProcessProxy Starting /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/test-runner/ChildProcessTestRunnerWorker.js in child process 22337
+10:51:10 (22335) DEBUG TimeoutDecorator Starting timeout timer (300000 ms) for a test run
+10:51:10 (22337) DEBUG ChildProcessProxyWorker Changing current working directory for this process to /Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox8364158
+10:51:10 (22337) DEBUG PluginLoader Loading stryker-* from /Users/framirez/Documents/projects/metricating/metricating-api/node_modules
+10:51:10 (22337) DEBUG PluginLoader Loading plugins stryker-javascript-mutator (matched with expression stryker-*)
+10:51:10 (22337) DEBUG PluginLoader Loading plugins stryker-jest-runner (matched with expression stryker-*)
+10:51:10 (22337) DEBUG PluginLoader Loading plugins stryker-javascript-mutator
+10:51:10 (22337) DEBUG PluginLoader Loading plugins stryker-jest-runner
+10:51:10 (22337) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/reporters/index.js
+10:51:10 (22337) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/mutators/index.js
+10:51:10 (22337) DEBUG JestTestRunner Running jest with --findRelatedTests flag. Set jest.enableFindRelatedTests to false to run all tests on every mutant.
+10:51:10 (22337) DEBUG JestTestRunner Project root is /Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox8364158
+10:51:10 (22337) TRACE JestPromiseTestAdapter Invoking Jest with config {"collectCoverage":false,"verbose":false,"bail":false,"rootDir":"/Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox8364158","reporters":[]}
+10:51:16 (22335) TRACE ChildProcessProxy (node:22337) UnhandledPromiseRejectionWarning: RequestError: Error: Invalid URI "https:/rest/agile/1.0/board/undefined/configuration"
+
+10:51:16 (22335) TRACE ChildProcessProxy (node:22337) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 30)
+(node:22337) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+(node:22337) UnhandledPromiseRejectionWarning: RequestError: Error: Invalid URI "https:/rest/api/2/status"
+(node:22337) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 31)
+(node:22337) UnhandledPromiseRejectionWarning: RequestError: Error: Invalid URI "https:/rest/agile/1.0/board/1/configuration"
+(node:22337) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 32)
+(node:22337) UnhandledPromiseRejectionWarning: RequestError: Error: Invalid URI "https:/rest/api/2/status"
+(node:22337) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 33)
+(node:22337) UnhandledPromiseRejectionWarning: RequestError: Error: Invalid URI "https:/rest/agile/1.0/board/1/issue?startAt=0&maxResults=50&jql=&validateQuery=true&fields="
+(node:22337) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 34)
+
+10:51:19 (22335) DEBUG ChildProcessProxy Disposing of worker process 22337
+10:51:19 (22335) DEBUG ChildProcessProxy Kill 22337
+10:53:52 (22389) INFO ConfigReader Using stryker.conf.js in the current working directory.
+10:53:52 (22389) DEBUG BroadcastReporter Broadcasting to reporters ["clear-text","progress"]
+10:53:52 (22389) DEBUG ConfigReader Loading config stryker.conf.js
+10:53:52 (22389) DEBUG PluginLoader Loading stryker-* from /Users/framirez/Documents/projects/metricating/metricating-api/node_modules
+10:53:52 (22389) DEBUG PluginLoader Loading plugins stryker-javascript-mutator (matched with expression stryker-*)
+10:53:52 (22389) DEBUG PluginLoader Loading plugins stryker-jest-runner (matched with expression stryker-*)
+10:53:52 (22389) DEBUG PluginLoader Loading plugins stryker-javascript-mutator
+10:53:52 (22389) DEBUG PluginLoader Loading plugins stryker-jest-runner
+10:53:52 (22389) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/reporters/index.js
+10:53:52 (22389) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/mutators/index.js
+10:53:52 (22389) WARN InputFileResolver No files marked to be mutated, Stryker will perform a dry-run without actually mutating anything. You can configure the `mutate` property in your stryker.conf.js file (or use `--mutate` via command line).
+10:53:52 (22389) DEBUG InputFileResolver All input files: [
+  "/Users/framirez/Documents/projects/metricating/metricating-api/stryker.conf.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/stryker.log",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.babelrc",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.eslintignore",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.eslintrc.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.gitignore",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.travis.yml",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/LICENSE",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/README.md",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/adr/adr-001.md",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/jira/JiraApi.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/jira/JiraApi.spike.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/jira/JiraApi.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/trello/TrelloApi.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/trello/TrelloApi.spike.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/trello/TrelloApi.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/index.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/period.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/period.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/project.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/project.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/task.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/task.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/taskStatus.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/taskStatus.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/inmemory.database.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/inmemory.database.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.memory.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.memory.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.memory.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.memory.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.memory.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.memory.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/healthcheck.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/healthcheck.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/leadtime.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/leadtime.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/leadtime.validate.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/project.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/project.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/project.validate.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/throughput.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/throughput.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/throughput.validate.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/validations/date.validation.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/validations/date.validation.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/leadtime.service.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/leadtime.service.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/project.service.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/project.service.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/throughput.service.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/throughput.service.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/swagger.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/healthcheck.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/leadtime.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/project.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/throughput.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/jest.config.integration.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/jest.config.unit.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/package-lock.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/package.json"
+]
+10:53:52 (22389) DEBUG InputFileResolver Files to mutate: []
+10:53:52 (22389) DEBUG TestFrameworkOrchestrator The `coverageAnalysis` setting is "off", not hooking into the test framework to achieve performance benefits.
+10:53:52 (22389) INFO InitialTestExecutor Starting initial test run. This may take a while.
+10:53:52 (22389) DEBUG Sandbox Creating a sandbox for files in /Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox4411438
+10:53:52 (22389) DEBUG Sandbox Creating test runner 0 using settings {port: %s}
+10:53:52 (22389) DEBUG ChildProcessProxy Starting /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/test-runner/ChildProcessTestRunnerWorker.js in child process 22393
+10:53:52 (22389) DEBUG TimeoutDecorator Starting timeout timer (300000 ms) for a test run
+10:53:52 (22393) DEBUG ChildProcessProxyWorker Changing current working directory for this process to /Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox4411438
+10:53:52 (22393) DEBUG PluginLoader Loading stryker-* from /Users/framirez/Documents/projects/metricating/metricating-api/node_modules
+10:53:52 (22393) DEBUG PluginLoader Loading plugins stryker-javascript-mutator (matched with expression stryker-*)
+10:53:52 (22393) DEBUG PluginLoader Loading plugins stryker-jest-runner (matched with expression stryker-*)
+10:53:52 (22393) DEBUG PluginLoader Loading plugins stryker-javascript-mutator
+10:53:52 (22393) DEBUG PluginLoader Loading plugins stryker-jest-runner
+10:53:52 (22393) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/reporters/index.js
+10:53:52 (22393) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/mutators/index.js
+10:53:52 (22393) DEBUG JestTestRunner Running jest with --findRelatedTests flag. Set jest.enableFindRelatedTests to false to run all tests on every mutant.
+10:53:52 (22393) DEBUG JestTestRunner Project root is /Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox4411438
+10:53:52 (22393) TRACE JestPromiseTestAdapter Invoking Jest with config {"collectCoverage":false,"verbose":false,"bail":false,"rootDir":"/Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox4411438","reporters":[]}
+10:53:59 (22389) TRACE ChildProcessProxy (node:22393) UnhandledPromiseRejectionWarning: RequestError: Error: Invalid URI "https:/rest/agile/1.0/board/undefined/configuration"
+
+10:53:59 (22389) TRACE ChildProcessProxy (node:22393) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 30)
+(node:22393) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+(node:22393) UnhandledPromiseRejectionWarning: RequestError: Error: Invalid URI "https:/rest/api/2/status"
+(node:22393) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 31)
+(node:22393) UnhandledPromiseRejectionWarning: RequestError: Error: Invalid URI "https:/rest/agile/1.0/board/1/configuration"
+(node:22393) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 32)
+(node:22393) UnhandledPromiseRejectionWarning: RequestError: Error: Invalid URI "https:/rest/api/2/status"
+(node:22393) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 33)
+(node:22393) UnhandledPromiseRejectionWarning: RequestError: Error: Invalid URI "https:/rest/agile/1.0/board/1/issue?startAt=0&maxResults=50&jql=&validateQuery=true&fields="
+(node:22393) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 34)
+
+10:54:02 (22389) DEBUG ChildProcessProxy Disposing of worker process 22393
+10:54:02 (22389) DEBUG ChildProcessProxy Kill 22393
+10:55:44 (22423) INFO ConfigReader Using stryker.conf.js in the current working directory.
+10:55:44 (22423) DEBUG BroadcastReporter Broadcasting to reporters ["clear-text","progress"]
+10:55:44 (22423) DEBUG ConfigReader Loading config stryker.conf.js
+10:55:44 (22423) DEBUG PluginLoader Loading stryker-* from /Users/framirez/Documents/projects/metricating/metricating-api/node_modules
+10:55:44 (22423) DEBUG PluginLoader Loading plugins stryker-javascript-mutator (matched with expression stryker-*)
+10:55:44 (22423) DEBUG PluginLoader Loading plugins stryker-jest-runner (matched with expression stryker-*)
+10:55:44 (22423) DEBUG PluginLoader Loading plugins stryker-javascript-mutator
+10:55:44 (22423) DEBUG PluginLoader Loading plugins stryker-jest-runner
+10:55:44 (22423) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/reporters/index.js
+10:55:44 (22423) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/mutators/index.js
+10:55:44 (22423) WARN InputFileResolver No files marked to be mutated, Stryker will perform a dry-run without actually mutating anything. You can configure the `mutate` property in your stryker.conf.js file (or use `--mutate` via command line).
+10:55:44 (22423) DEBUG InputFileResolver All input files: [
+  "/Users/framirez/Documents/projects/metricating/metricating-api/stryker.conf.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/stryker.log",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.babelrc",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.eslintignore",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.eslintrc.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.gitignore",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.travis.yml",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/LICENSE",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/README.md",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/adr/adr-001.md",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/jira/JiraApi.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/jira/JiraApi.spike.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/jira/JiraApi.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/trello/TrelloApi.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/trello/TrelloApi.spike.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/trello/TrelloApi.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/index.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/period.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/period.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/project.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/project.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/task.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/task.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/taskStatus.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/taskStatus.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/inmemory.database.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/inmemory.database.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.memory.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.memory.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.memory.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.memory.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.memory.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.memory.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/healthcheck.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/healthcheck.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/leadtime.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/leadtime.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/leadtime.validate.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/project.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/project.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/project.validate.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/throughput.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/throughput.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/throughput.validate.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/validations/date.validation.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/validations/date.validation.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/leadtime.service.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/leadtime.service.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/project.service.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/project.service.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/throughput.service.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/throughput.service.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/swagger.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/healthcheck.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/leadtime.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/project.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/throughput.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/jest.config.integration.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/jest.config.unit.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/package-lock.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/package.json"
+]
+10:55:44 (22423) DEBUG InputFileResolver Files to mutate: []
+10:55:44 (22423) DEBUG TestFrameworkOrchestrator The `coverageAnalysis` setting is "off", not hooking into the test framework to achieve performance benefits.
+10:55:44 (22423) INFO InitialTestExecutor Starting initial test run. This may take a while.
+10:55:44 (22423) DEBUG Sandbox Creating a sandbox for files in /Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox610278
+10:55:44 (22423) DEBUG Sandbox Creating test runner 0 using settings {port: %s}
+10:55:44 (22423) DEBUG ChildProcessProxy Starting /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/test-runner/ChildProcessTestRunnerWorker.js in child process 22426
+10:55:44 (22423) DEBUG TimeoutDecorator Starting timeout timer (300000 ms) for a test run
+10:55:44 (22426) DEBUG ChildProcessProxyWorker Changing current working directory for this process to /Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox610278
+10:55:44 (22426) DEBUG PluginLoader Loading stryker-* from /Users/framirez/Documents/projects/metricating/metricating-api/node_modules
+10:55:44 (22426) DEBUG PluginLoader Loading plugins stryker-javascript-mutator (matched with expression stryker-*)
+10:55:44 (22426) DEBUG PluginLoader Loading plugins stryker-jest-runner (matched with expression stryker-*)
+10:55:44 (22426) DEBUG PluginLoader Loading plugins stryker-javascript-mutator
+10:55:44 (22426) DEBUG PluginLoader Loading plugins stryker-jest-runner
+10:55:44 (22426) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/reporters/index.js
+10:55:44 (22426) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/mutators/index.js
+10:55:44 (22426) DEBUG JestTestRunner Running jest with --findRelatedTests flag. Set jest.enableFindRelatedTests to false to run all tests on every mutant.
+10:55:44 (22426) DEBUG JestTestRunner Project root is /Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox610278
+10:55:44 (22426) TRACE JestPromiseTestAdapter Invoking Jest with config {"collectCoverage":false,"verbose":false,"bail":false,"rootDir":"/Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox610278","reporters":[]}
+10:55:53 (22423) DEBUG ChildProcessProxy Disposing of worker process 22426
+10:55:53 (22423) DEBUG ChildProcessProxy Kill 22426
+10:58:56 (22469) INFO ConfigReader Using stryker.conf.js in the current working directory.
+10:58:56 (22469) DEBUG BroadcastReporter Broadcasting to reporters ["clear-text","progress"]
+10:58:56 (22469) DEBUG ConfigReader Loading config stryker.conf.js
+10:58:56 (22469) DEBUG PluginLoader Loading stryker-* from /Users/framirez/Documents/projects/metricating/metricating-api/node_modules
+10:58:56 (22469) DEBUG PluginLoader Loading plugins stryker-javascript-mutator (matched with expression stryker-*)
+10:58:56 (22469) DEBUG PluginLoader Loading plugins stryker-jest-runner (matched with expression stryker-*)
+10:58:56 (22469) DEBUG PluginLoader Loading plugins stryker-javascript-mutator
+10:58:56 (22469) DEBUG PluginLoader Loading plugins stryker-jest-runner
+10:58:56 (22469) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/reporters/index.js
+10:58:56 (22469) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/mutators/index.js
+10:58:56 (22469) WARN InputFileResolver No files marked to be mutated, Stryker will perform a dry-run without actually mutating anything. You can configure the `mutate` property in your stryker.conf.js file (or use `--mutate` via command line).
+10:58:56 (22469) DEBUG InputFileResolver All input files: [
+  "/Users/framirez/Documents/projects/metricating/metricating-api/stryker.conf.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/stryker.log",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.babelrc",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.eslintignore",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.eslintrc.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.gitignore",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.travis.yml",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/LICENSE",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/README.md",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/adr/adr-001.md",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/jira/JiraApi.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/jira/JiraApi.spike.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/jira/JiraApi.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/trello/TrelloApi.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/trello/TrelloApi.spike.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/trello/TrelloApi.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/index.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/period.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/period.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/project.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/project.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/task.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/task.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/taskStatus.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/taskStatus.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/inmemory.database.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/inmemory.database.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.memory.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.memory.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.memory.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.memory.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.memory.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.memory.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/healthcheck.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/healthcheck.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/leadtime.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/leadtime.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/leadtime.validate.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/project.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/project.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/project.validate.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/throughput.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/throughput.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/throughput.validate.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/validations/date.validation.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/validations/date.validation.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/leadtime.service.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/leadtime.service.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/project.service.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/project.service.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/throughput.service.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/throughput.service.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/swagger.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/healthcheck.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/leadtime.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/project.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/throughput.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/jest.config.integration.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/jest.config.unit.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/package-lock.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/package.json"
+]
+10:58:56 (22469) DEBUG InputFileResolver Files to mutate: []
+10:58:56 (22469) DEBUG TestFrameworkOrchestrator The `coverageAnalysis` setting is "off", not hooking into the test framework to achieve performance benefits.
+10:58:56 (22469) INFO InitialTestExecutor Starting initial test run. This may take a while.
+10:58:56 (22469) DEBUG Sandbox Creating a sandbox for files in /Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox4586928
+10:58:56 (22469) DEBUG Sandbox Creating test runner 0 using settings {port: %s}
+10:58:56 (22469) DEBUG ChildProcessProxy Starting /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/test-runner/ChildProcessTestRunnerWorker.js in child process 22472
+10:58:56 (22469) DEBUG TimeoutDecorator Starting timeout timer (300000 ms) for a test run
+10:58:56 (22472) DEBUG ChildProcessProxyWorker Changing current working directory for this process to /Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox4586928
+10:58:56 (22472) DEBUG PluginLoader Loading stryker-* from /Users/framirez/Documents/projects/metricating/metricating-api/node_modules
+10:58:56 (22472) DEBUG PluginLoader Loading plugins stryker-javascript-mutator (matched with expression stryker-*)
+10:58:56 (22472) DEBUG PluginLoader Loading plugins stryker-jest-runner (matched with expression stryker-*)
+10:58:56 (22472) DEBUG PluginLoader Loading plugins stryker-javascript-mutator
+10:58:56 (22472) DEBUG PluginLoader Loading plugins stryker-jest-runner
+10:58:56 (22472) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/reporters/index.js
+10:58:56 (22472) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/mutators/index.js
+10:58:56 (22472) DEBUG JestTestRunner Running jest with --findRelatedTests flag. Set jest.enableFindRelatedTests to false to run all tests on every mutant.
+10:58:56 (22472) DEBUG JestTestRunner Project root is /Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox4586928
+10:58:56 (22472) TRACE JestPromiseTestAdapter Invoking Jest with config {"collectCoverage":false,"verbose":false,"bail":false,"rootDir":"/Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox4586928","reporters":[]}
+10:59:06 (22469) DEBUG ChildProcessProxy Disposing of worker process 22472
+10:59:06 (22469) DEBUG ChildProcessProxy Kill 22472
+11:00:56 (22629) INFO ConfigReader Using stryker.conf.js in the current working directory.
+11:00:56 (22629) DEBUG BroadcastReporter Broadcasting to reporters ["clear-text","progress"]
+11:00:56 (22629) DEBUG ConfigReader Loading config stryker.conf.js
+11:00:56 (22629) DEBUG PluginLoader Loading stryker-* from /Users/framirez/Documents/projects/metricating/metricating-api/node_modules
+11:00:56 (22629) DEBUG PluginLoader Loading plugins stryker-javascript-mutator (matched with expression stryker-*)
+11:00:56 (22629) DEBUG PluginLoader Loading plugins stryker-jest-runner (matched with expression stryker-*)
+11:00:56 (22629) DEBUG PluginLoader Loading plugins stryker-javascript-mutator
+11:00:56 (22629) DEBUG PluginLoader Loading plugins stryker-jest-runner
+11:00:56 (22629) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/reporters/index.js
+11:00:56 (22629) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/mutators/index.js
+11:00:56 (22629) WARN InputFileResolver No files marked to be mutated, Stryker will perform a dry-run without actually mutating anything. You can configure the `mutate` property in your stryker.conf.js file (or use `--mutate` via command line).
+11:00:56 (22629) DEBUG InputFileResolver All input files: [
+  "/Users/framirez/Documents/projects/metricating/metricating-api/stryker.conf.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/stryker.log",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.babelrc",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.eslintignore",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.eslintrc.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.gitignore",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/.travis.yml",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/LICENSE",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/README.md",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/adr/adr-001.md",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/jira/JiraApi.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/jira/JiraApi.spike.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/jira/JiraApi.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/trello/TrelloApi.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/trello/TrelloApi.spike.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/trello/TrelloApi.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/index.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/period.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/period.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/project.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/project.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/task.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/task.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/taskStatus.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/taskStatus.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/inmemory.database.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/inmemory.database.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.memory.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.memory.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.memory.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.memory.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.memory.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.memory.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.repository.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/healthcheck.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/healthcheck.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/leadtime.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/leadtime.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/leadtime.validate.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/project.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/project.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/project.validate.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/throughput.route.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/throughput.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/throughput.validate.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/validations/date.validation.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/validations/date.validation.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/leadtime.service.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/leadtime.service.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/project.service.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/project.service.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/throughput.service.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/throughput.service.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/swagger.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/healthcheck.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/leadtime.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/project.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/throughput.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/jest.config.integration.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/jest.config.unit.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/package-lock.json",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/package.json"
+]
+11:00:56 (22629) DEBUG InputFileResolver Files to mutate: []
+11:00:56 (22629) DEBUG TestFrameworkOrchestrator The `coverageAnalysis` setting is "off", not hooking into the test framework to achieve performance benefits.
+11:00:56 (22629) INFO InitialTestExecutor Starting initial test run. This may take a while.
+11:00:56 (22629) DEBUG Sandbox Creating a sandbox for files in /Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox4847285
+11:00:56 (22629) DEBUG Sandbox Creating test runner 0 using settings {port: %s}
+11:00:56 (22629) DEBUG ChildProcessProxy Starting /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/test-runner/ChildProcessTestRunnerWorker.js in child process 22631
+11:00:56 (22629) DEBUG TimeoutDecorator Starting timeout timer (300000 ms) for a test run
+11:00:56 (22631) DEBUG ChildProcessProxyWorker Changing current working directory for this process to /Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox4847285
+11:00:56 (22631) DEBUG PluginLoader Loading stryker-* from /Users/framirez/Documents/projects/metricating/metricating-api/node_modules
+11:00:56 (22631) DEBUG PluginLoader Loading plugins stryker-javascript-mutator (matched with expression stryker-*)
+11:00:56 (22631) DEBUG PluginLoader Loading plugins stryker-jest-runner (matched with expression stryker-*)
+11:00:56 (22631) DEBUG PluginLoader Loading plugins stryker-javascript-mutator
+11:00:56 (22631) DEBUG PluginLoader Loading plugins stryker-jest-runner
+11:00:56 (22631) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/reporters/index.js
+11:00:56 (22631) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/mutators/index.js
+11:00:56 (22631) DEBUG JestTestRunner Running jest with --findRelatedTests flag. Set jest.enableFindRelatedTests to false to run all tests on every mutant.
+11:00:56 (22631) DEBUG JestTestRunner Project root is /Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox4847285
+11:00:56 (22631) TRACE JestPromiseTestAdapter Invoking Jest with config {"collectCoverage":false,"verbose":false,"bail":false,"rootDir":"/Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox4847285","reporters":[]}
+11:01:07 (22629) DEBUG ChildProcessProxy Disposing of worker process 22631
+11:01:07 (22629) DEBUG ChildProcessProxy Kill 22631
+11:08:08 (22729) INFO ConfigReader Using stryker.conf.js in the current working directory.
+11:08:08 (22729) DEBUG BroadcastReporter Broadcasting to reporters ["clear-text","progress"]
+11:08:08 (22729) DEBUG ConfigReader Loading config stryker.conf.js
+11:08:08 (22729) DEBUG PluginLoader Loading stryker-* from /Users/framirez/Documents/projects/metricating/metricating-api/node_modules
+11:08:08 (22729) DEBUG PluginLoader Loading plugins stryker-javascript-mutator (matched with expression stryker-*)
+11:08:08 (22729) DEBUG PluginLoader Loading plugins stryker-jest-runner (matched with expression stryker-*)
+11:08:08 (22729) DEBUG PluginLoader Loading plugins stryker-javascript-mutator
+11:08:08 (22729) DEBUG PluginLoader Loading plugins stryker-jest-runner
+11:08:08 (22729) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/reporters/index.js
+11:08:08 (22729) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/mutators/index.js
+11:08:13 (22729) WARN InputFileResolver No files marked to be mutated, Stryker will perform a dry-run without actually mutating anything. You can configure the `mutate` property in your stryker.conf.js file (or use `--mutate` via command line).
+11:08:13 (22729) DEBUG InputFileResolver All input files: [
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/jira/JiraApi.spike.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/jira/JiraApi.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/trello/TrelloApi.spike.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/apis/trello/TrelloApi.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/period.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/project.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/task.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/models/taskStatus.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/inmemory.database.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.memory.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/leadtime.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.memory.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/project.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.memory.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/repositories/throughput.repository.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/healthcheck.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/leadtime.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/leadtime.validate.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/project.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/project.validate.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/throughput.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/throughput.validate.route.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/routes/validations/date.validation.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/leadtime.service.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/project.service.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/app/services/throughput.service.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/healthcheck.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/leadtime.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/project.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/e2e/throughput.int.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/processors/__tests__/snapshot-processor.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/consistent-test-it.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/expect-expect.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/lowercase-name.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/no-alias-methods.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/no-disabled-tests.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/no-focused-tests.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/no-hooks.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/no-identical-title.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/no-jasmine-globals.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/no-jest-import.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/no-large-snapshots.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/no-test-callback.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/no-test-prefixes.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/no-test-return-statement.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/no-truthy-falsy.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/prefer-expect-assertions.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/prefer-inline-snapshots.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/prefer-spy-on.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/prefer-strict-equal.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/prefer-to-be-null.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/prefer-to-be-undefined.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/prefer-to-contain.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/prefer-to-have-length.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/prefer-todo.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/require-tothrow-message.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/valid-describe.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/valid-expect-in-promise.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/eslint-plugin-jest/rules/__tests__/valid-expect.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/jest-when/src/log.test.js",
+  "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules/jest-when/src/when.test.js"
+]
+11:08:13 (22729) DEBUG InputFileResolver Files to mutate: []
+11:08:13 (22729) DEBUG TestFrameworkOrchestrator The `coverageAnalysis` setting is "off", not hooking into the test framework to achieve performance benefits.
+11:08:13 (22729) INFO InitialTestExecutor Starting initial test run. This may take a while.
+11:08:13 (22729) DEBUG Sandbox Creating a sandbox for files in /Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox5757346
+11:08:13 (22729) WARN Sandbox Could not symlink "/Users/framirez/Documents/projects/metricating/metricating-api/node_modules" in sandbox directory, it is already created in the sandbox. Please remove the node_modules from your sandbox files. Alternatively, set `symlinkNodeModules` to `false` to disable this warning.
+11:08:13 (22729) DEBUG Sandbox Creating test runner 0 using settings {port: %s}
+11:08:13 (22729) DEBUG ChildProcessProxy Starting /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/test-runner/ChildProcessTestRunnerWorker.js in child process 22730
+11:08:13 (22729) DEBUG TimeoutDecorator Starting timeout timer (300000 ms) for a test run
+11:08:13 (22730) DEBUG ChildProcessProxyWorker Changing current working directory for this process to /Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox5757346
+11:08:13 (22730) DEBUG PluginLoader Loading stryker-* from /Users/framirez/Documents/projects/metricating/metricating-api/node_modules
+11:08:13 (22730) DEBUG PluginLoader Loading plugins stryker-javascript-mutator (matched with expression stryker-*)
+11:08:13 (22730) DEBUG PluginLoader Loading plugins stryker-jest-runner (matched with expression stryker-*)
+11:08:13 (22730) DEBUG PluginLoader Loading plugins stryker-javascript-mutator
+11:08:13 (22730) DEBUG PluginLoader Loading plugins stryker-jest-runner
+11:08:13 (22730) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/reporters/index.js
+11:08:13 (22730) DEBUG PluginLoader Loading plugins /Users/framirez/Documents/projects/metricating/metricating-api/node_modules/stryker/src/mutators/index.js
+11:08:13 (22730) DEBUG JestTestRunner Running jest with --findRelatedTests flag. Set jest.enableFindRelatedTests to false to run all tests on every mutant.
+11:08:13 (22730) DEBUG JestTestRunner Project root is /Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox5757346
+11:08:13 (22730) TRACE JestPromiseTestAdapter Invoking Jest with config {"collectCoverage":false,"verbose":false,"bail":false,"rootDir":"/Users/framirez/Documents/projects/metricating/metricating-api/.stryker-tmp/sandbox5757346","reporters":[]}
+11:08:17 (22729) DEBUG ChildProcessProxy Disposing of worker process 22730
+11:08:17 (22729) DEBUG ChildProcessProxy Kill 22730

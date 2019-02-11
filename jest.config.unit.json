@@ -16,7 +16,8 @@
     "/node_modules/",
     "/e2e/",
     "/dist/",
-    ".*\\.spike\\.*."
+    ".*\\.spike\\.*.",
+    ".stryker-tmp"
   ],
   "coverageDirectory": ".coverage/"
 }

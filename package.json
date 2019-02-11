@@ -5,12 +5,13 @@
   "main": "app/index.js",
   "repository": "https://github.com/piperamirez/metricating-api",
   "scripts": {
-    "test": "jest -c jest.config.unit.json --watch",
-    "test-int": "NODE_ENV=test jest --watch -c jest.config.integration.json",
     "build": "babel --presets es2015 -d dist/ app",
     "start": "npm run build && node dist/index.js",
+    "test": "jest --testPathIgnorePatterns .stryker-tmp --watch",
+    "test-int": "NODE_ENV=test jest --watch -c jest.config.integration.json",
     "test-unit-ci": "jest -c jest.config.unit.json --coverage",
     "test-int-ci": "jest -c jest.config.integration.json",
+    "test-mutate": "stryker run",
     "awesome": "npm run test-unit-ci && npm run test-int-ci && npx eslint app",
     "👌": "npm run awesome",
     "lint": "npx eslint app",
@@ -43,6 +44,10 @@
     "jest": "^23.6.0",
     "jest-when": "^2.2.0",
     "node-mocks-http": "^1.7.3",
+    "stryker": "^0.35.0",
+    "stryker-api": "^0.24.0",
+    "stryker-javascript-mutator": "^0.14.0",
+    "stryker-jest-runner": "^1.4.0",
     "supertest": "^3.4.2"
   }
 }

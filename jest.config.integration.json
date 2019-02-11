@@ -16,7 +16,8 @@
     "/node_modules/",
     ".*\\.spike\\.*.",
     "/app/",
-    "/dist/"
+    "/dist/",
+    ".stryker-tmp"
   ],
   "coverageDirectory": ".coverage/"
 }
