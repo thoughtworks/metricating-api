@@ -7,8 +7,13 @@ module.exports = function(config) {
         transpilers: [],
         coverageAnalysis: 'off',
         files: [
-            '**/*.test.js',
-            '**/*.spike.test.js'
-        ]
+            'app/**/*.js',
+            'app/**/*.json',
+            '!app/**/*.spike.test.js',
+        ],
+        mutate: [
+            'app/**/*.js',
+            '!app/**/*.test.js',
+        ],
     })
 }
