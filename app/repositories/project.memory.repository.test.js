@@ -1,3 +1,4 @@
+import { fail } from 'assert'
 import Project from '../models/project'
 import ProjectInMemoryRepository from './project.memory.repository'
 import DataBase from './inmemory.database'
@@ -14,6 +15,32 @@ const initializeRepository = function () {
     ]})
     return projectRepository
 }
+it('when constructor is emtpy parameters then error', async () => {
+    try {
+        new ProjectInMemoryRepository()
+        fail()
+    } catch (error) {
+        expect(error).toMatchObject(new Error('DataBase is not defined'))
+    }
+})
+
+it('when constructor is undefined parameters then error', async () => {
+    try {
+        new ProjectInMemoryRepository(undefined)
+        fail()
+    } catch (error) {
+        expect(error).toMatchObject(new Error('DataBase is not defined'))
+    }
+})
+
+it('when database is undefined parameters then error', async () => {
+    try {
+        new ProjectInMemoryRepository({ database: undefined })
+        fail()
+    } catch (error) {
+        expect(error).toMatchObject(new Error('DataBase is not defined'))
+    }
+})
 
 it('when save new project then stored and set id', async () => {
     const projectRepository = new ProjectInMemoryRepository({ dataBase: new DataBase() })

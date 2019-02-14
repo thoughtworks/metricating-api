@@ -4,7 +4,11 @@ import ProjectRepository from './project.repository'
 class ProjectInMemoryRepository extends ProjectRepository {
     constructor(options) {
         super()
-        this.dataBase = options.dataBase
+        if (options!== undefined && options.dataBase !== undefined) {
+            this.dataBase = options.dataBase
+        } else {
+            throw new Error('DataBase is not defined')
+        }
     }
     async find(projectName) {
         return _.find(this.dataBase.getData().projects, function(project) {

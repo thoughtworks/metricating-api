@@ -4,7 +4,11 @@ import ThroughputRepository from './throughput.repository'
 class ThroughputInMemoryRepository extends ThroughputRepository {
     constructor(options) {
         super()
-        this.dataBase = options.dataBase
+        if (options!== undefined && options.dataBase !== undefined) {
+            this.dataBase = options.dataBase
+        } else {
+            throw new Error('DataBase is not defined')
+        }
     }
     async find(projectId, period) {
         return _.filter(this.dataBase.getData().tasks, function(task) {

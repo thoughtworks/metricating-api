@@ -1,3 +1,4 @@
+import { fail } from 'assert'
 import Period from '../models/period'
 import Task from '../models/task'
 import ThroughputInMemoryRepository from './throughput.memory.repository'
@@ -12,9 +13,37 @@ const initializeRepository = function () {
         new Task({ id: 3, issueType: 'User Story', dateEnd: new Date(2018, 11, 19), status: 'done', projectId: 1 }),
         new Task({ id: 4, issueType: 'Bug', dateEnd: new Date(2018, 11, 12), status: 'done', projectId: 1 }),
         new Task({ id: 5, issueType: 'Bug', dateEnd: new Date(2018, 11, 17), status: 'done', projectId: 1 }),
+        new Task({ id: 6, issueType: 'Bug', dateEnd: new Date(2018, 11, 17), status: 'done', projectId: 3 }),
+        new Task({ id: 7, issueType: 'User Story', dateEnd: new Date(2018, 11, 9), status: 'done', projectId: 1 })
     ]})
     return throughputRepository
 }
+it('when constructor is emtpy parameters then error', async () => {
+    try {
+        new ThroughputInMemoryRepository()
+        fail()
+    } catch (error) {
+        expect(error).toMatchObject(new Error('DataBase is not defined'))
+    }
+})
+
+it('when constructor is undefined parameters then error', async () => {
+    try {
+        new ThroughputInMemoryRepository(undefined)
+        fail()
+    } catch (error) {
+        expect(error).toMatchObject(new Error('DataBase is not defined'))
+    }
+})
+
+it('when database is undefined parameters then error', async () => {
+    try {
+        new ThroughputInMemoryRepository({ database: undefined })
+        fail()
+    } catch (error) {
+        expect(error).toMatchObject(new Error('DataBase is not defined'))
+    }
+})
 
 it('when finding with a period of one week then return all task withing this week', async () => {
     const period = new Period('2018W50', '2018W51')
@@ -35,7 +64,7 @@ it('given a period has no tasks when find then return empty array', async () => 
 })
 
 it('given not found projectId then return empty array', async () => {
-    const period = new Period('2018W30', '2018W31')
+    const period = new Period('2018W50', '2018W51')
 
     const tasks = await initializeRepository().find(2, period)
 
