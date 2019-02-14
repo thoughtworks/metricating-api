@@ -4,3 +4,4 @@ dist
 .env
 .stryker-tmp
 *.log
+reports

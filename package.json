@@ -7,7 +7,7 @@
   "scripts": {
     "build": "babel --presets es2015 -d dist/ app",
     "start": "npm run build && node dist/index.js",
-    "test": "jest --testPathIgnorePatterns .stryker-tmp --watch",
+    "test": "jest --testPathIgnorePatterns .stryker-tmp dist/ --watch",
     "test-int": "NODE_ENV=test jest --watch -c jest.config.integration.json",
     "test-unit-ci": "jest -c jest.config.unit.json --coverage",
     "test-int-ci": "jest -c jest.config.integration.json",
@@ -46,6 +46,7 @@
     "node-mocks-http": "^1.7.3",
     "stryker": "^0.35.0",
     "stryker-api": "^0.24.0",
+    "stryker-html-reporter": "^0.18.1",
     "stryker-javascript-mutator": "^0.14.0",
     "stryker-jest-runner": "^1.4.0",
     "supertest": "^3.4.2"
