@@ -42,7 +42,7 @@ describe('test validation definition', () => {
 
     it('leadtimeType field is in done or wip values with message "must be a "done" or "wip" values" ', () => {
         const validators = _.filter(result, (check) => check._context.fields[0] === 'leadtimeType')
-        expect(validators.find((val) => val._context.validators[0].message === 'must be a "done" or "wip" values' && val._context.validators[0].validator === isIn)).toBeTruthy()
+        expect(validators.find((val) => val._context.validators[0].message === 'must be a "done" or "wip" values' && val._context.validators[0].options[0][0] === 'done' && val._context.validators[0].options[0][1] === 'wip' && val._context.validators[0].validator === isIn)).toBeTruthy()
     })
 
     it('start field is valid format with message "it is invalid format" ', () => {

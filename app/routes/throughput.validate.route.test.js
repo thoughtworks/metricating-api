@@ -44,7 +44,7 @@ describe('test validation definition', () => {
 
     it('periodTime field is in day or week values with message "must be a "day" or "week" values" ', () => {
         const periodTimeValidations = _.filter(result, (check) => check._context.fields[0] === 'periodTime')
-        expect(periodTimeValidations.find((val) => val._context.validators[0].message === 'must be a "day" or "week" values' && val._context.validators[0].validator === isIn)).toBeTruthy()
+        expect(periodTimeValidations.find((val) => val._context.validators[0].message === 'must be a "day" or "week" values' && val._context.validators[0].options[0][0] === 'day' && val._context.validators[0].options[0][1] === 'week' && val._context.validators[0].validator === isIn)).toBeTruthy()
     })
 
     it('start field is valid format with message "it is invalid format" ', () => {
