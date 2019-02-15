@@ -6,6 +6,7 @@ module.exports = function(config) {
         testRunner: 'jest',
         transpilers: [],
         coverageAnalysis: 'off',
+        thresholds: { high: 99, low: 95, break: 90 },
         files: [
             'app/**/*.js',
             'app/**/*.json',
