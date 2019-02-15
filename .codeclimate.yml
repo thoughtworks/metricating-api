@@ -2,8 +2,8 @@ version: "2"
 prepare:
   fetch:
     - url: "https://raw.githubusercontent.com/thoughtworks/metricating-api/master/.codeclimate.yml"
+      path: "codeclimate.yml"
 checks:
-  checks:
   argument-count:
     enabled: true
     config:
