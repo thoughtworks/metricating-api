@@ -3,10 +3,30 @@ import ProjectRepository from '../repositories/project.repository'
 import ProjectService from './project.service'
 
 describe('Create new Project', () => {
-    it('given a new project name, then create new project', async () => {
+    it('when find project return null and given a new project name, then create new project', async () => {
         let project = new Project({ name: 'project-name', issueTracking: 'jira', statusDone: 'cardEnding' })
         const projectRepository = new ProjectRepository()
         jest.spyOn(projectRepository, 'find').mockImplementation(async () => null)
+        jest.spyOn(projectRepository, 'save').mockImplementation(async () => {
+            project.id = 1
+            return project
+        })
+
+        const projectService = new ProjectService({ projectRepository })
+
+        project = await projectService.create(project)
+
+        expect(project.id).not.toBeNull()
+        expect(project.id).not.toBeUndefined()
+        expect(project.name).toBe('project-name')
+        expect(project.issueTracking).toBe('jira')
+        expect(project.statusDone).toBe('cardEnding')
+    })
+
+    it('when find project return undefined and given a new project name, then create new project', async () => {
+        let project = new Project({ name: 'project-name', issueTracking: 'jira', statusDone: 'cardEnding' })
+        const projectRepository = new ProjectRepository()
+        jest.spyOn(projectRepository, 'find').mockImplementation(async () => undefined)
         jest.spyOn(projectRepository, 'save').mockImplementation(async () => {
             project.id = 1
             return project
@@ -110,10 +130,28 @@ describe('Get Project', () => {
         expect(getProject).toEqual(undefined)
     })
 
-    it('when getProject with null or empty projectName then return error', async () => {
+    it('when getProject with null projectName then return error', async () => {
         const projectService = new ProjectService({ })
         try {
-            await projectService.getProject()
+            await projectService.getProject(null)
+        } catch (error) {
+            expect(error).toEqual(new Error('The name of project is requiered'))
+        }
+    })
+
+    it('when getProject with empty projectName then return error', async () => {
+        const projectService = new ProjectService({ })
+        try {
+            await projectService.getProject('')
+        } catch (error) {
+            expect(error).toEqual(new Error('The name of project is requiered'))
+        }
+    })
+
+    it('when getProject with undefined projectName then return error', async () => {
+        const projectService = new ProjectService({ })
+        try {
+            await projectService.getProject(undefined)
         } catch (error) {
             expect(error).toEqual(new Error('The name of project is requiered'))
         }
