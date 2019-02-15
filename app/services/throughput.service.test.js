@@ -86,7 +86,7 @@ describe('when calculate throughput', async () => {
     })
 
     it('when not found project then error', async () => {
-        projectService.getProject.mockResolvedValue(null)
+        projectService.getProject.mockResolvedValue(undefined)
         let error
         try {
             await throughputService.calculate('projectNotFound', null, ThroughputService.periodTimes.day)
@@ -95,5 +95,15 @@ describe('when calculate throughput', async () => {
         }
 
         expect(error).toEqual(new Error('Project projectNotFound not found'))
+    })
+})
+
+describe('definition ThroughputService.periodTimes', () => {
+    it('ThroughputService.periodTimes.day is "day"', () => {
+        expect(ThroughputService.periodTimes.day).toBe('day')
+    })
+
+    it('ThroughputService.periodTimes.day is "week"', () => {
+        expect(ThroughputService.periodTimes.week).toBe('week')
     })
 })
