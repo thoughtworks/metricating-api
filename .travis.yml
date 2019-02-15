@@ -6,17 +6,24 @@ cache:
     - node_modules
 install:
   - npm install
-before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
 
-script:
-  - npm run build
-  - npm run lint
-  - npm run test-unit-ci
-  - npm run test-int-ci
-  - npm run test-mutate
+before_script:
+  - bash ./.travis_before.sh type
+
+jobs:
+  include:
+    - stage: "Normal"
+      script: npm run build \
+              npm run lint \
+              npm run test-unit-ci \
+              npm run test-int-ci
+    - stage: "Cron Train"
+      if: type = cron
+      script: npm run build \
+              npm run lint \
+              npm run test-unit-ci \
+              npm run test-int-ci \
+              npm run test-mutate
 
 after_script:
   - ./cc-test-reporter format-coverage -t lcov .coverage/lcov.info
