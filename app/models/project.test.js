@@ -15,3 +15,9 @@ it('when set constructor with undefined parameter then al properties is undefine
     expect(project.issueTracking).toBe(undefined)
     expect(project.statusDone).toBe(undefined)
 })
+
+it('when set constructor with id parameter then al property id is defined', () => {
+    const project = new Project({ id: 1 })
+
+    expect(project.id).toBe(1)
+})
