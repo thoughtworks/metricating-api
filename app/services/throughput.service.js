@@ -10,7 +10,7 @@ class ThroughputService {
     async calculate (projectName, period, periodTime) {
         const _this = this
         const project = await this.projectService.getProject(projectName)
-        if (project === undefined || project === null) {
+        if (project === undefined) {
             throw new Error(`Project ${projectName} not found`)
         }
         return await this.throughputRepository.find(project.id, period).then(tasks => {

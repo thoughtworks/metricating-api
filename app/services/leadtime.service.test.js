@@ -1,3 +1,4 @@
+import { when } from 'jest-when'
 import LeadtimeRepository from '../repositories/leadtime.repository'
 import Period from '../models/period'
 import Project from '../models/project'
@@ -21,7 +22,7 @@ beforeEach(() => {
 
 describe('when call calulate leadtime', async () => {
     it('given project not found then throw new Error', async () => {
-        projectService.getProject.mockResolvedValue(null)
+        projectService.getProject.mockResolvedValue(undefined)
         let error
         try {
             await leadtimeService.calculate('projectNotFound', null, LeadtimeService.leadtimeTypes.done)
@@ -33,8 +34,9 @@ describe('when call calulate leadtime', async () => {
     })
 
     it('when call calulate leadtime for projectName, period and leadtimeTypes.done then return leadtime', async () => {
-        projectService.getProject.mockResolvedValue(new Project({ name: 'projectName', issueTracking: 'trello', statusDone: ['DONE']}))
-        leadtimeRepository.find.mockResolvedValue([
+        const period = new Period('2019W01', '2019W03')
+        when(projectService.getProject).calledWith('projectName').mockResolvedValue(new Project({ id: 1, name: 'projectName', issueTracking: 'trello', statusDone: ['DONE']}))
+        when(leadtimeRepository.find).calledWith(1, period, true).mockResolvedValue([
             new Task({ id: 1, issueType: 'User Story', dateEnd: new Date(2018, 11, 17), status: 'done', projectId: 1, transitions: [
                 new TaskStatus({ taskId: 1, status: 'BACKLOG', createDate: new Date(2018, 11, 3) }),
                 new TaskStatus({ taskId: 1, status: 'ANALYSIS', createDate: new Date(2018, 11, 11) }),
@@ -47,7 +49,7 @@ describe('when call calulate leadtime', async () => {
             ]})
         ])
 
-        const result = await leadtimeService.calculate('projectName', new Period('2019W01', '2019W03'), LeadtimeService.leadtimeTypes.done)
+        const result = await leadtimeService.calculate('projectName', period, LeadtimeService.leadtimeTypes.done)
 
         expect(result).toBeDefined()
         expect(result).toMatchObject([
@@ -66,8 +68,9 @@ describe('when call calulate leadtime', async () => {
         ])
     })
     it('when call calulate leadtime for projectName, period and leadtimeTypes.wip then return leadtime', async () => {
-        projectService.getProject.mockResolvedValue(new Project({ name: 'projectName', issueTracking: 'trello', statusDone: ['DONE']}))
-        leadtimeRepository.find.mockResolvedValue([
+        const period = new Period('2019W01', '2019W03')
+        when(projectService.getProject).calledWith('projectName').mockResolvedValue(new Project({ id: 1, name: 'projectName', issueTracking: 'trello', statusDone: ['DONE']}))
+        when(leadtimeRepository.find).calledWith(1, period, false).mockResolvedValue([
             new Task({ id: 1, issueType: 'User Story', dateEnd: new Date(2018, 11, 17), status: 'done', projectId: 1, transitions: [
                 new TaskStatus({ taskId: 1, status: 'BACKLOG', createDate: new Date(2018, 11, 3) }),
                 new TaskStatus({ taskId: 1, status: 'ANALYSIS', createDate: new Date(2018, 11, 11) }),
@@ -77,7 +80,7 @@ describe('when call calulate leadtime', async () => {
             ]})
         ])
 
-        const result = await leadtimeService.calculate('projectName', new Period('2019W01', '2019W03'), LeadtimeService.leadtimeTypes.wip)
+        const result = await leadtimeService.calculate('projectName', period, LeadtimeService.leadtimeTypes.wip)
 
         expect(result).toBeDefined()
         expect(result).toMatchObject([
@@ -93,8 +96,9 @@ describe('when call calulate leadtime', async () => {
         ])
     })
     it('when project contains two done status and call calulate leadtime for projectName, period and leadtimeTypes.done then return leadtime', async () => {
-        projectService.getProject.mockResolvedValue(new Project({ name: 'projectName', issueTracking: 'trello', statusDone: ['DONE', 'INPRODUCTION']}))
-        leadtimeRepository.find.mockResolvedValue([
+        const period = new Period('2019W01', '2019W03')
+        when(projectService.getProject).calledWith('projectName').mockResolvedValue(new Project({ id: 1, name: 'projectName', issueTracking: 'trello', statusDone: ['DONE', 'INPRODUCTION']}))
+        when(leadtimeRepository.find).calledWith(1, period, true).mockResolvedValue([
             new Task({ id: 1, issueType: 'User Story', dateEnd: new Date(2018, 11, 17), status: 'done', projectId: 1, transitions: [
                 new TaskStatus({ taskId: 1, status: 'BACKLOG', createDate: new Date(2018, 11, 3) }),
                 new TaskStatus({ taskId: 1, status: 'ANALYSIS', createDate: new Date(2018, 11, 11) }),
@@ -108,7 +112,7 @@ describe('when call calulate leadtime', async () => {
             ]})
         ])
 
-        const result = await leadtimeService.calculate('projectName', new Period('2019W01', '2019W03'), LeadtimeService.leadtimeTypes.done)
+        const result = await leadtimeService.calculate('projectName', period, LeadtimeService.leadtimeTypes.done)
 
         expect(result).toBeDefined()
         expect(result).toMatchObject([
@@ -125,5 +129,14 @@ describe('when call calulate leadtime', async () => {
                 ],
             }
         ])
+    })
+})
+
+describe('definition for LeadtimeService.leadtimeTypes', () => {
+    it('LeadtimeService.leadtimeTypes.done is "done"', () => {
+        expect(LeadtimeService.leadtimeTypes.done).toBe('done')
+    })
+    it('LeadtimeService.leadtimeTypes.done is "wip"', () => {
+        expect(LeadtimeService.leadtimeTypes.wip).toBe('wip')
     })
 })
