@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/thoughtworks/metricating-api.svg?branch=master)](https://travis-ci.org/thoughtworks/metricating-api)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/677dcd02ddf99b3bf8c1/test_coverage)](https://codeclimate.com/github/thoughtworks/metricating-api/test_coverage)
+[![Mutation testing badge](https://badge.stryker-mutator.io/github.com/thoughtworks/metricating-api/master)](https://stryker-mutator.github.io)
 [![Maintainability](https://api.codeclimate.com/v1/badges/677dcd02ddf99b3bf8c1/maintainability)](https://codeclimate.com/github/thoughtworks/metricating-api/maintainability)
 [![Known Vulnerabilities](https://snyk.io/test/github/thoughtworks/metricating-api/badge.svg)](https://snyk.io/test/github/thoughtworks/metricating-api)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/thoughtworks/metricating-api.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/thoughtworks/metricating-api/alerts/)
