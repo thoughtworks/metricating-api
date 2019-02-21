@@ -20,7 +20,10 @@ const defaultRequest = function() {
         body: {
             name: 'ProjectName',
             issueTracking: 'trello',
-            statusDone: ['done']
+            backlogList: ['BACKLOG'],
+            workingList: ['ANALYSIS', 'DOING', 'QA', 'Review'],
+            waitList: ['READY TODO', 'READY FOR QA'],
+            doneList: ['DONE']
         }
     })
 }
@@ -31,11 +34,11 @@ beforeEach(() => {
     projectService = new ProjectService({})
     projectRoute = new ProjectRoute({ projectService })
     createService = jest.spyOn(projectService, 'create')
-    project = new Project({ name: 'ProjectName', issueTracking: 'trello', statusDone: ['done']})
+    project = new Project({ name: 'ProjectName', issueTracking: 'trello', backlogList: ['BACKLOG'], workingList: ['ANALYSIS', 'DOING', 'QA', 'Review'], waitList: ['READY TODO', 'READY FOR QA'], doneList: ['DONE']})
 })
 
 describe('test create a new Project', async () => {
-    it('given name, issueTracking and statusDone in body request then create a new Project', async () => {
+    it('given name, issueTracking and status in body request then create a new Project', async () => {
         createService.mockResolvedValue(project)
         await validationResult.mockImplementation(() => {
             return {

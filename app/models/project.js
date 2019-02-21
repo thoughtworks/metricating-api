@@ -3,8 +3,11 @@ class Project {
         if (options !== undefined) {
             this.id = options.id
             this.name = options.name
+            this.backlogList = options.backlogList
+            this.workingList = options.workingList
+            this.waitList = options.waitList
+            this.doneList = options.doneList
             this.issueTracking = options.issueTracking
-            this.statusDone = options.statusDone
         }
     }
 }

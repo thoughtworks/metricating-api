@@ -19,8 +19,8 @@ it('when initilize projects then set ids', () => {
     const dataBase = new DataBase()
 
     dataBase.initialize({ projects: [
-        new Project({ name: 'name', issueTracking: 'issue', statusDone: 'done' }),
-        new Project({ name: 'name1', issueTracking: 'issue', statusDone: 'done' })
+        new Project({ name: 'name', issueTracking: 'issue', backlogList: ['backlog'], workingList: ['doing'], waitList: ['ready to do'], doneList: ['done']}),
+        new Project({ name: 'name1', issueTracking: 'issue', backlogList: ['backlog'], workingList: ['doing'], waitList: ['ready to do'], doneList: ['done']})
     ]})
 
     expect(dataBase.getData().projects[0].id).toBe(1)

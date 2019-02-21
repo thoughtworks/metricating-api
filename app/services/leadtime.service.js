@@ -17,7 +17,7 @@ class LeadtimeService {
             const leadtimes = []
             for (let i = 1; i < task.transitions.length; i++) {
                 const taskStatus = task.transitions[i]
-                if (_.indexOf(project.statusDone, taskStatus.status) >= 0 || task.transitions.length - 1 === i) {
+                if (_.indexOf(project.doneList, taskStatus.status) >= 0 || task.transitions.length - 1 === i) {
                     break
                 }
                 leadtimes.push({

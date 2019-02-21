@@ -321,9 +321,27 @@
         "issueTracking": {
           "type": "string"
         },
-        "statusDone":{
+        "backlogList":{
           "type": "array",
           "items":{
+            "type": "string"
+          }
+        },
+        "workingList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "waitList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "doneList": {
+          "type": "array",
+          "items": {
             "type": "string"
           }
         }

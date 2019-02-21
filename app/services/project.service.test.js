@@ -2,9 +2,14 @@ import Project from '../models/project'
 import ProjectRepository from '../repositories/project.repository'
 import ProjectService from './project.service'
 
+let project = null
+
+beforeEach(() => {
+    project = new Project({ id: 1, name: 'project-name', issueTracking: 'jira', backlogList: ['BACKLOG'], workingList: ['ANALYSIS', 'DOING', 'QA', 'Review'], waitList: ['READY TODO', 'READY FOR QA'], doneList: ['DONE']})
+})
+
 describe('Create new Project', () => {
     it('when find project return null and given a new project name, then create new project', async () => {
-        let project = new Project({ name: 'project-name', issueTracking: 'jira', statusDone: 'cardEnding' })
         const projectRepository = new ProjectRepository()
         jest.spyOn(projectRepository, 'find').mockImplementation(async () => null)
         jest.spyOn(projectRepository, 'save').mockImplementation(async () => {
@@ -20,11 +25,10 @@ describe('Create new Project', () => {
         expect(project.id).not.toBeUndefined()
         expect(project.name).toBe('project-name')
         expect(project.issueTracking).toBe('jira')
-        expect(project.statusDone).toBe('cardEnding')
+        expect(project.doneList[0]).toBe('DONE')
     })
 
     it('when find project return undefined and given a new project name, then create new project', async () => {
-        let project = new Project({ name: 'project-name', issueTracking: 'jira', statusDone: 'cardEnding' })
         const projectRepository = new ProjectRepository()
         jest.spyOn(projectRepository, 'find').mockImplementation(async () => undefined)
         jest.spyOn(projectRepository, 'save').mockImplementation(async () => {
@@ -40,11 +44,10 @@ describe('Create new Project', () => {
         expect(project.id).not.toBeUndefined()
         expect(project.name).toBe('project-name')
         expect(project.issueTracking).toBe('jira')
-        expect(project.statusDone).toBe('cardEnding')
+        expect(project.doneList[0]).toBe('DONE')
     })
 
     it('given a exists project name when create, then throw Exits exception', async () => {
-        const project = new Project({ name: 'project-name', issueTracking: 'jira', statusDone: 'done' })
         const projectRepository = new ProjectRepository()
         jest.spyOn(projectRepository, 'find').mockImplementation(async (name) => {
             return new Project(name, '')
@@ -62,8 +65,7 @@ describe('Create new Project', () => {
     })
 
     it('given project with null name then throw argument exception', async () => {
-        const project = new Project({ name: null, issueTracking: 'jira', statusDone: 'done' })
-
+        project.name = null
         const projectService = new ProjectService({})
         let error
         try {
@@ -76,8 +78,7 @@ describe('Create new Project', () => {
     })
 
     it('given project with undefined name then throw argument exception', async () => {
-        const project = new Project({ name: undefined, issueTracking: 'jira', statusDone: 'done' })
-
+        project.name = undefined
         const projectService = new ProjectService({})
         let error
         try {
@@ -90,7 +91,7 @@ describe('Create new Project', () => {
     })
 
     it('given project with empty name then throw argument exception', async () => {
-        const project = new Project({ name: '', issueTracking: 'jira', statusDone: 'done' })
+        project.name = ''
 
         const projectService = new ProjectService({})
         let error
@@ -106,7 +107,6 @@ describe('Create new Project', () => {
 
 describe('Get Project', () => {
     it('when getProject with exits name, then retunr project', async () => {
-        const project = new Project({ name: 'project-name', issueTracking: 'jira', statusDone: 'done' })
         const projectRepository = new ProjectRepository()
         jest.spyOn(projectRepository, 'find').mockImplementation(async () => {
             return project

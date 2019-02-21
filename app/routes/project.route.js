@@ -12,7 +12,15 @@ class ProjectRoute {
             return response.status(422).json(errors.array())
         }
         try {
-            const project = await this.projectService.create(new Project({ name: request.body.name, issueTracking: request.body.issueTracking, statusDone: request.body.statusDone }))
+            const projectOptions = {
+                name: request.body.name,
+                issueTracking: request.body.issueTracking,
+                backlogList: request.body.backlogList,
+                workingList: request.body.workingList,
+                waitList: request.body.waitList,
+                doneList: request.body.doneList
+            }
+            const project = await this.projectService.create(new Project(projectOptions))
             response.status(201).send(project)
         } catch (e) {
             return response.status(400).json([{
@@ -25,7 +33,9 @@ class ProjectRoute {
         return [
             body('name').not().isEmpty().withMessage('it is mandatory'),
             body('issueTracking').not().isEmpty().withMessage('it is mandatory'),
-            body('statusDone').not().isEmpty().withMessage('it is mandatory')
+            body('backlogList').not().isEmpty().withMessage('it is mandatory'),
+            body('workingList').not().isEmpty().withMessage('it is mandatory'),
+            body('doneList').not().isEmpty().withMessage('it is mandatory')
         ]
     }
 }

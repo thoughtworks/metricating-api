@@ -27,7 +27,7 @@ it('given correct params when initialize data then return correct leadtime', asy
             new TaskStatus({ taskId: 1, status: 'INPRODUCTION', createDate: new Date(2018, 11, 20) })
         ]})
     ], projects: [
-        new Project({ name: 'projectName', issueTracking: 'any', statusDone: ['DONE', 'INPRODUCTION']})
+        new Project({ name: 'projectName', issueTracking: 'any', backlogList: ['BACKLOG'], workingList: ['ANALYSIS', 'DOING', 'QA', 'Review'], waitList: ['READY TODO', 'READY FOR QA'], doneList: ['DONE', 'INPRODUCTION']})
     ]})
     const response = await request(server.app).get('/leadtime/projectName')
         .query({ start: '2018W51', end: '2018W52', leadtimeType: 'done' })
