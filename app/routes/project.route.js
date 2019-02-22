@@ -1,5 +1,5 @@
 import { validationResult, body } from 'express-validator/check'
-import Project from '../models/project'
+import ProjectFactory from '../models/projectFactory'
 
 class ProjectRoute {
     constructor(options) {
@@ -12,15 +12,7 @@ class ProjectRoute {
             return response.status(422).json(errors.array())
         }
         try {
-            const projectOptions = {
-                name: request.body.name,
-                issueTracking: request.body.issueTracking,
-                backlogList: request.body.backlogList,
-                workingList: request.body.workingList,
-                waitList: request.body.waitList,
-                doneList: request.body.doneList
-            }
-            const project = await this.projectService.create(new Project(projectOptions))
+            const project = await this.projectService.create(ProjectFactory.instanceProject(request.body))
             response.status(201).send(project)
         } catch (e) {
             return response.status(400).json([{

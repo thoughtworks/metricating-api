@@ -10,7 +10,7 @@ describe('create new project', () => {
 
         expect(response.body.id).toBe(1)
         expect(response.body.name).toBe('ProjectName')
-        expect(response.body.issueTracking).toBe('Trello')
+        expect(response.body.issueTracking).toBe('trello')
         expect(response.body.backlogList).toMatchObject(['BACKLOG'])
         expect(response.body.workingList).toMatchObject(['ANALYSIS', 'DOING', 'QA', 'Review'])
         expect(response.body.waitList).toMatchObject(['READY TODO', 'READY FOR QA'])

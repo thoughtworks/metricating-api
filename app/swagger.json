@@ -59,7 +59,7 @@
         "parameters": [{
           "name": "body",
           "in": "body",
-          "description": "Projecr",
+          "description": "Project",
           "required": true,
           "schema": {
             "$ref": "#/definitions/Project"

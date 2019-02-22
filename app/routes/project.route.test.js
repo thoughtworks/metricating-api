@@ -1,6 +1,6 @@
 import httpMocks from 'node-mocks-http'
 import { validationResult } from 'express-validator/check'
-import Project from '../models/project'
+import ProjectTrello from '../models/projectTrello'
 import ProjectService from '../services/project.service.js'
 import ProjectRoute from './project.route'
 
@@ -23,7 +23,10 @@ const defaultRequest = function() {
             backlogList: ['BACKLOG'],
             workingList: ['ANALYSIS', 'DOING', 'QA', 'Review'],
             waitList: ['READY TODO', 'READY FOR QA'],
-            doneList: ['DONE']
+            doneList: ['DONE'],
+            apiKey: 'apiKey',
+            apiToken: 'apiToken',
+            boardUrl: 'boardUrl'
         }
     })
 }
@@ -34,11 +37,11 @@ beforeEach(() => {
     projectService = new ProjectService({})
     projectRoute = new ProjectRoute({ projectService })
     createService = jest.spyOn(projectService, 'create')
-    project = new Project({ name: 'ProjectName', issueTracking: 'trello', backlogList: ['BACKLOG'], workingList: ['ANALYSIS', 'DOING', 'QA', 'Review'], waitList: ['READY TODO', 'READY FOR QA'], doneList: ['DONE']})
+    project = new ProjectTrello({ name: 'ProjectName', issueTracking: 'trello', backlogList: ['BACKLOG'], workingList: ['ANALYSIS', 'DOING', 'QA', 'Review'], waitList: ['READY TODO', 'READY FOR QA'], doneList: ['DONE'], apiKey: 'apiKey', apiToken: 'apiToken', boardUrl: 'boardUrl' })
 })
 
-describe('test create a new Project', async () => {
-    it('given name, issueTracking and status in body request then create a new Project', async () => {
+describe('test create a new Project for Trello', async () => {
+    it('given name, issueTracking, status and trello apikey, apiToken and url in body request then create a new ProjectTrello', async () => {
         createService.mockResolvedValue(project)
         await validationResult.mockImplementation(() => {
             return {
