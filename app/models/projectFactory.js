@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import ProjectTrello from './projectTrello'
 
 class ProjectFactory {
@@ -23,9 +24,7 @@ class ProjectFactory {
     }
 
     static __dataIsValid(data) {
-        return data !== undefined &&
-                data !== null &&
-                data !== '' &&
+        return _.isPlainObject(data) &&
                 data.issueTracking !== undefined &&
                 data.issueTracking !== null &&
                 data.issueTracking !== ''
