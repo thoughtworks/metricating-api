@@ -1,9 +1,11 @@
 import ProjectTrello from './projectTrello'
 import ProjectFactory from './projectFactory'
 
+let body
+
 describe('instance Trello', () => {
-    it('when issueTracker is trello then return new TrelloProject', () => {
-        const body = {
+    beforeEach(() => {
+        body = {
             name: 'ProjectName',
             issueTracking: 'trello',
             backlogList: ['BACKLOG'],
@@ -14,6 +16,9 @@ describe('instance Trello', () => {
             apiToken: 'apiToken',
             boardUrl: 'boardUrl'
         }
+    })
+
+    it('when issueTracker is trello then return new TrelloProject', () => {
         const projectTrello = new ProjectTrello({ name: 'ProjectName', issueTracking: 'trello', backlogList: ['BACKLOG'], workingList: ['ANALYSIS', 'DOING', 'QA', 'Review'], waitList: ['READY TODO', 'READY FOR QA'], doneList: ['DONE'], apiKey: 'apiKey', apiToken: 'apiToken', boardUrl: 'boardUrl' })
         const result = ProjectFactory.instanceProject(body)
 
@@ -22,22 +27,45 @@ describe('instance Trello', () => {
     })
 
     it('when issueTracker is TreLlO then return new TrelloProject', () => {
-        const body = {
-            name: 'ProjectName',
-            issueTracking: 'TreLlO',
-            backlogList: ['BACKLOG'],
-            workingList: ['ANALYSIS', 'DOING', 'QA', 'Review'],
-            waitList: ['READY TODO', 'READY FOR QA'],
-            doneList: ['DONE'],
-            apiKey: 'apiKey',
-            apiToken: 'apiToken',
-            boardUrl: 'boardUrl'
-        }
+        body.issueTracking = 'TreLlO'
         const projectTrello = new ProjectTrello({ name: 'ProjectName', issueTracking: 'trello', backlogList: ['BACKLOG'], workingList: ['ANALYSIS', 'DOING', 'QA', 'Review'], waitList: ['READY TODO', 'READY FOR QA'], doneList: ['DONE'], apiKey: 'apiKey', apiToken: 'apiToken', boardUrl: 'boardUrl' })
         const result = ProjectFactory.instanceProject(body)
 
         expect(result).toBeDefined()
         expect(result).toMatchObject(projectTrello)
+    })
+
+    it('when issueTracker is trello then apiKey is required', () => {
+        body.apiKey = undefined
+        let error
+        try {
+            ProjectFactory.instanceProject(body)
+        } catch (e) {
+            error = e
+        }
+        expect(error).toEqual(new Error('The apiKey is required.'))
+    })
+
+    it('when issueTracker is trello then apiToken is required', () => {
+        body.apiToken = undefined
+        let error
+        try {
+            ProjectFactory.instanceProject(body)
+        } catch (e) {
+            error = e
+        }
+        expect(error).toEqual(new Error('The apiToken is required.'))
+    })
+
+    it('when issueTracker is trello then boardUrl is required', () => {
+        body.boardUrl = undefined
+        let error
+        try {
+            ProjectFactory.instanceProject(body)
+        } catch (e) {
+            error = e
+        }
+        expect(error).toEqual(new Error('The boardUrl is required.'))
     })
 })
 

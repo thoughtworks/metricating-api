@@ -13,6 +13,7 @@ class ProjectFactory {
                 doneList: data.doneList
             }
             if (data.issueTracking.toLowerCase() === 'trello') {
+                ProjectFactory.__trelloValidation(data)
                 projectOptions.apiKey = data.apiKey
                 projectOptions.apiToken = data.apiToken
                 projectOptions.boardUrl = data.boardUrl
@@ -23,11 +24,20 @@ class ProjectFactory {
         throw new Error('The issueTracking is required.')
     }
 
+    static __trelloValidation(data) {
+        if (_.isEmpty(data.apiKey)) {
+            throw new Error('The apiKey is required.')
+        }
+        if (_.isEmpty(data.apiToken)) {
+            throw new Error('The apiToken is required.')
+        }
+        if (_.isEmpty(data.boardUrl)) {
+            throw new Error('The boardUrl is required.')
+        }
+    }
+
     static __dataIsValid(data) {
-        return _.isPlainObject(data) &&
-                data.issueTracking !== undefined &&
-                data.issueTracking !== null &&
-                data.issueTracking !== ''
+        return _.isPlainObject(data) && !_.isEmpty(data.issueTracking)
     }
 }
 export default ProjectFactory

@@ -5,7 +5,7 @@ import Project from '../app/models/project'
 describe('create new project', () => {
     it('when call create a new project with correct parameters, then create them', async () => {
         const response = await request(server.app).post('/project')
-            .send({ name: 'ProjectName', issueTracking: 'Trello', backlogList: ['BACKLOG'], workingList: ['ANALYSIS', 'DOING', 'QA', 'Review'], waitList: ['READY TODO', 'READY FOR QA'], doneList: ['DONE']})
+            .send({ name: 'ProjectName', issueTracking: 'Trello', backlogList: ['BACKLOG'], workingList: ['ANALYSIS', 'DOING', 'QA', 'Review'], waitList: ['READY TODO', 'READY FOR QA'], doneList: ['DONE'], apiKey: 'apiKey', apiToken: 'apiToken', boardUrl: 'boardUrl' })
             .set('Accept', 'application/json')
 
         expect(response.body.id).toBe(1)
@@ -25,7 +25,8 @@ describe('create new project', () => {
         ]})
 
         const response = await request(server.app).post('/project')
-            .send({ name: 'projectName', issueTracking: 'Trello', backlogList: ['BACKLOG'], workingList: ['ANALYSIS', 'DOING', 'QA', 'Review'], doneList: ['DONE']})
+            .send({
+                name: 'projectName', issueTracking: 'Trello', backlogList: ['BACKLOG'], workingList: ['ANALYSIS', 'DOING', 'QA', 'Review'], doneList: ['DONE'], apiKey: 'apiKey', apiToken: 'apiToken', boardUrl: 'boardUrl' })
             .set('Accept', 'application/json')
 
         expect(response.statusCode).toBe(400)
