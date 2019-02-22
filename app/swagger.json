@@ -242,10 +242,10 @@
         "period": {
           "$ref": "#/definitions/Period"
         },
-        "tasks": {
+        "cards": {
           "type":"array",
           "items": {
-            "$ref": "#/definitions/Task"
+            "$ref": "#/definitions/Cards"
           }
         }
       }
@@ -255,7 +255,7 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "id of task"
+          "description": "id of card"
         },
         "issueType":{
           "type":"string",
@@ -274,16 +274,16 @@
       "properties": {
         "name": {
           "type": "string",
-          "description": "name of status task"
+          "description": "name of status card"
         },
         "leadtime": {
           "type": "integer",
           "format": "int32",
-          "description": "number of days the task has been in this state."
+          "description": "number of days the card has been in this state."
         }
       }
     },
-    "Task":{
+    "Card":{
       "type": "object",
       "properties":{
         "issueType":{

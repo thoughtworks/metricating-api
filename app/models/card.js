@@ -1,4 +1,4 @@
-class Task {
+class Card {
     constructor(options) {
         if (options !== undefined) {
             this.id = options.id
@@ -11,4 +11,4 @@ class Task {
     }
 }
 
-export default Task
+export default Card

@@ -36,14 +36,14 @@ describe('test calculate throughput', () => {
             }
         })
         const calculate = jest.spyOn(throughputService, 'calculate')
-        calculate.mockResolvedValue({ period, tasks: []})
+        calculate.mockResolvedValue({ period, cards: []})
 
         await throughputRoute.calculate(request, response)
         const dataResult = response._getData()
 
         expect(dataResult).toMatchObject({
             period,
-            tasks: []
+            cards: []
         })
         expect(response.statusCode).toBe(200)
         expect(calculate).toHaveBeenCalledWith('projectName', period, ThroughputService.periodTimes.week)

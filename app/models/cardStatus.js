@@ -1,11 +1,11 @@
-class TaskStatus {
+class CardStatus {
     constructor(options) {
         if (options !== undefined) {
-            this.taskId = options.taskId
+            this.cardId = options.cardId
             this.status = options.status
             this.createDate = options.createDate
         }
     }
 }
 
-export default TaskStatus
+export default CardStatus

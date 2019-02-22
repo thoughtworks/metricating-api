@@ -11,27 +11,27 @@ class LeadtimeService {
         if (project === undefined) {
             throw new Error(`Project ${projectName} not found`)
         }
-        const tasks = await this.leadtimeRepository.find(project, period, leadtimeType === LeadtimeService.leadtimeTypes.done)
-        const tasksDto = []
-        _.forEach(tasks, function (task) {
+        const cards = await this.leadtimeRepository.find(project, period, leadtimeType === LeadtimeService.leadtimeTypes.done)
+        const cardsDto = []
+        _.forEach(cards, function (card) {
             const leadtimes = []
-            for (let i = 0; i < task.transitions.length; i++) {
-                const taskStatus = task.transitions[i]
-                if (_.indexOf(project.backlogList, taskStatus.status) >= 0 || _.indexOf(project.doneList, taskStatus.status) >= 0 || task.transitions.length - 1 === i) {
+            for (let i = 0; i < card.transitions.length; i++) {
+                const cardStatus = card.transitions[i]
+                if (_.indexOf(project.backlogList, cardStatus.status) >= 0 || _.indexOf(project.doneList, cardStatus.status) >= 0 || card.transitions.length - 1 === i) {
                     continue
                 }
                 leadtimes.push({
-                    name: taskStatus.status,
-                    leadtime: moment(task.transitions[i+1].createDate).businessDiff(moment(taskStatus.createDate))
+                    name: cardStatus.status,
+                    leadtime: moment(card.transitions[i+1].createDate).businessDiff(moment(cardStatus.createDate))
                 })
             }
-            tasksDto.push({
+            cardsDto.push({
                 transitions: leadtimes,
-                id: task.id,
-                issueType: task.issueType
+                id: card.id,
+                issueType: card.issueType
             })
         })
-        return tasksDto
+        return cardsDto
     }
 }
 export default LeadtimeService

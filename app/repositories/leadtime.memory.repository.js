@@ -11,15 +11,15 @@ class LeadtimeInMemoryRepository extends LeadtimeRepository {
         }
     }
     async find(project, period, onlyDone) {
-        return _.filter(this.dataBase.getData().tasks, function(task) {
+        return _.filter(this.dataBase.getData().cards, function(card) {
             if (onlyDone) {
-                return task.projectId === project.id && task.dateEnd >= period.start.toDate() && task.dateEnd < period.end.toDate()
+                return card.projectId === project.id && card.dateEnd >= period.start.toDate() && card.dateEnd < period.end.toDate()
             }
-            return task.projectId === project.id && task.dateEnd === undefined &&
-            _.some(task.transitions, function(taskStatus) {
-                return _.indexOf(project.backlogList, taskStatus.status) === -1 &&
-                        taskStatus.createDate >= period.start.toDate() &&
-                        taskStatus.createDate < period.end.toDate()
+            return card.projectId === project.id && card.dateEnd === undefined &&
+            _.some(card.transitions, function(cardStatus) {
+                return _.indexOf(project.backlogList, cardStatus.status) === -1 &&
+                        cardStatus.createDate >= period.start.toDate() &&
+                        cardStatus.createDate < period.end.toDate()
             })
         })
     }

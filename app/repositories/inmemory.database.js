@@ -1,6 +1,6 @@
 class DataBase {
     constructor() {
-        this.__dataBase = { projects: [], tasks: []}
+        this.__dataBase = { projects: [], cards: []}
     }
     initialize(data) {
         if (data.projects !== undefined) {

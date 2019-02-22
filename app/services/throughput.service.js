@@ -13,12 +13,12 @@ class ThroughputService {
         if (project === undefined) {
             throw new Error(`Project ${projectName} not found`)
         }
-        return await this.throughputRepository.find(project.id, period).then(tasks => {
-            const issueTypeGroup = _.groupBy(tasks, task => task.issueType)
+        return await this.throughputRepository.find(project.id, period).then(cards => {
+            const issueTypeGroup = _.groupBy(cards, card => card.issueType)
             const throughput = []
 
             _.forEach(issueTypeGroup, function (issueTypes) {
-                const forWeek = _.groupBy(issueTypes, task => _this._groupByDateEnd(task.dateEnd, periodTime))
+                const forWeek = _.groupBy(issueTypes, card => _this._groupByDateEnd(card.dateEnd, periodTime))
                 _.forEach(forWeek, (item) => {
                     throughput.push({
                         issueType: _.head(item).issueType,
@@ -30,7 +30,7 @@ class ThroughputService {
 
             return {
                 period,
-                tasks: throughput
+                cards: throughput
             }
         })
     }

@@ -1,19 +1,19 @@
 import Project from '../models/project'
 import DataBase from './inmemory.database'
 
-it('when define new dataBase then project and tasks array is empty', () => {
+it('when define new dataBase then project and cards array is empty', () => {
     const dataBase = new DataBase()
 
     expect(dataBase.getData().projects).toHaveLength(0)
-    expect(dataBase.getData().tasks).toHaveLength(0)
+    expect(dataBase.getData().cards).toHaveLength(0)
 })
 
 it('when initilize with data then getData return this object', () => {
     const dataBase = new DataBase()
 
-    dataBase.initialize({ projects: [], tasks: 'tasks' })
+    dataBase.initialize({ projects: [], cards: 'cards' })
 
-    expect(dataBase.getData()).toMatchObject({ projects: [], tasks: 'tasks' })
+    expect(dataBase.getData()).toMatchObject({ projects: [], cards: 'cards' })
 })
 it('when initilize projects then set ids', () => {
     const dataBase = new DataBase()

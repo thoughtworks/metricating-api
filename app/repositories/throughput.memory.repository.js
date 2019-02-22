@@ -11,8 +11,8 @@ class ThroughputInMemoryRepository extends ThroughputRepository {
         }
     }
     async find(projectId, period) {
-        return _.filter(this.dataBase.getData().tasks, function(task) {
-            return task.projectId === projectId && task.dateEnd >= period.start.toDate() && task.dateEnd < period.end.toDate()
+        return _.filter(this.dataBase.getData().cards, function(card) {
+            return card.projectId === projectId && card.dateEnd >= period.start.toDate() && card.dateEnd < period.end.toDate()
         })
     }
 }
