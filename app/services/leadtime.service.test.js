@@ -37,7 +37,7 @@ describe('when call calulate leadtime', async () => {
     it('when call calulate leadtime for projectName, period and leadtimeTypes.done then return leadtime', async () => {
         const period = new Period('2019W01', '2019W03')
         when(projectService.getProject).calledWith('projectName').mockResolvedValue(project)
-        when(leadtimeRepository.find).calledWith(1, period, true).mockResolvedValue([
+        when(leadtimeRepository.find).calledWith(project, period, true).mockResolvedValue([
             new Task({ id: 1, issueType: 'User Story', dateEnd: new Date(2018, 11, 17), status: 'done', projectId: 1, transitions: [
                 new TaskStatus({ taskId: 1, status: 'BACKLOG', createDate: new Date(2018, 11, 3) }),
                 new TaskStatus({ taskId: 1, status: 'ANALYSIS', createDate: new Date(2018, 11, 11) }),
@@ -71,7 +71,7 @@ describe('when call calulate leadtime', async () => {
     it('when call calulate leadtime for projectName, period and leadtimeTypes.wip then return leadtime', async () => {
         const period = new Period('2019W01', '2019W03')
         when(projectService.getProject).calledWith('projectName').mockResolvedValue(project)
-        when(leadtimeRepository.find).calledWith(1, period, false).mockResolvedValue([
+        when(leadtimeRepository.find).calledWith(project, period, false).mockResolvedValue([
             new Task({ id: 1, issueType: 'User Story', dateEnd: new Date(2018, 11, 17), status: 'done', projectId: 1, transitions: [
                 new TaskStatus({ taskId: 1, status: 'BACKLOG', createDate: new Date(2018, 11, 3) }),
                 new TaskStatus({ taskId: 1, status: 'ANALYSIS', createDate: new Date(2018, 11, 11) }),
@@ -100,7 +100,7 @@ describe('when call calulate leadtime', async () => {
         const period = new Period('2019W01', '2019W03')
         project.doneList.push('INPRODUCTION')
         when(projectService.getProject).calledWith('projectName').mockResolvedValue(project)
-        when(leadtimeRepository.find).calledWith(1, period, true).mockResolvedValue([
+        when(leadtimeRepository.find).calledWith(project, period, true).mockResolvedValue([
             new Task({ id: 1, issueType: 'User Story', dateEnd: new Date(2018, 11, 17), status: 'done', projectId: 1, transitions: [
                 new TaskStatus({ taskId: 1, status: 'BACKLOG', createDate: new Date(2018, 11, 3) }),
                 new TaskStatus({ taskId: 1, status: 'ANALYSIS', createDate: new Date(2018, 11, 11) }),
@@ -129,6 +129,37 @@ describe('when call calulate leadtime', async () => {
                     { name: 'QA', leadtime: 0 },
                     { name: 'Review', leadtime: 1 }
                 ],
+            }
+        ])
+    })
+
+    it('when project contains two backlog status and call calulate leadtime for projectName, period and leadtimeTypes.wip then return leadtime', async () => {
+        const period = new Period('2019W01', '2019W03')
+        project.backlogList.push('TODO')
+        when(projectService.getProject).calledWith('projectName').mockResolvedValue(project)
+        when(leadtimeRepository.find).calledWith(project, period, true).mockResolvedValue([
+            new Task({
+                id: 1, issueType: 'User Story', dateEnd: new Date(2018, 11, 17), status: 'done', projectId: 1, transitions: [
+                    new TaskStatus({ taskId: 1, status: 'BACKLOG', createDate: new Date(2018, 11, 3) }),
+                    new TaskStatus({ taskId: 1, status: 'TODO', createDate: new Date(2018, 11, 4) }),
+                    new TaskStatus({ taskId: 1, status: 'ANALYSIS', createDate: new Date(2018, 11, 11) }),
+                    new TaskStatus({ taskId: 1, status: 'READY TODO', createDate: new Date(2018, 11, 12) }),
+                    new TaskStatus({ taskId: 1, status: 'DOING', createDate: new Date(2018, 11, 13) })
+                ]
+            })
+        ])
+
+        const result = await leadtimeService.calculate('projectName', period, LeadtimeService.leadtimeTypes.done)
+
+        expect(result).toBeDefined()
+        expect(result).toMatchObject([
+            {
+                id: 1,
+                issueType: 'User Story',
+                transitions: [
+                    { name: 'ANALYSIS', leadtime: 1 },
+                    { name: 'READY TODO', leadtime: 1 }
+                ]
             }
         ])
     })

@@ -11,14 +11,14 @@ class LeadtimeService {
         if (project === undefined) {
             throw new Error(`Project ${projectName} not found`)
         }
-        const tasks = await this.leadtimeRepository.find(project.id, period, leadtimeType === LeadtimeService.leadtimeTypes.done)
+        const tasks = await this.leadtimeRepository.find(project, period, leadtimeType === LeadtimeService.leadtimeTypes.done)
         const tasksDto = []
         _.forEach(tasks, function (task) {
             const leadtimes = []
-            for (let i = 1; i < task.transitions.length; i++) {
+            for (let i = 0; i < task.transitions.length; i++) {
                 const taskStatus = task.transitions[i]
-                if (_.indexOf(project.doneList, taskStatus.status) >= 0 || task.transitions.length - 1 === i) {
-                    break
+                if (_.indexOf(project.backlogList, taskStatus.status) >= 0 || _.indexOf(project.doneList, taskStatus.status) >= 0 || task.transitions.length - 1 === i) {
+                    continue
                 }
                 leadtimes.push({
                     name: taskStatus.status,
