@@ -245,7 +245,7 @@
         "cards": {
           "type":"array",
           "items": {
-            "$ref": "#/definitions/Cards"
+            "$ref": "#/definitions/Card"
           }
         }
       }
