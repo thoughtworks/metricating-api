@@ -60,10 +60,10 @@ describe('when calculate throughput', async () => {
         const throughput = await throughputService.calculate('projectName', period, ThroughputService.periodTimes.week)
 
         expect(throughput.cards).toHaveLength(4)
-        expect(throughput.cards.find(card => card.date === '2018W50' && card.issueType === 'User Story').throughput).toBe(2)
-        expect(throughput.cards.find(card => card.date === '2018W51' && card.issueType === 'User Story').throughput).toBe(1)
-        expect(throughput.cards.find(card => card.date === '2018W50' && card.issueType === 'Bug').throughput).toBe(1)
-        expect(throughput.cards.find(card => card.date === '2018W51' && card.issueType === 'Bug').throughput).toBe(1)
+        expect(throughput.cards.find(card => card.date.week === 50 && card.issueType === 'User Story').throughput).toBe(2)
+        expect(throughput.cards.find(card => card.date.week === 51 && card.issueType === 'User Story').throughput).toBe(1)
+        expect(throughput.cards.find(card => card.date.week === 50 && card.issueType === 'Bug').throughput).toBe(1)
+        expect(throughput.cards.find(card => card.date.week === 51 && card.issueType === 'Bug').throughput).toBe(1)
     })
 
     it('given the period show throughput by days', async () => {
@@ -80,9 +80,9 @@ describe('when calculate throughput', async () => {
         const throughput = await throughputService.calculate('projectName', period, ThroughputService.periodTimes.day)
 
         expect(throughput.cards).toHaveLength(3)
-        expect(throughput.cards.find(card => card.date === '2018-12-10' && card.issueType === 'User Story').throughput).toBe(2)
-        expect(throughput.cards.find(card => card.date === '2018-12-14' && card.issueType === 'User Story').throughput).toBe(1)
-        expect(throughput.cards.find(card => card.date === '2018-12-12' && card.issueType === 'Bug').throughput).toBe(2)
+        expect(throughput.cards.find(card => card.date.day === 10 && card.issueType === 'User Story').throughput).toBe(2)
+        expect(throughput.cards.find(card => card.date.day === 14 && card.issueType === 'User Story').throughput).toBe(1)
+        expect(throughput.cards.find(card => card.date.day === 12 && card.issueType === 'Bug').throughput).toBe(2)
     })
 
     it('when not found project then error', async () => {

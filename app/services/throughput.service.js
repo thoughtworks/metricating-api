@@ -1,5 +1,6 @@
 import _ from 'lodash'
 import moment from 'moment'
+import DateObj from '../models/date'
 
 class ThroughputService {
     constructor(options) {
@@ -23,7 +24,7 @@ class ThroughputService {
                     throughput.push({
                         issueType: _.head(item).issueType,
                         throughput: item.length,
-                        date: _this._getDate(item[0].dateEnd, periodTime)
+                        date: new DateObj(item[0].dateEnd)
                     })
                 })
             })
@@ -34,12 +35,7 @@ class ThroughputService {
             }
         })
     }
-    _getDate(dateEnd, periodTime) {
-        switch (periodTime) {
-            case ThroughputService.periodTimes.day: return moment(dateEnd).format('YYYY-MM-D')
-            case ThroughputService.periodTimes.week: return `${moment(dateEnd).year()}W${moment(dateEnd).week()}`
-        }
-    }
+
     _groupByDateEnd (dateEnd, periodTime) {
         switch (periodTime) {
             case ThroughputService.periodTimes.day: return moment(dateEnd).day()

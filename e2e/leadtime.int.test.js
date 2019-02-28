@@ -37,6 +37,16 @@ it('given correct params when initialize data then return correct leadtime', asy
         {
             id: 1,
             issueType: 'User Story',
+            leadtimeTotal: 6,
+            dateDone:
+            {
+                week: 51,
+                month: 11,
+                year: 2018,
+                day: 19,
+                dayOfWeek: 3,
+                quarter: 4
+            },
             transitions: [
                 { name: 'ANALYSIS', leadtime: 1 },
                 { name: 'READY TODO', leadtime: 1 },

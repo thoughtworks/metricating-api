@@ -3,6 +3,7 @@ import LeadtimeRepository from '../repositories/leadtime.repository'
 import Period from '../models/period'
 import Project from '../models/project'
 import Card from '../models/card'
+import DateObj from '../models/date'
 import CardStatus from '../models/cardStatus'
 import LeadtimeService from './leadtime.service'
 import ProjectService from './project.service'
@@ -36,9 +37,10 @@ describe('when call calulate leadtime', async () => {
 
     it('when call calulate leadtime for projectName, period and leadtimeTypes.done then return leadtime', async () => {
         const period = new Period('2019W01', '2019W03')
+        const dateObj = new DateObj(new Date(2018, 11, 17))
         when(projectService.getProject).calledWith('projectName').mockResolvedValue(project)
         when(leadtimeRepository.find).calledWith(project, period, true).mockResolvedValue([
-            new Card({ id: 1, issueType: 'User Story', dateEnd: new Date(2018, 11, 17), status: 'done', projectId: 1, transitions: [
+            new Card({ id: 1, issueType: 'User Story', dateEnd: dateObj.date, status: 'done', projectId: 1, transitions: [
                 new CardStatus({ cardId: 1, status: 'BACKLOG', createDate: new Date(2018, 11, 3) }),
                 new CardStatus({ cardId: 1, status: 'ANALYSIS', createDate: new Date(2018, 11, 11) }),
                 new CardStatus({ cardId: 1, status: 'READY TODO', createDate: new Date(2018, 11, 12) }),
@@ -57,6 +59,8 @@ describe('when call calulate leadtime', async () => {
             {
                 id: 1,
                 issueType: 'User Story',
+                leadtimeTotal: 6,
+                dateDone: dateObj,
                 transitions: [
                     { name: 'ANALYSIS', leadtime: 1 },
                     { name: 'READY TODO', leadtime: 1 },
@@ -87,6 +91,8 @@ describe('when call calulate leadtime', async () => {
         expect(result).toMatchObject([
             {
                 id: 1,
+                leadtimeTotal: 4,
+                dateDone: undefined,
                 issueType: 'User Story',
                 transitions: [
                     { name: 'ANALYSIS', leadtime: 1 },
@@ -99,9 +105,10 @@ describe('when call calulate leadtime', async () => {
     it('when project contains two done status and call calulate leadtime for projectName, period and leadtimeTypes.done then return leadtime', async () => {
         const period = new Period('2019W01', '2019W03')
         project.doneList.push('INPRODUCTION')
+        const date = new DateObj(new Date(2018, 11, 17))
         when(projectService.getProject).calledWith('projectName').mockResolvedValue(project)
         when(leadtimeRepository.find).calledWith(project, period, true).mockResolvedValue([
-            new Card({ id: 1, issueType: 'User Story', dateEnd: new Date(2018, 11, 17), status: 'done', projectId: 1, transitions: [
+            new Card({ id: 1, issueType: 'User Story', dateEnd: date.date, status: 'done', projectId: 1, transitions: [
                 new CardStatus({ cardId: 1, status: 'BACKLOG', createDate: new Date(2018, 11, 3) }),
                 new CardStatus({ cardId: 1, status: 'ANALYSIS', createDate: new Date(2018, 11, 11) }),
                 new CardStatus({ cardId: 1, status: 'READY TODO', createDate: new Date(2018, 11, 12) }),
@@ -120,6 +127,8 @@ describe('when call calulate leadtime', async () => {
         expect(result).toMatchObject([
             {
                 id: 1,
+                leadtimeTotal: 6,
+                dateDone: date,
                 issueType: 'User Story',
                 transitions: [
                     { name: 'ANALYSIS', leadtime: 1 },
@@ -136,6 +145,7 @@ describe('when call calulate leadtime', async () => {
     it('when project contains two backlog status and call calulate leadtime for projectName, period and leadtimeTypes.wip then return leadtime', async () => {
         const period = new Period('2019W01', '2019W03')
         project.backlogList.push('TODO')
+        const date = new DateObj(new Date(2018, 11, 17))
         when(projectService.getProject).calledWith('projectName').mockResolvedValue(project)
         when(leadtimeRepository.find).calledWith(project, period, true).mockResolvedValue([
             new Card({
@@ -156,6 +166,8 @@ describe('when call calulate leadtime', async () => {
             {
                 id: 1,
                 issueType: 'User Story',
+                leadtimeTotal: 2,
+                dateDone: date,
                 transitions: [
                     { name: 'ANALYSIS', leadtime: 1 },
                     { name: 'READY TODO', leadtime: 1 }
