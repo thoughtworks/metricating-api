@@ -43,7 +43,7 @@ const resultLeadTime = function() {
     ]
 }
 
-describe('test calculate leadtime', async () => {
+describe('test calculate leadtime', () => {
     beforeEach(async () => {
         request = defaultRequest()
         response = httpMocks.createResponse()

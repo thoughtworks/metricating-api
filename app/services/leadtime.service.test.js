@@ -22,7 +22,7 @@ beforeEach(() => {
     leadtimeService = new LeadtimeService({ leadtimeRepository, projectService })
 })
 
-describe('when call calulate leadtime', async () => {
+describe('when call calulate leadtime', () => {
     it('given project not found then throw new Error', async () => {
         projectService.getProject.mockResolvedValue(undefined)
         let error

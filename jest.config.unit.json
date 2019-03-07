@@ -8,7 +8,8 @@
     }
   },
   "collectCoverageFrom": [
-    "app/**/*.{js}",
+    "app/**/*.js",
+    "!app/**/*.spike.test.js",
     "!**/node_modules/**",
     "!app/index.js"
   ],

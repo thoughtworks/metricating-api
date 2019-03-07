@@ -18,7 +18,7 @@ beforeEach(() => {
     throughputService = new ThroughputService({ throughputRepository, projectService })
 })
 
-describe('when calculate throughput', async () => {
+describe('when calculate throughput', () => {
     it('given start period and end period then throughput is defined', async () => {
         const period = new Period('2018W50', '2018W51')
         throughputRepository.find.mockResolvedValue([])

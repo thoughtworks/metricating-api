@@ -1,4 +1,13 @@
 {
-    "presets": [ "es2015" ],
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ],
     "plugins": [["inline-json"]]
 }
