@@ -1,6 +1,8 @@
 language: node_js
+
 node_js:
-  - stable
+  - 11.10.1
+
 cache:
   directories:
     - node_modules
@@ -15,14 +17,14 @@ before_script:
 jobs:
   include:
     - stage: "Normal"
-      script: 
+      script:
         npm run build &&
         npm run lint &&
         npm run test-unit-ci &&
         npm run test-int-ci
     - stage: "Cron Train"
       if: type = cron
-      script: 
+      script:
         npm run build &&
         npm run lint &&
         npm run test-unit-ci &&
