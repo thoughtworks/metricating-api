@@ -1,6 +1,7 @@
 class ProjectService {
     constructor(options) {
         this.projectRepository = options.projectRepository
+        this.syncFactory = options.syncFactory
     }
 
     async create (project) {
@@ -22,6 +23,15 @@ class ProjectService {
             throw new Error('The name of project is requiered')
         }
         return await this.projectRepository.find(projectName)
+    }
+
+    async sync(projectName) {
+        const project = await this.getProject(projectName)
+        if (project === undefined) {
+            throw new Error(`Project ${projectName} not found`)
+        }
+        const syncService = this.syncFactory.getSync(project)
+        syncService.sync()
     }
 }
 

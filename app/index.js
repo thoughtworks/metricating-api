@@ -14,6 +14,7 @@ import LeadtimeRoute from './routes/leadtime.route'
 import LeadtimeInMemoryRepository from './repositories/leadtime.memory.repository'
 import LeadtimeService from './services/leadtime.service'
 import DataBase from './repositories/inmemory.database'
+import SyncFactory from './services/syncfactory.service'
 
 const app = express()
 
@@ -22,6 +23,8 @@ const container = createContainer({
 })
 container.register({
     dataBase: asClass(DataBase, { lifetime: Lifetime.SINGLETON }),
+
+    syncFactory: asClass(SyncFactory, { lifetime: Lifetime.TRANSIENT }),
 
     throughputRepository: asClass(ThroughputInMemoryRepository, { lifetime: Lifetime.TRANSIENT }),
     throughputService: asClass(ThroughputService, { lifetime: Lifetime.TRANSIENT }),

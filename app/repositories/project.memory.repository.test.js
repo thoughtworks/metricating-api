@@ -64,3 +64,12 @@ it('when find project by name, when this exits then return project', async () =>
     expect(project.issueTracking).toBe('issueTracking4')
     expect(project.doneList[0]).toBe('done4')
 })
+
+it('when find project by name, when not found then return undefined', async () => {
+    const projectRepository = initializeRepository()
+
+    const project = await projectRepository.find('name10')
+
+    expect(project).not.toBeDefined()
+    expect(project).toBe(undefined)
+})

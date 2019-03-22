@@ -1,8 +1,11 @@
+import { fail } from 'assert'
+import { when } from 'jest-when'
 import Project from '../models/project'
 import ProjectRepository from '../repositories/project.repository'
 import ProjectService from './project.service'
 
 let project = null
+jest.mock('../repositories/project.repository')
 
 beforeEach(() => {
     project = new Project({ id: 1, name: 'project-name', issueTracking: 'jira', backlogList: ['BACKLOG'], workingList: ['ANALYSIS', 'DOING', 'QA', 'Review'], waitList: ['READY TODO', 'READY FOR QA'], doneList: ['DONE']})
@@ -155,5 +158,37 @@ describe('Get Project', () => {
         } catch (error) {
             expect(error).toEqual(new Error('The name of project is requiered'))
         }
+    })
+})
+
+describe('When call sync project', () => {
+    it('with not found projectName then return Error', async () => {
+        const projectRepository = new ProjectRepository()
+
+        when(projectRepository.find).calledWith('project-name').mockResolvedValue(undefined)
+        const projectService = new ProjectService({ projectRepository })
+
+        try {
+            await projectService.sync('project-name')
+            fail()
+        } catch (error) {
+            expect(error).toEqual(new Error('Project project-name not found'))
+        }
+    })
+    it('with exist project, then call syncFactory', async () => {
+        const syncService = {
+            sync: jest.fn()
+        }
+        const syncFactory = {
+            getSync: jest.fn()
+        }
+        when(syncFactory.getSync).calledWith(project).mockReturnValue(syncService)
+        const projectRepository = new ProjectRepository()
+        when(projectRepository.find).calledWith('project-name').mockResolvedValue(project)
+        const projectService = new ProjectService({ projectRepository, syncFactory })
+
+        await projectService.sync('project-name')
+
+        expect(syncService.sync).toBeCalled()
     })
 })
