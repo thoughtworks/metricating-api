@@ -1,5 +1,5 @@
 export default class TrelloApi {
-    constructor(trelloClient) {
+    constructor({ trelloClient }) {
         this._trello = trelloClient
     }
 

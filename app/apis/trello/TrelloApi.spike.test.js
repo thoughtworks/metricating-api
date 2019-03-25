@@ -3,7 +3,7 @@ import TrelloApi from './TrelloApi'
 import {} from 'dotenv/config'
 
 const trelloClient = new TrelloClient(process.env.TRELLO_KEY, process.env.TRELLO_TOKEN)
-const trelloApi = new TrelloApi(trelloClient)
+const trelloApi = new TrelloApi({ trelloClient })
 
 const boardId = '5c4b1810df96d6427d4930fc'
 

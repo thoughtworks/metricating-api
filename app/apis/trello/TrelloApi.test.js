@@ -5,7 +5,7 @@ import TrelloApi from './TrelloApi'
 
 jest.mock('trello')
 const trelloClient = new TrelloClient('my key', 'my token')
-const trelloApi = new TrelloApi(trelloClient)
+const trelloApi = new TrelloApi({ trelloClient })
 
 it('has a method that exposes the trello client', () => {
     const instanceTrelloClient = trelloApi.getTrelloClient()
