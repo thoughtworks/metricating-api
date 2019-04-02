@@ -5,7 +5,8 @@ import TrelloApi from './TrelloApi'
 
 jest.mock('trello')
 const trelloClient = new TrelloClient('my key', 'my token')
-const trelloApi = new TrelloApi({ trelloClient })
+const trelloApi = new TrelloApi()
+trelloApi.setTrelloClient(trelloClient)
 
 it('has a method that exposes the trello client', () => {
     const instanceTrelloClient = trelloApi.getTrelloClient()
@@ -26,8 +27,8 @@ it('finds the column in which each issue is at a given snapshot', async () => {
     const snapshot = await trelloApi.getAllBoardCardsAndTheirColumnNames(boardId)
 
     expect(snapshot).toEqual([
-        { name: 'An issue being analyzed', column: 'In analysis' },
-        { name: 'An issue being developed', column: 'In development' },
+        { id: 'card-1', name: 'An issue being analyzed', column: 'In analysis' },
+        { id: 'card-2', name: 'An issue being developed', column: 'In development' },
     ])
 
     trelloClient.getListsOnBoard.mockClear()

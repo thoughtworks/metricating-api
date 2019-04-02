@@ -1,5 +1,5 @@
 export default class TrelloApi {
-    constructor({ trelloClient }) {
+    setTrelloClient(trelloClient) {
         this._trello = trelloClient
     }
 
@@ -13,7 +13,7 @@ export default class TrelloApi {
         const cards = await this._trello.getCardsOnBoard(boardId)
         cards.forEach(card => {
             const cardColumn = this._findCardColumn(card.idList, lists)
-            cardsWithColumnNames.push({ name: card.name, column: cardColumn.name })
+            cardsWithColumnNames.push({ id: card.id, name: card.name, column: cardColumn.name })
         })
         return cardsWithColumnNames
     }

@@ -3,7 +3,8 @@ import TrelloApi from './TrelloApi'
 import {} from 'dotenv/config'
 
 const trelloClient = new TrelloClient(process.env.TRELLO_KEY, process.env.TRELLO_TOKEN)
-const trelloApi = new TrelloApi({ trelloClient })
+const trelloApi = new TrelloApi()
+trelloApi.setTrelloClient(trelloClient)
 
 const boardId = '5c4b1810df96d6427d4930fc'
 
@@ -19,6 +20,8 @@ it('uses the trello client to check if all data we need is available', async () 
     actions.forEach(action => {
         action.type === 'updateCard' && console.log(`On ${action.date} the card went from ${action.data.listBefore.name} to ${action.data.listAfter.name}`)
     })
+    const card = await trelloClient.getCard(boardId, '5c7d80e09b8872460b09646c')
+    console.log('👉 Here are all properties of one card', card)
 })
 
 it('uses the trello api to determine the columns of all cards', async () => {
