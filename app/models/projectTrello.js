@@ -6,7 +6,7 @@ class ProjectTrello extends Project {
         if (options !== undefined) {
             this.apiKey = options.apiKey
             this.apiToken = options.apiToken
-            this.boardUrl = options.boardUrl
+            this.boardId = options.boardId
         }
     }
 }

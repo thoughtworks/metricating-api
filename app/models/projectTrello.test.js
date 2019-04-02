@@ -1,7 +1,7 @@
 import ProjectTrello from './projectTrello'
 
 it('when constructor correct parameters then initialize al properties', () => {
-    const project = new ProjectTrello({ name: 'name1', issueTracking: 'issueTracking1', backlogList: ['backlog'], workingList: ['doing'], waitList: ['ready to do'], doneList: ['done'], apiKey: 'apiKey', apiToken: 'apiToken', boardUrl: 'https://trello.com/b/u9Mb1sqn/readwrite-editorial-calendar-sample-board' })
+    const project = new ProjectTrello({ name: 'name1', issueTracking: 'issueTracking1', backlogList: ['backlog'], workingList: ['doing'], waitList: ['ready to do'], doneList: ['done'], apiKey: 'apiKey', apiToken: 'apiToken', boardId: 'u9Mb1sqn' })
 
     expect(project.name).toBe('name1')
     expect(project.issueTracking).toBe('issueTracking1')
@@ -11,7 +11,7 @@ it('when constructor correct parameters then initialize al properties', () => {
     expect(project.doneList).toMatchObject(['done'])
     expect(project.apiKey).toBe('apiKey')
     expect(project.apiToken).toBe('apiToken')
-    expect(project.boardUrl).toBe('https://trello.com/b/u9Mb1sqn/readwrite-editorial-calendar-sample-board')
+    expect(project.boardId).toBe('u9Mb1sqn')
 })
 
 it('when set constructor with undefined parameter then al properties is undefined', () => {
@@ -25,5 +25,5 @@ it('when set constructor with undefined parameter then al properties is undefine
     expect(project.doneList).toBe(undefined)
     expect(project.apiKey).toBe(undefined)
     expect(project.apiToken).toBe(undefined)
-    expect(project.boardUrl).toBe(undefined)
+    expect(project.boardId).toBe(undefined)
 })

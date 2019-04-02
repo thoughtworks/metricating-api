@@ -5,7 +5,7 @@ class Card {
             this.issueType = options.issueType
             this.dateEnd = options.dateEnd
             this.status = options.status
-            this.projectId = options.projectId,
+            this.projectId = options.projectId
             this.transitions = options.transitions === undefined ? [] : options.transitions
         }
     }

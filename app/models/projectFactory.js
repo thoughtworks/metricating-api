@@ -16,7 +16,7 @@ class ProjectFactory {
                 ProjectFactory.__trelloValidation(data)
                 projectOptions.apiKey = data.apiKey
                 projectOptions.apiToken = data.apiToken
-                projectOptions.boardUrl = data.boardUrl
+                projectOptions.boardId = data.boardId
                 return new ProjectTrello(projectOptions)
             }
             return null
@@ -31,8 +31,8 @@ class ProjectFactory {
         if (_.isEmpty(data.apiToken)) {
             throw new Error('The apiToken is required.')
         }
-        if (_.isEmpty(data.boardUrl)) {
-            throw new Error('The boardUrl is required.')
+        if (_.isEmpty(data.boardId)) {
+            throw new Error('The boardId is required.')
         }
     }
 

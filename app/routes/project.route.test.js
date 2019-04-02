@@ -26,7 +26,7 @@ const defaultRequest = function() {
             doneList: ['DONE'],
             apiKey: 'apiKey',
             apiToken: 'apiToken',
-            boardUrl: 'boardUrl'
+            boardId: 'boardId'
         }
     })
 }
@@ -37,7 +37,7 @@ beforeEach(() => {
     projectService = new ProjectService({})
     projectRoute = new ProjectRoute({ projectService })
     createService = jest.spyOn(projectService, 'create')
-    project = new ProjectTrello({ name: 'ProjectName', issueTracking: 'trello', backlogList: ['BACKLOG'], workingList: ['ANALYSIS', 'DOING', 'QA', 'Review'], waitList: ['READY TODO', 'READY FOR QA'], doneList: ['DONE'], apiKey: 'apiKey', apiToken: 'apiToken', boardUrl: 'boardUrl' })
+    project = new ProjectTrello({ name: 'ProjectName', issueTracking: 'trello', backlogList: ['BACKLOG'], workingList: ['ANALYSIS', 'DOING', 'QA', 'Review'], waitList: ['READY TODO', 'READY FOR QA'], doneList: ['DONE'], apiKey: 'apiKey', apiToken: 'apiToken', boardId: 'boardId' })
 })
 
 describe('test create a new Project for Trello', () => {
