@@ -38,7 +38,7 @@
     "acorn": "^6.2.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.2",
-    "babel-jest": "^23.4.2",
+    "babel-jest": "^24.8.0",
     "babel-plugin-inline-json": "^1.2.2",
     "eslint": "^6.1.0",
     "eslint-plugin-import": "^2.18.2",
