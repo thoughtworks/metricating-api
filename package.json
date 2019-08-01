@@ -5,7 +5,7 @@
   "main": "app/index.js",
   "repository": "https://github.com/thoughtworks/metricating-api",
   "scripts": {
-    "build": "babel --presets es2015 -d dist/ app",
+    "build": "babel -d dist/ app",
     "start": "npm run build && node dist/index.js",
     "test": "jest --testPathIgnorePatterns .stryker-tmp dist/ --watch",
     "test-int": "NODE_ENV=test jest --watch -c jest.config.integration.json",
@@ -32,12 +32,14 @@
     "trello": "git+https://github.com/piperamirez/trello.git"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
     "acorn": "^6.2.1",
-    "babel-cli": "^6.26.0",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.2",
+    "babel-jest": "^23.4.2",
     "babel-plugin-inline-json": "^1.2.2",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-es2015": "^6.24.1",
     "eslint": "^6.1.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jest": "^22.14.1",
