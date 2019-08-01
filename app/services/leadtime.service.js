@@ -18,6 +18,7 @@ class LeadtimeService {
             let leadtimeTotal = 0
             const leadtimes = []
             for (let i = 0; i < card.transitions.length; i++) {
+                // eslint-disable-next-line security/detect-object-injection
                 const cardStatus = card.transitions[i]
                 if (_.indexOf(project.backlogList, cardStatus.status) >= 0 || _.indexOf(project.doneList, cardStatus.status) >= 0 || card.transitions.length - 1 === i) {
                     continue

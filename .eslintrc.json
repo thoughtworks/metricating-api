@@ -4,7 +4,7 @@
         "jest": true
     },
     "extends": [
-        "eslint:recommended"
+        "eslint:recommended", "plugin:security/recommended"
     ],
     "parser": "babel-eslint",
     "parserOptions": {
@@ -16,7 +16,7 @@
         "process": true,
         "module": true
     },
-    "plugins": [ "import", "jest" ],
+    "plugins": [ "import", "jest", "security" ],
     "rules": {
         "jest/no-disabled-tests": "error",
         "jest/no-focused-tests": "error",
@@ -28,7 +28,6 @@
         "quotes": [ "error", "single" ],
         "semi": [ "error", "never" ],
         "no-case-declarations": [ "off" ],
-        "no-multiple-empty-lines": [ 1, { "max": 2, "maxEOF": 1 } ],
         "brace-style": [ "error" ],
         "no-multi-spaces": ["error" ],
         "no-trailing-spaces": [ "error" ],
@@ -47,7 +46,7 @@
         "keyword-spacing": [ "error" ],
         "space-before-blocks": [ "error" ],
         "padded-blocks": [ "error", "never" ],
-        "no-multiple-empty-lines": [ "error", { "max": 1 } ],
+        "no-multiple-empty-lines": [ "error", { "max": 1, "maxEOF": 1 } ],
         "space-in-parens": ["error", "never"],
         "no-var": [ "error" ],
         "no-new-wrappers": [ "error" ],

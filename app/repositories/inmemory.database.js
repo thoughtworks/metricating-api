@@ -5,6 +5,7 @@ class DataBase {
     initialize(data) {
         if (data.projects !== undefined) {
             for (let i = 0; i < data.projects.length; i++) {
+                // eslint-disable-next-line security/detect-object-injection
                 data.projects[i].id = i + 1
             }
         }
