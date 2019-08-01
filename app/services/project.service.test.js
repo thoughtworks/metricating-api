@@ -22,13 +22,13 @@ describe('Create new Project', () => {
 
         const projectService = new ProjectService({ projectRepository })
 
-        project = await projectService.create(project)
+        const projectReturn = await projectService.create(project)
 
-        expect(project.id).not.toBeNull()
-        expect(project.id).not.toBeUndefined()
-        expect(project.name).toBe('project-name')
-        expect(project.issueTracking).toBe('jira')
-        expect(project.doneList[0]).toBe('DONE')
+        expect(projectReturn.id).not.toBeNull()
+        expect(projectReturn.id).not.toBeUndefined()
+        expect(projectReturn.name).toBe('project-name')
+        expect(projectReturn.issueTracking).toBe('jira')
+        expect(projectReturn.doneList[0]).toBe('DONE')
     })
 
     it('when find project return undefined and given a new project name, then create new project', async () => {
@@ -41,13 +41,13 @@ describe('Create new Project', () => {
 
         const projectService = new ProjectService({ projectRepository })
 
-        project = await projectService.create(project)
+        const projectReturn = await projectService.create(project)
 
-        expect(project.id).not.toBeNull()
-        expect(project.id).not.toBeUndefined()
-        expect(project.name).toBe('project-name')
-        expect(project.issueTracking).toBe('jira')
-        expect(project.doneList[0]).toBe('DONE')
+        expect(projectReturn.id).not.toBeNull()
+        expect(projectReturn.id).not.toBeUndefined()
+        expect(projectReturn.name).toBe('project-name')
+        expect(projectReturn.issueTracking).toBe('jira')
+        expect(projectReturn.doneList[0]).toBe('DONE')
     })
 
     it('given a exists project name when create, then throw Exits exception', async () => {
